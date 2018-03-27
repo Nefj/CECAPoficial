@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" ng-app="GlassApp">
+	<head>
+		<meta charset="UTF-8">
+		<!--<base href="/">-->
+		<title>Opticas</title>
+		<link href="img/glass.ico" rel="shortcut icon">
+		<link href="vendor/css/angular-material.min.css" rel="stylesheet" />
+		<link href="vendor/css/loading-bar.min.css" rel="stylesheet" />
+		<link href="vendor/css/site.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" href="stylesheets/main.css">-->
+		<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<!-- bower:css -->
+		<!-- endbower -->
+		<!-- inject:css -->
+		<link rel="stylesheet" href="/stylesheets/main.css">
+		<!-- endinject -->
+	</head>
+	<body ng-controller="bodyController" class="color" ng-cloak>
+		<md-content>
+			<md-toolbar class="noprint">
+				<div class="md-toolbar-tools">
+					<md-button class="md-icon-button" aria-label="Settings" ng-click="menu()">
+						<md-icon md-svg-icon="img/icons/menu.svg" class="orangeWhite"></md-icon>
+					</md-button>
+					<span flex></span>
+					<h2>
+						<span class="md-display-1" class="orangeWhite">{{navName}}</span>
+					</h2>
+					<span flex></span>
+					<div ng-show="!isLogin">
+						<md-button class="md-icon-button" aria-label="Favorite" ng-click="login()">
+							<md-icon md-svg-icon="img/icons/user.svg" class="orangeWhite"></md-icon>
+						</md-button>
+					</div>
+					<div ng-show="isLogin">
+						<md-button class="md-icon-button" aria-label="Favorite" ng-click="logout()">
+							<md-tooltip>Log Out</md-tooltip>
+							<md-icon md-svg-icon="img/icons/account-black.svg" class="orangeWhite"></md-icon>
+						</md-button>
+					</div>
+				</div>
+			</md-toolbar>
+			<div id="ngView" ng-view></div>
+		</md-content>
+		<!-- QR CODE GENERATOR -->
+		<script src="./vendor/js/qrcode.js"></script>
+		<!-- js -->
+		<script src="./vendor/js/angular.min.js"></script>
+		<script src="./vendor/js/angular-route.min.js"></script>
+		<script src="./vendor/js/angular-resource.min.js"></script>
+		<script src="./vendor/js/angular-local-storage.min.js"></script>
+		<script src="./vendor/js/loading-bar.min.js"></script>
+		<!-- Angular Material Dependencies -->
+		<script src="./vendor/js/angular-animate.min.js"></script>
+		<script src="./vendor/js/angular-aria.min.js"></script>
+		<script src="./vendor/js/angular-material.min.js"></script>
+		<script src="./vendor/js/ng-google-chart.min.js"></script>
+		<!-- Events Css -->
+		<!-- Helpers -->
+		<!-- bower:js -->
+		<!-- endbower -->
+		<!-- inject:js -->
+		<script src="/appjs/services/crud.js"></script>
+		<script src="/appjs/app.js"></script>
+		<script src="/appjs/controllers/userController.js"></script>
+		<script src="/appjs/authentication.js"></script>
+		<!-- endinject -->
+	</body>
+</html>

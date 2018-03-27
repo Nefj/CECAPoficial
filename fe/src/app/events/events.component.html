@@ -1,0 +1,46 @@
+<div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+   <section class="content-header">
+      <h1>
+         Eventos
+         <small>Vigentes</small>
+      </h1>
+      <ol class="breadcrumb">
+         <li>
+            <app-addProgram></app-addProgram>
+         </li>
+         <li>
+            <app-addEvent (messageEvent)="receiveMessage()"></app-addEvent>
+         </li>
+         <li>
+            <a href="#">
+               <i class="fa fa-dashboard"></i> Home</a>
+         </li>
+         <li class="active">Eventos</li>
+      </ol>
+   </section>
+   <section class="content">
+      <table class="table table-hover">
+         <thead>
+            <tr>
+               <th>Nombre</th>
+               <th>Fecha de Inicio</th>
+               <th>Cupos</th>
+               <th colspan="2">estado</th>
+            </tr>
+         </thead>
+
+         <tbody>
+
+            <tr *ngFor="let event of events">
+               <td>{{ event.name }}</td>
+               <td>{{ event.date_start }}</td>
+               <td>{{ event.cupos }}</td>
+               <td>
+                  <a class="btn btn-primary" (click)="send(event._id)">INFORMACION</a>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </section>
+</div>
