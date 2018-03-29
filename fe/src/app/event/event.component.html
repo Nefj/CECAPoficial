@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-   <section class="content-header">
+   <!--<section class="content-header">
       <h1>
          Dashboard
          <small>Version 2.0</small>
@@ -11,7 +11,7 @@
          </li>
          <li class="active">Dashboard</li>
       </ol>
-   </section>
+   </section>-->
 
 
    <section class="content">
@@ -28,24 +28,27 @@
          <tbody>
             <tr>
                <td>
-                  <a class="btn btn-primary">inscritos</a>
+                  <a class="btn btn-primary"(click)="inscritos(event._id)" [(ngModel)]="busqueda">Inscritos</a>
                </td>
                <td>
-                  <a class="btn btn-primary">interesados</a>
+                  <a class="btn btn-primary"(click)="confirmados(event._id)">Confirmados</a>
                </td>
                <td>
-                  <a class="btn btn-primary">todos</a>
+                  <a class="btn btn-primary">Interesados</a>
                </td>
                <td>
-                  <a class="btn btn-primary">En Duda</a>
+                  <a class="btn btn-primary">No-participa</a>
                </td>
                <td>
-                  <a class="btn btn-primary">Confirmar</a>
+                  <a class="btn btn-primary">Proximo</a>
+               </td>
+               <td>
+                  <a class="btn btn-primary">Todos</a>
                </td>
             </tr>
          </tbody>
       </table>
-      <table class="table table-hover">
+      <table class="table table-hover" >
          <thead>
             <tr>
                <th>Nombre</th>
@@ -55,7 +58,7 @@
             </tr>
          </thead>
          <tbody>
-            <tr *ngFor="let i of inscriptions">
+            <tr *ngFor="let i of inscriptions | buscarPersona: busqueda">
                <td>{{ i.name }}</td>
                <td>{{ i.state }}</td>
                <td>{{ i.description }}</td>
@@ -66,5 +69,7 @@
             </tr>
          </tbody>
       </table>
+      
    </section>
+   <router-outlet></router-outlet>
 </div>

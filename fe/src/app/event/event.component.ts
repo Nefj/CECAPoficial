@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'; import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core'; 
+import { ActivatedRoute, Router } from "@angular/router";
 import { PeticionesService } from '../services/peticiones.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class EventComponent implements OnInit {
 
    ngOnInit() {
       this.query();
+      this.queryInscritos();
    }
    receiveMessage() {
       this.query();
@@ -33,6 +35,9 @@ export class EventComponent implements OnInit {
             this.event = result;
             // console.log(this.event);
             this.inscriptions = this.event.inscriptions;
+            var o =this.event.total;
+            console.log(this.inscriptions);
+            console.log(o);
          },
          error => {
             var errorMessage = <any>error;
@@ -44,6 +49,18 @@ export class EventComponent implements OnInit {
       // console.log('antes de enviar', personId)
 
       this.router.navigate(['home/editPerson', personId]);
+   }
+   inscritos(_id: string){
+       
+   }
+   confirmados(_id: string){
+   }
+
+   queryInscritos(){
+    this.route.params.subscribe(params => {
+        this.eventId = params.id
+     });
+     
    }
 }
 

@@ -86,6 +86,10 @@ router
             return res.status(200).send(persons);
          });
       }
+      //lista de personas con estado Confirmados
+      function personsConfirmed(){
+          //db.persons
+      }
    })
    .post('/filter/:id', function (req, res) {
       // db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
