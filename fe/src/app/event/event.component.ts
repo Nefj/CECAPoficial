@@ -21,7 +21,6 @@ export class EventComponent implements OnInit {
 
    ngOnInit() {
       this.query();
-      this.queryInscritos();
    }
    receiveMessage() {
       this.query();
@@ -51,17 +50,11 @@ export class EventComponent implements OnInit {
       this.router.navigate(['home/editPerson', personId]);
    }
    inscritos(_id: string){
-       
+
    }
    confirmados(_id: string){
    }
 
-   queryInscritos(){
-    this.route.params.subscribe(params => {
-        this.eventId = params.id
-     });
-     
-   }
 }
 
 
