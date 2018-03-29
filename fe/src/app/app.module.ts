@@ -36,6 +36,7 @@ import { EditPersonComponent } from './event/editPerson/editPerson.component';
 import { Form2Component } from './registro/form2/form2.component';
 
 import { FormProgramaComponent } from './form-programa/form-programa.component';
+import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,8 @@ import { FormProgramaComponent } from './form-programa/form-programa.component';
     Form2Component,
 
     FormProgramaComponent,
+
+    AddEjecutivoComponent,
   ],
   imports: [
     BrowserModule,
