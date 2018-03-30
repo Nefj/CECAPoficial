@@ -34,7 +34,7 @@
 
             <tr *ngFor="let event of events">
                <td>{{ event.name }}</td>
-               <td>{{ event.date_start }}</td>
+               <td>{{ event.date_start | date }}</td>
                <td>{{ event.cupos }}</td>
                <td>
                   <a class="btn btn-primary" (click)="send(event._id)">INFORMACION</a>
