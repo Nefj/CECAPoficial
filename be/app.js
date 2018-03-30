@@ -37,14 +37,14 @@ app
    .use('/persons', require('./routes/persons'))
    .use('/programs', require('./routes/programs'))
 
-   .use(function (err, req, res, next) {
+   .use(function (err, req, res, next) { 
       console.error(err.stack);
       return res.status(err.status || 500).send('Not Found');
    });
 
 //   db.
 //If need initialize db
-if (true) {
+if (false) {
    var init = require('./models/init');
    // init.clearCollections();
    init.initializer();

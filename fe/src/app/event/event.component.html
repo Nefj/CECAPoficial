@@ -28,26 +28,34 @@
          <tbody>
             <tr>
                <td>
-                  <a class="btn btn-primary"(click)="inscritos(event._id)" [(ngModel)]="busqueda">Inscritos</a>
+                  <a class="btn btn-primary"(click)="inscritos()" >Inscritos</a>
                </td>
                <td>
-                  <a class="btn btn-primary"(click)="confirmados(event._id)">Confirmados</a>
+                  <a class="btn btn-primary"(click)="confirmados()">Confirmados</a>
                </td>
                <td>
-                  <a class="btn btn-primary">Interesados</a>
+                  <a class="btn btn-primary" (click)="interesados()">Interesados</a>
                </td>
                <td>
-                  <a class="btn btn-primary">No-participa</a>
+                        <a class="btn btn-primary"(click)="enDuda()">En-Duda</a>
                </td>
                <td>
-                  <a class="btn btn-primary">Proximo</a>
+                  <a class="btn btn-primary"(click)="noParticipa()">No-participa</a>
                </td>
                <td>
-                  <a class="btn btn-primary">Todos</a>
+                  <a class="btn btn-primary"(click)="proximo()">Proximo</a>
+               </td>
+               <td>
+                  <a class="btn btn-primary"(click)="todos()">Todos</a>
                </td>
             </tr>
          </tbody>
       </table>
+     <!-- <section>
+            <div class="col-lg-1">Buscar:</div>
+            <div class="col-lg-5">
+                  <input type="text" [(ngModel)]="busqueda"></div>
+      </section>-->
       <table class="table table-hover" >
          <thead>
             <tr>
@@ -58,7 +66,8 @@
             </tr>
          </thead>
          <tbody>
-            <tr *ngFor="let i of inscriptions | buscarPersona: busqueda">
+            <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
+            <tr *ngFor="let i of states">
                <td>{{ i.name }}</td>
                <td>{{ i.state }}</td>
                <td>{{ i.description }}</td>

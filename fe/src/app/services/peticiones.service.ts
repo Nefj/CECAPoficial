@@ -55,4 +55,8 @@ export class PeticionesService {
    getPerson(_id) {
       return this._http.get(this.url + 'persons/' + _id).map((res: Response) => res);
    }
+   getEventConfirmed(id){
+       return this._http.get(this.url+'events/'+ id).map((res: Response)=> res);
+   }
+   
 }

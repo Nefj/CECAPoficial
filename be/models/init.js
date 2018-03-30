@@ -84,10 +84,13 @@ var _program_rrhh = {
 var _programs = [_program_seguridad, _program_rrhh];
 
 var _person_1 = {
-   first_name: 'n',
-   last_name: 'f',
-   birthday: new Date(1992, 1, 1),
-   ci: '7123357',
+    first_name: 'laura',
+    last_name: 'estrada',
+    birthday: new Date(1992, 1, 1),
+    ci: '1234567',
+    cellphone: '79452311',
+    email:'laura@laura.com',
+    ocupation:'empresaria',
 //    user: _user_admin,
 ////////////
     cartera:_cartera_user_1,
@@ -97,10 +100,13 @@ var _person_1 = {
    record_date: new Date()
 }
 var _person_2 = {
-   first_name: 'e',
-   last_name: 'j',
+   first_name: 'juan',
+   last_name: 'perez',
    birthday: new Date(1992, 1, 1),
    ci: '7123357',
+   cellphone: '60121234',
+   email:'juan@juan.com',
+   ocupation:'estudiante',
 //    user: _user_ejecutivo,
 ////////////////////////
     cartera:_cartera_user_2,
@@ -109,7 +115,23 @@ var _person_2 = {
    _id: new mongoose.Types.ObjectId,
    record_date: new Date()
 }
-var _persons = [_person_1, _person_2];
+var _person_3 = {
+    first_name: 'lucia',
+    last_name: 'galarza',
+    birthday: new Date(1992, 1, 1),
+    ci: '5342425',
+    cellphone: '79121232',
+    email:'lucia@lucia.com',
+    ocupation:'estudiante',
+ //    user: _user_ejecutivo,
+ ////////////////////////
+     cartera:_cartera_user_2,
+ /////////////////////////
+ 
+    _id: new mongoose.Types.ObjectId,
+    record_date: new Date()
+ }
+var _persons = [_person_1, _person_2, _person_3];
 
 var _event_seg = {
    description: 'solo para ejecutivos',
@@ -125,6 +147,12 @@ var _event_seg = {
       {
          state: 0,
          person: _person_2,
+         description: 'solo para ejecutivos',
+      }
+      ,
+      {
+         state: 1,
+         person: _person_3,
          description: 'solo para ejecutivos',
       }
    ],
