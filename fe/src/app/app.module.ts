@@ -24,6 +24,7 @@ import { ProgramaComponent } from './programa/programa.component';
 
 //Services
 import { UserService} from './services/user.service';
+import { SearchPipe } from './event/filtro/filtropersona.pipe';
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -36,6 +37,7 @@ import { EditPersonComponent } from './event/editPerson/editPerson.component';
 import { Form2Component } from './registro/form2/form2.component';
 
 import { FormProgramaComponent } from './form-programa/form-programa.component';
+import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.component';
 
 //Graphics
 import { ChartsModule } from 'ng2-charts';
@@ -63,18 +65,16 @@ import { TortaComponent } from './reports/torta/torta.component';
     AddPersonComponent,
     EditPersonComponent,
     ProgramaComponent,
-
     Form2Component,
-
     FormProgramaComponent,
-
+    
     ReportsComponent,
-
     LineaComponent,
-
     BarraComponent,
-
     TortaComponent,
+    SearchPipe,
+    
+    AddEjecutivoComponent,
   ],
   imports: [
     BrowserModule,

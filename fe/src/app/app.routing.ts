@@ -22,7 +22,7 @@ const appRoutes: Routes = [
          { path: 'events', component: EventsComponent },
          { path: 'event/:id', component: EventComponent },
          { path: 'editPerson/:id', component: EditPersonComponent },
-         { path: 'reports', component: ReportsComponent}
+         { path: 'reports', component: ReportsComponent},
       ]
 
    },

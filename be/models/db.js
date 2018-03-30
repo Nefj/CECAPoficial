@@ -23,6 +23,21 @@ module.exports = {
       _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },
       record_date: { type: Date, default: function () { return new Date() } },
    })),
+
+
+   ////////////////////////////////////////////////////////////////////////////
+
+   cartera: mongoose.model('cartera',new Schema({
+      name:String,
+      user:ObjectId,
+      _id:{type:ObjectId,default:function(){return new mongoose.Types.ObjectId}},
+      record_date:{type:Date, default:function(){return new Date}}
+
+   })),
+
+   ////////////////////////////////////////////////////////////////////////////
+
+
    events: mongoose.model('events', new Schema({
       name: String,
       description: String,
@@ -51,7 +66,14 @@ module.exports = {
       last_name: String,
       birthday: Date,
       ci: Number,
-      user: ObjectId,
+      cellphone: Number,
+      email:String,
+      ocupation:String,
+
+      //////////////
+      cartera:ObjectId,
+      /////////////
+      // user: ObjectId,
 
       _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },
       record_date: { type: Date, default: function () { return new Date() } },

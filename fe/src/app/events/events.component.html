@@ -5,7 +5,7 @@
          Eventos
          <small>Vigentes</small>
       </h1>
-      <ol class="breadcrumb">
+      <!--<ol class="breadcrumb">
          <li>
             <app-addProgram></app-addProgram>
          </li>
@@ -17,7 +17,7 @@
                <i class="fa fa-dashboard"></i> Home</a>
          </li>
          <li class="active">Eventos</li>
-      </ol>
+      </ol>-->
    </section>
    <section class="content">
       <table class="table table-hover">
@@ -34,7 +34,7 @@
 
             <tr *ngFor="let event of events">
                <td>{{ event.name }}</td>
-               <td>{{ event.date_start }}</td>
+               <td>{{ event.date_start | date }}</td>
                <td>{{ event.cupos }}</td>
                <td>
                   <a class="btn btn-primary" (click)="send(event._id)">INFORMACION</a>

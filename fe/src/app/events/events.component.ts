@@ -41,7 +41,6 @@ export class EventsComponent implements OnInit {
             var errorMessage = <any>error;
             console.log(errorMessage);
          }
-
       );
    }
 }

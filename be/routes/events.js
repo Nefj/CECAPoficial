@@ -10,12 +10,16 @@ router
          let programs = [];
          var j = 0;
          let insert = true;
-         for (let i = 0; i < events.length; i++) {
+         var today = new Date;
+         for (let i = 0; i < events.length; i++) { 
             j = 0;
             insert = true;
+            
             do {
+        
                if (programs.length == 0) { insert = false; programs.push(events[i].program); }
                else if (JSON.stringify(programs[j]) == JSON.stringify(events[i].program)) insert = false;
+               if(today > events[i].date_start){ insert = false;} 
                j++;
             } while (j < programs.length);
             if (insert) programs.push(events[i].program);
@@ -69,6 +73,7 @@ router
             return res.status(200).send(event);
          });
       }
+      
    })
    .get('/listPersons/:id', function (req, res) {
       db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
@@ -86,6 +91,7 @@ router
             return res.status(200).send(persons);
          });
       }
+
    })
    .post('/filter/:id', function (req, res) {
       // db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
