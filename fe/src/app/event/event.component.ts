@@ -31,7 +31,7 @@ export class EventComponent implements OnInit {
       this._peticionesService.getEvent(this.eventId).subscribe(
          result => {
             this.event = result;
-            // console.log(this.event);
+            console.log(this.event);
             this.inscriptions = this.event.inscriptions;
          },
          error => {

@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { EditPersonComponent } from './event/editPerson/editPerson.component';
+import { ReportsComponent } from './reports/reports.component';
 
 const appRoutes: Routes = [
    { path: '', component: HomeComponent },//ruta basica
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
          { path: 'registro', component: BaseComponent },
          { path: 'events', component: EventsComponent },
          { path: 'event/:id', component: EventComponent },
-         { path: 'editPerson/:id', component: EditPersonComponent }
+         { path: 'editPerson/:id', component: EditPersonComponent },
+         { path: 'reports', component: ReportsComponent}
       ]
 
    },

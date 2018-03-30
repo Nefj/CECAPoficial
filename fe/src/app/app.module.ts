@@ -37,6 +37,13 @@ import { Form2Component } from './registro/form2/form2.component';
 
 import { FormProgramaComponent } from './form-programa/form-programa.component';
 
+//Graphics
+import { ChartsModule } from 'ng2-charts';
+import { ReportsComponent } from './reports/reports.component';
+import { LineaComponent } from './reports/linea/linea.component';
+import { BarraComponent } from './reports/barra/barra.component';
+import { TortaComponent } from './reports/torta/torta.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +67,14 @@ import { FormProgramaComponent } from './form-programa/form-programa.component';
     Form2Component,
 
     FormProgramaComponent,
+
+    ReportsComponent,
+
+    LineaComponent,
+
+    BarraComponent,
+
+    TortaComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +83,7 @@ import { FormProgramaComponent } from './form-programa/form-programa.component';
     HttpClientModule,
     FormsModule,
     HttpModule,
-
+    ChartsModule,
   ],
   providers: [
     appRoutingProviders,
