@@ -24,6 +24,7 @@ import { ProgramaComponent } from './programa/programa.component';
 
 //Services
 import { UserService} from './services/user.service';
+import { SearchPipe } from './event/filtro/filtropersona.pipe';
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -61,6 +62,7 @@ import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.comp
     Form2Component,
 
     FormProgramaComponent,
+    SearchPipe,
 
     AddEjecutivoComponent,
   ],

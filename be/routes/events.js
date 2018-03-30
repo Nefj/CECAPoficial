@@ -69,6 +69,7 @@ router
             return res.status(200).send(event);
          });
       }
+      
    })
    .get('/listPersons/:id', function (req, res) {
       db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
@@ -86,6 +87,7 @@ router
             return res.status(200).send(persons);
          });
       }
+
    })
    .post('/filter/:id', function (req, res) {
       // db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {

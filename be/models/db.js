@@ -66,6 +66,10 @@ module.exports = {
       last_name: String,
       birthday: Date,
       ci: Number,
+      cellphone: Number,
+      email:String,
+      ocupation:String,
+
       //////////////
       cartera:ObjectId,
       /////////////
