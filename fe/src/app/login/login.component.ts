@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
                Identity._id = this.identity._id;
                Identity.rol = this.identity.rol;
                Identity.name = this.user.name;
-               this.localStorage.setItem('Identity', { _id: this.identity._id }).subscribe(() => { console.log('se guardo') });
+               this.localStorage.setItem('Identity', { _id: this.identity._id }).subscribe(() => { console.log('verifico el usuario') });
                this._router.navigate(['/']);
 
             }

@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
    res.sendfile('public/index.html', { root: __dirname })
 });
 
-//routes
+//routes 
 app
    .use('/users', require('./routes/users'))
    .use('/events', require('./routes/events'))

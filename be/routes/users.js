@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 var db = require('../models/db');
 var router = express.Router();
 
-
+ 
 router
    // .get('/', function (req, res, next) {
    // 	f.validation(res, req.body.token, next);
@@ -91,12 +91,28 @@ router
 
    .post('/login', function (req, res) {
       // console.log('test')
-      console.log(req.body)
+      console.log(req.body);
+      //modificar active
       db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash, active: true }, { rol: 1, _id: 1 }, function (err, user) {
          if (err) return console.log(err);
          if (user == null) return res.sendStatus(404);
 
          res.status(200).send(user);
+      });
+   })
+   .post('/logins', function (req, res) {
+      // console.log('test')
+      console.log(req.body);
+      //modificar active
+      db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash}, 
+            { rol: 1, _id: 1 },//nos devuelve el rol y id de este user
+           function (err, user) {
+         if (err) return console.log(err);
+         if (user == null) return res.sendStatus(404);
+         res.status(200).send(user);
+         db.users.update({ _id: req.body._id },
+            {$set:{ active: true }}
+         );
       });
    })
 
