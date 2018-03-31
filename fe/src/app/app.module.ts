@@ -39,6 +39,13 @@ import { Form2Component } from './registro/form2/form2.component';
 import { FormProgramaComponent } from './form-programa/form-programa.component';
 import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.component';
 
+//Graphics
+import { ChartsModule } from 'ng2-charts';
+import { ReportsComponent } from './reports/reports.component';
+import { LineaComponent } from './reports/linea/linea.component';
+import { BarraComponent } from './reports/barra/barra.component';
+import { TortaComponent } from './reports/torta/torta.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,12 +65,15 @@ import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.comp
     AddPersonComponent,
     EditPersonComponent,
     ProgramaComponent,
-
     Form2Component,
-
     FormProgramaComponent,
+    
+    ReportsComponent,
+    LineaComponent,
+    BarraComponent,
+    TortaComponent,
     SearchPipe,
-
+    
     AddEjecutivoComponent,
   ],
   imports: [
@@ -73,7 +83,7 @@ import { AddEjecutivoComponent } from './events/add-ejecutivo/add-ejecutivo.comp
     HttpClientModule,
     FormsModule,
     HttpModule,
-
+    ChartsModule,
   ],
   providers: [
     appRoutingProviders,

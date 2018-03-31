@@ -20,7 +20,7 @@ export class PeticionesService {
    }
 
    getPrueba() {
-      return "hola desde el setvicio"
+      return "hola desde el servicio"
    }
 
    // getPersonas(): Observable<any> {
