@@ -91,7 +91,7 @@ router
 
    .post('/login', function (req, res) {
       // console.log('test')
-      console.log(req.body)
+      console.log(req.body);
       //modificar active
       db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash, active: true }, { rol: 1, _id: 1 }, function (err, user) {
          if (err) return console.log(err);
