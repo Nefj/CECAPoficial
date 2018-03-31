@@ -35,11 +35,11 @@ export class UserService {
    }
    signin(user_to_login) {
 
-      let body = JSON.stringify(user_to_login);
+      let body = JSON.stringify(user_to_login);//get interface
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      return this._http.post(this.url + 'users/login', body, { headers: headers })
-         .map(res => res.json());
+      return this._http.post(this.url + 'users/logins', body, { headers: headers })
+         .map(res => res.json() );
    }
    initApp() {
       this._http.get(this.url + 'users/roles')

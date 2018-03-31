@@ -25,6 +25,7 @@ export class EventComponent implements OnInit {
 
    ngOnInit() {
       this.query();
+      this.todos();
    }
    receiveMessage() {
       this.query();
@@ -51,7 +52,6 @@ export class EventComponent implements OnInit {
    }
    edit(personId) {
       // console.log('antes de enviar', personId)
-
       this.router.navigate(['home/editPerson', personId]);
    }
    inscritos(){
