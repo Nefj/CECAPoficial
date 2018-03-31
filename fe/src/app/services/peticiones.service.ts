@@ -58,5 +58,8 @@ export class PeticionesService {
    getEventConfirmed(id){
        return this._http.get(this.url+'events/'+ id).map((res: Response)=> res);
    }
+   getCarteras(){
+       return this._http.get(this.url+'carteras').map((res:Response)=>res);
+   }
    
 }
