@@ -25,7 +25,10 @@ export class EventComponent implements OnInit {
 
    ngOnInit() {
       this.query();
-      this.todos();
+      
+   }
+   ngAfterViewInit(){
+    this.todos();
    }
    receiveMessage() {
       this.query();
@@ -50,9 +53,9 @@ export class EventComponent implements OnInit {
          }
       );
    }
-   edit(personId) {
+   edit(personId, personName) {
       // console.log('antes de enviar', personId)
-      this.router.navigate(['home/editPerson', personId]);
+      this.router.navigate(['home/editPerson', personId+ '-'+ this.eventId]);
    }
    inscritos(){
     for(let i=0; i <=this.states.length; i++){

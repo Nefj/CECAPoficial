@@ -72,7 +72,7 @@ import { TortaComponent } from './reports/torta/torta.component';
     LineaComponent,
     BarraComponent,
     TortaComponent,
-    SearchPipe,
+    SearchPipe, 
     
     AddEjecutivoComponent,
   ],
