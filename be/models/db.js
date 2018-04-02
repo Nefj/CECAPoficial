@@ -27,7 +27,7 @@ module.exports = {
 
    ////////////////////////////////////////////////////////////////////////////
 
-   cartera: mongoose.model('cartera',new Schema({
+   carteras: mongoose.model('carteras',new Schema({
       name:String,
       user:ObjectId,
       _id:{type:ObjectId,default:function(){return new mongoose.Types.ObjectId}},

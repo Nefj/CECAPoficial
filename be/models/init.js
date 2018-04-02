@@ -53,7 +53,7 @@ var _cartera_user_2={
     record_date:new Date()
 }
 
-var _cartera=[_cartera_user_1,_cartera_user_2];
+var _carteras=[_cartera_user_1,_cartera_user_2];
 
 ////////////////////////////////////////////
 
@@ -93,7 +93,7 @@ var _person_1 = {
     ocupation:'empresaria',
 //    user: _user_admin,
 ////////////
-    cartera:_cartera_user_1,
+    carteras:_cartera_user_1,
 ///////////
 
    _id: new mongoose.Types.ObjectId,
@@ -109,7 +109,7 @@ var _person_2 = {
    ocupation:'estudiante',
 //    user: _user_ejecutivo,
 ////////////////////////
-    cartera:_cartera_user_2,
+    carteras:_cartera_user_2,
 /////////////////////////
 
    _id: new mongoose.Types.ObjectId,
@@ -125,7 +125,7 @@ var _person_3 = {
     ocupation:'estudiante',
  //    user: _user_ejecutivo,
  ////////////////////////
-     cartera:_cartera_user_2,
+     carteras:_cartera_user_2,
  /////////////////////////
  
     _id: new mongoose.Types.ObjectId,
@@ -227,7 +227,7 @@ module.exports = {
    initializer: function () {
       saveData(_roles, db.roles);
       saveData(_users, db.users);
-      saveData(_cartera,db.cartera);
+      saveData(_carteras,db.carteras);
       saveData(_programs, db.programs);
       saveData(_persons, db.persons);
       saveData(_events, db.events);
@@ -236,7 +236,7 @@ module.exports = {
    clearCollections: function () {
       clearCollections(db.roles);
       clearCollections(db.users);
-      clearCollections(db.cartera);
+      clearCollections(db.carteras);
       clearCollections(db.programs);
       clearCollections(db.events);
       clearCollections(db.persons);
