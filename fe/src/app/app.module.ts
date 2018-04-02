@@ -45,6 +45,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { LineaComponent } from './reports/linea/linea.component';
 import { BarraComponent } from './reports/barra/barra.component';
 import { TortaComponent } from './reports/torta/torta.component';
+import { ReportTrimestralComponent } from './report-trimestral/report-trimestral.component';
 
 @NgModule({
   declarations: [
@@ -69,12 +70,14 @@ import { TortaComponent } from './reports/torta/torta.component';
     FormProgramaComponent,
     
     ReportsComponent,
+    ReportTrimestralComponent,
     LineaComponent,
     BarraComponent,
     TortaComponent,
-    SearchPipe,
     
+    SearchPipe,
     AddEjecutivoComponent,
+    
   ],
   imports: [
     BrowserModule,
