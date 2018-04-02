@@ -73,7 +73,7 @@ import { AddCarteraComponent } from './events/add-cartera/add-cartera.component'
     LineaComponent,
     BarraComponent,
     TortaComponent,
-    SearchPipe,
+    SearchPipe, 
     
     AddEjecutivoComponent,
     

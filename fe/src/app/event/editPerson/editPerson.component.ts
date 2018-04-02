@@ -5,14 +5,16 @@ import { Identity } from '../../services/global';
 import { Inscription } from '../../modelo/inscription';
 
 @Component({
-   selector: 'app-editPerson',
+   selector: 'app-editPerson', 
    templateUrl: './editPerson.component.html',
    styleUrls: ['./editPerson.component.css']
 })
 export class EditPersonComponent implements OnInit {
    private eventId;
    private inscription;
-   private person;
+   private person; 
+   private personId:String;
+   private personName;
    @ViewChild('name') nameRef: ElementRef;
    @ViewChild('description') descriptionRef: ElementRef;
    @ViewChild("close", { read: ElementRef }) close: ElementRef;
@@ -23,6 +25,7 @@ export class EditPersonComponent implements OnInit {
    ) { }
 
    ngOnInit() {
+     this.queryPerson();
       // this.route.params.subscribe(params => this.eventId = params.id);
       // this.inscription = new Inscription(this.editPerson.name, this.editPerson.description, this.editPerson.state, this.editPerson.person);
 
@@ -49,5 +52,25 @@ export class EditPersonComponent implements OnInit {
       // });
       // console.log(this.id);
       this.close.nativeElement.click();
+   }
+   queryPerson(){
+    this.route.params.subscribe(params => {
+        this.personId = params.id;
+        console.log(this.personId);
+        console.log(this.personId.split('-'));
+     });
+    //  this._peticionesService.getEvent(this.personId).subscribe(
+    //     result => {
+    //        this.person = result;
+    //        console.log(this.person);
+           
+    //        //prueba total
+    //        var o =this.person.total;
+    //     },
+    //     error => {
+    //        var errorMessage = <any>error;
+    //        console.log(errorMessage);
+    //     }
+    //  );
    }
 }
