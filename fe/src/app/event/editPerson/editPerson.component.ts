@@ -5,14 +5,14 @@ import { Identity } from '../../services/global';
 import { Inscription } from '../../modelo/inscription';
 
 @Component({
-   selector: 'app-editPerson',
+   selector: 'app-editPerson', 
    templateUrl: './editPerson.component.html',
    styleUrls: ['./editPerson.component.css']
 })
 export class EditPersonComponent implements OnInit {
    private eventId;
    private inscription;
-   private person;
+   private person; 
    @ViewChild('name') nameRef: ElementRef;
    @ViewChild('description') descriptionRef: ElementRef;
    @ViewChild("close", { read: ElementRef }) close: ElementRef;
