@@ -44,6 +44,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ReportsComponent } from './reports/reports.component';
 import { LineaComponent } from './reports/linea/linea.component';
 import { BarraComponent } from './reports/barra/barra.component';
+import { ReportTrimestralComponent } from './report-trimestral/report-trimestral.component';
 import { TortaComponent } from './reports/torta/torta.component';
 import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
 
@@ -70,13 +71,13 @@ import { AddCarteraComponent } from './events/add-cartera/add-cartera.component'
     FormProgramaComponent,
     
     ReportsComponent,
+    ReportTrimestralComponent,
     LineaComponent,
     BarraComponent,
     TortaComponent,
-    SearchPipe, 
     
+    SearchPipe,
     AddEjecutivoComponent,
-    
     AddCarteraComponent,
   ],
   imports: [

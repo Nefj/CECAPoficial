@@ -34,6 +34,9 @@ export class PeticionesService {
    getEvent(id) {
       return this._http.get(this.url + 'events/' + id).map((res: Response) => res);
    }
+   getTrimestral() {
+    return this._http.get(this.url + 'events/trimestral').map((res: Response) => res);
+ }
    addProgram(program) {
       let body = JSON.stringify(program);
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
