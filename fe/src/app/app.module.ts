@@ -44,13 +44,9 @@ import { ChartsModule } from 'ng2-charts';
 import { ReportsComponent } from './reports/reports.component';
 import { LineaComponent } from './reports/linea/linea.component';
 import { BarraComponent } from './reports/barra/barra.component';
-<<<<<<< HEAD
-import { TortaComponent } from './reports/torta/torta.component';
 import { ReportTrimestralComponent } from './report-trimestral/report-trimestral.component';
-=======
 import { TortaComponent } from './reports/torta/torta.component';
 import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
->>>>>>> c9211321b18adcda0bc99206a4c1f872c830e005
 
 @NgModule({
   declarations: [
@@ -79,18 +75,11 @@ import { AddCarteraComponent } from './events/add-cartera/add-cartera.component'
     LineaComponent,
     BarraComponent,
     TortaComponent,
-<<<<<<< HEAD
-=======
-    SearchPipe, 
->>>>>>> c9211321b18adcda0bc99206a4c1f872c830e005
     
     SearchPipe,
     AddEjecutivoComponent,
-    
-<<<<<<< HEAD
-=======
     AddCarteraComponent,
->>>>>>> c9211321b18adcda0bc99206a4c1f872c830e005
+
   ],
   imports: [
     BrowserModule,
