@@ -64,5 +64,11 @@ export class PeticionesService {
    getCarteras(){
        return this._http.get(this.url+'carteras').map((res:Response)=>res);
    }
+
+   addUser(user){
+       let body=JSON.stringify(user);
+       var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+       return this._http.post(this.url+'users',body,{headers : headers}).map((res:Response)=>res);
+   }
    
 }

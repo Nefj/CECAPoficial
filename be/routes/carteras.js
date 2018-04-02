@@ -11,73 +11,22 @@ router
       });
    })
 
-   .get('/:id', function (req, res) {
-      db.carteras.findOne({ _id: req.params.id }, function (err, person) {
-         if (err) return res.status(400).send(err);
-         if (person == null) return res.status(404).send();
-
-         return res.status(200).send(person);
-      });
-   })
-
+  
    .post('/', function (req, res) {
-      var person = new db.persons(req.body);
-      console.log(person);
-      if (person.first_name == '' || person.last_name == '' || person.ci == '' || person.user == '') return res.status(400).send();
-      // save person
-      person.save(function (err, person) {
-         if (err) return res.status(400).send(err);
-         add(person);
-      });
-      // add vigent events
-      function add(person) {
-         var inscription = {
-            state: 0,
-            person: person._id,
-            user: person.user
-         }
-         var d = new Date();
-         db.events.update(
-            {
-               date_start: { $gt: d }
-            }, {
-               $push: {
-                  inscriptions: inscription
-               }
-            }, {
-               multi: true
-            }, function (err, events) {
-               if (err) return res.status(400).send(err);
-               console.log(events);
-               // if (events == null) return res.status(404).send();
+    var cartera = new db.carteras(req.body);
+    var d = new Date();
+    // if ((event.date_start == undefined || event.date_start < d) ||event.description == '' || event.total == '' || event.program == '') return res.status(400).send();
+    db.carteras.find({}, function (err, persons) {
+       if (err) return res.status(400).send(err);
+       saveCartera(cartera);
+    });
+    function saveCartera(cartera) {
+      
+       event.save(function (err, event) {
+          if (err) return res.status(400).send(err);
 
-               return res.status(200).send(person);
-            })
-      }
-   })
-
-   .put('/:id', function (req, res) {
-      db.persons.findOne({ _id: req.params.id }, function (err, person) {
-         if (err) return res.status(400).send(err);
-         if (person == null) return res.status(404).send();
-
-         for (i in req.body) {
-            person[i] = req.body[i];
-         }
-         person.save(function (err, person) {
-            if (err) return res.status(400).send(err);
-
-            return res.status(200).send(person);
-         });
-      });
-   })
-
-   .delete('/:id', function (req, res) {
-      db.persons.remove({ _id: req.params.id }, function (err, person) {
-         if (err) return res.status(400).send(err);
-
-         return res.status(200).send(person);
-      });
-   });
-
+          return res.status(201).send(event);
+       });
+    }
+ })
 module.exports = router;

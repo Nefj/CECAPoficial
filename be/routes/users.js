@@ -100,21 +100,21 @@ router
          res.status(200).send(user);
       });
    })
-   .post('/logins', function (req, res) {
-      // console.log('test')
-      console.log(req.body);
-      //modificar active
-      db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash}, 
-            { rol: 1, _id: 1 },//nos devuelve el rol y id de este user
-           function (err, user) {
-         if (err) return console.log(err);
-         if (user == null) return res.sendStatus(404);
-         res.status(200).send(user);
-         db.users.update({ _id: req.body._id },
-            {$set:{ active: true }}
-         );
-      });
-   })
+//    .post('/logins', function (req, res) {
+//       // console.log('test')
+//       console.log(req.body);
+//       //modificar active
+//       db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash}, 
+//             { rol: 1, _id: 1 },//nos devuelve el rol y id de este user
+//            function (err, user) {
+//          if (err) return console.log(err);
+//          if (user == null) return res.sendStatus(404);
+//          res.status(200).send(user);
+//          db.users.update({ _id: req.body._id },
+//             {$set:{ active: true }}
+//          );
+//       });
+//    })
 
    // .post('/logout', function (req, res) {
    // 	db.users.findOne({phone: req.body.phone, password_hash: req.body.password_hash}, function (err, user_model) {
@@ -131,6 +131,9 @@ router
    // 		});
    // 	});
    // })
+
+
+   
    .put('/:id', function (req, res) {
       db.users.update(
          { _id: req.params.id },
