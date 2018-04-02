@@ -79,6 +79,7 @@ import { AddCarteraComponent } from './events/add-cartera/add-cartera.component'
     SearchPipe,
     AddEjecutivoComponent,
     AddCarteraComponent,
+
   ],
   imports: [
     BrowserModule,
