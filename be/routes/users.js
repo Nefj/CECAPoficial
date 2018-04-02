@@ -131,6 +131,9 @@ router
    // 		});
    // 	});
    // })
+
+
+   
    .put('/:id', function (req, res) {
       db.users.update(
          { _id: req.params.id },

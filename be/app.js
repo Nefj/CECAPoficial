@@ -34,6 +34,8 @@ app
    .use('/users', require('./routes/users'))
    .use('/events', require('./routes/events'))
    // .use('/registers', require('./routes/registers'))
+   .use('/carteras', require('./routes/carteras'))
+   
    .use('/persons', require('./routes/persons'))
    .use('/programs', require('./routes/programs'))
 

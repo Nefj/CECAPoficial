@@ -45,6 +45,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { LineaComponent } from './reports/linea/linea.component';
 import { BarraComponent } from './reports/barra/barra.component';
 import { TortaComponent } from './reports/torta/torta.component';
+import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,8 @@ import { TortaComponent } from './reports/torta/torta.component';
     SearchPipe, 
     
     AddEjecutivoComponent,
+    
+    AddCarteraComponent,
   ],
   imports: [
     BrowserModule,
