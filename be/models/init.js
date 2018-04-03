@@ -160,9 +160,36 @@ var _event_seg = {
    _id: new mongoose.Types.ObjectId,
    record_date: new Date()
 }
+var _event_seg2 = {
+    description: 'solo para ejecutivos',
+    date_start: new Date(2018, 02, 12),
+    total: 30,
+    program: _program_seguridad,
+    inscriptions: [
+       {
+          state: 0,
+          person: _person_1,
+          description: 'solo para ejecutivos',
+       },
+       {
+          state: 0,
+          person: _person_2,
+          description: 'solo para ejecutivos',
+       }
+       ,
+       {
+          state: 1,
+          person: _person_3,
+          description: 'solo para ejecutivos',
+       }
+    ],
+ 
+    _id: new mongoose.Types.ObjectId,
+    record_date: new Date()
+ }
 var _event_rrhh = {
    description: 'solo para ejecutivos',
-   date_start: new Date(2018, 12, 12),
+   date_start: new Date(2018, 03, 12),
    total: 20,
    program: _program_rrhh,
    inscriptions: [
@@ -202,7 +229,7 @@ var _event_rrhh2 = {
    _id: new mongoose.Types.ObjectId,
    record_date: new Date()
 }
-var _events = [_event_seg, _event_rrhh, _event_rrhh2];
+var _events = [_event_seg, _event_seg2, _event_rrhh, _event_rrhh2];
 
 
 function saveData(collection, schema) {
