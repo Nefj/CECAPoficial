@@ -5,12 +5,12 @@ var router = express.Router();
 var mongoose = require('mongoose');
 router
    .get('/', function (req, res) {
-      db.events.find({}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
+       var today = new Date;
+      db.events.find({date_start: {gt: today}}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
          if (err) return res.status(400).send(err);
          let programs = [];
          var j = 0;
          let insert = true;
-         var today = new Date;
          for (let i = 0; i < events.length; i++) { 
             j = 0;
             insert = true;
@@ -19,7 +19,7 @@ router
         
                if (programs.length == 0) { insert = false; programs.push(events[i].program); }
                else if (JSON.stringify(programs[j]) == JSON.stringify(events[i].program)) insert = false;
-               if(today > events[i].date_start){ insert = false;} 
+            //    if(today > events[i].date_start){ insert = false;} 
                j++;
             } while (j < programs.length);
             if (insert) programs.push(events[i].program);
@@ -40,42 +40,7 @@ router
          });
       }
    })
-   .get('/trimestral', function (req, res) {
-        var d = new Date();
-        var d1 = new Date().getMonth()-3; //menos 3 meses
-      db.events.find({date_start: {$gt: d1, $lt: d}}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
-         if (err) return res.status(400).send(err);
-         let programs = [];
-         var j = 0;
-         let insert = true;
-         //var today = new Date;
-         for (let i = 0; i < events.length; i++) { 
-            j = 0;
-            insert = true;
-            do {
-               if (programs.length == 0) { insert = false; programs.push(events[i].program); }
-               else if (JSON.stringify(programs[j]) == JSON.stringify(events[i].program)) insert = false;
-            //    if(d > events[i].date_start){ insert = false;} 
-               j++;
-            } while (j < programs.length);
-            if (insert) programs.push(events[i].program);
-         }
-         getPrograms(programs, events);
-      });
-      function getPrograms(programs, events) {
-         db.programs.find({ _id: { $in: programs } }, { name: 1 }, function (err, programs) {
-            if (err) return res.status(400).send(err);
-            events.forEach(event => {
-               programs.forEach(program => {
-                  if (JSON.stringify(event.program) == JSON.stringify(program._id)) {
-                     event.name = program.name;
-                  }
-               })
-            });
-            return res.status(200).send(events);
-         });
-      }
-   })
+
    .get('/:id', function (req, res) {
       db.events.findOne({ _id: req.params.id }, function (err, event) {
          if (err) return res.status(400).send(err);
