@@ -69,14 +69,18 @@ router
          validating();
       })
       function validating() {
-         db.users.findOne({ token: req.body.token, rol: role_id }, function (err, user) {
+         db.users.findOne({ _id: req.body._id, rol: role_id }, function (err, user) {
             if (err) return console.log(err);
             if (user == null) return res.sendStatus(404);
+            console.log(user);
             next();
+            
+            
          });
       }
    })
    .post('/register', function (req, res) {
+      req.body._id=undefined;
       var _user = req.body;
       _user.active = true;
       var user_model = new db.users(_user);
@@ -133,7 +137,19 @@ router
    // })
 
 
-   
+   .post('/', function (req, res) {
+      var users = new db.users(req.body);
+      console.log(users);
+      // if (person.first_name == '' || person.last_name == '' || person.ci == '' || person.user == '') return res.status(400).send();
+      // save person
+      users.save(function (err, users) {
+         if (err) return res.status(400).send(err);
+         return res.status(200).send(users);
+      });
+      // add vigent events
+     
+      
+   })
    .put('/:id', function (req, res) {
       db.users.update(
          { _id: req.params.id },
