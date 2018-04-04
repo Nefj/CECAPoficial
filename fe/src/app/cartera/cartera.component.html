@@ -1,0 +1,52 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+     <h1>
+        Cartera
+        <small>Vigentes</small>
+     </h1>
+     <ol class="breadcrumb">
+           <li>
+<!-- 
+                       <app-add-ejecutivo></app-add-ejecutivo> -->
+           </li>
+        <li>
+           <!-- <app-addProgram></app-addProgram> -->
+        </li>
+        <li>
+           <!-- <app-addEvent (messageEvent)="receiveMessage()"></app-addEvent> -->
+        </li>
+        <li>
+           <a href="#">
+              <i class="fa fa-dashboard"></i> Home</a>
+        </li>
+        <li class="active">carteras</li>
+     </ol>
+  </section>
+  <section class="content">
+     <table class="table table-hover">
+        <thead>
+           <tr>
+              <th>Nombre de carteras</th>
+              <th>Informacion</th>
+              <th>Editar Cartera</th>
+              <!-- <th colspan="2">estado</th> -->
+           </tr>
+        </thead>
+
+        <tbody>
+
+           <tr *ngFor="let cartera of carteras">
+              <td>{{ cartera.name }}</td>
+              <!-- <td>{{ event.date_start | date }}</td> -->
+              <td>  
+                <a class="btn btn-primary" (click)="send(cartera._id)">INFORMACION</a>
+              </td>
+              <td>
+                 <a class="btn btn-warning" (click)="send(cartera._id)">EDITAR</a>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+  </section>
+</div>
