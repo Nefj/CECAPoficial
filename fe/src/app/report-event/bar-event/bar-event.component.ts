@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PeticionesService } from '../../services/peticiones.service';
 
 @Component({
-  selector: 'app-barra',
-  templateUrl: './barra.component.html',
-  styleUrls: ['./barra.component.css']
+  selector: 'app-bar-event',
+  templateUrl: './bar-event.component.html',
+  styleUrls: ['./bar-event.component.css']
 })
-export class BarraComponent implements OnInit {
-  public events;
+export class BarEventComponent implements OnInit {
+  public eventId;
+  public event;
   public inscriptions;
 
   public barChartOptions:any = {
@@ -19,7 +20,7 @@ export class BarraComponent implements OnInit {
   public barChartLegend:boolean = true;
  
   public barChartData:any[] = [
-    {data: [{events:this.inscriptions},'', '', ''], label: 'Evento'},
+    {data: [{events:name},'', '', ''], label: 'Evento 1'},
     {data: [{events:name}, '', '', ''], label: 'Evento 2'}
   ];
  
@@ -52,23 +53,20 @@ export class BarraComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._peticionesService.getEvents().subscribe(
+    this._peticionesService.getEvent(this.eventId).subscribe(
       result => {
-         this.events = result;
-        //  console.log(result)
-         this.events.map(event => {
-          // var sum = 0;
-          event.inscriptions = event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
-          // console.log(e)
-          // event.inscritos = sum;
-       });
-       console.log(this.events)
-         this.inscriptions = this.events.inscritos;
+         this.event = result;
+         console.log(this.event)
+         //this.event.map(event => {
+        this.inscriptions = this.event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
+       //});
+       console.log(this.event)
+         this.inscriptions = this.event.inscritos;
       },
       error => {
          console.log(<any>error)
       }
    );
   }
-  
+
 }

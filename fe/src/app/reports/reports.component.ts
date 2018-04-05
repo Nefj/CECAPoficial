@@ -18,7 +18,7 @@ export class ReportsComponent implements OnInit {
     private _router: Router,
     private _peticionesService: PeticionesService
   ) {
-    this.titulo = 'Reportes de registros';
+    this.titulo = 'Reportes de Eventos';
   }
 
   ngOnInit() {
