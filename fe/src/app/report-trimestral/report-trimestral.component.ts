@@ -23,12 +23,8 @@ export class ReportTrimestralComponent implements OnInit {
     this._peticionesService.getTrimestral().subscribe(
       result => {
          this.events = result;
-         //console.log(result)
          this.events.map(event => {
-          // var sum = 0;
-          event.inscriptions = event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
-          // console.log(e)
-          // event.inscritos = sum;
+          event.inscriptions = event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});;
        });
        console.log(this.events)
          this.inscriptions = this.events.inscritos;
