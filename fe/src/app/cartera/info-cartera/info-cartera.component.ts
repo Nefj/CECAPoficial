@@ -12,7 +12,7 @@ export class InfoCarteraComponent implements OnInit {
 
 
   public persons;
-  public personId;
+  public carteraId;
   constructor(
 
     private _peticionesService: PeticionesService,
@@ -27,9 +27,9 @@ export class InfoCarteraComponent implements OnInit {
 
   queryPerson(){
     this.route.params.subscribe(params => {
-        this.personId = params.id;
-        console.log(this.personId);
-        console.log(this.personId.split('-'));
+        this.carteraId = params.id;
+        console.log(this.carteraId);
+        // console.log(this.personId.split('-'));
      });
     //  this._peticionesService.getEvent(this.personId).subscribe(
     //     result => {
@@ -46,6 +46,10 @@ export class InfoCarteraComponent implements OnInit {
     //  );
    }
    findPerson(){
+
+      this._peticionesService.getPersonCartera(this.carteraId).subscribe(response=>{
+        this.persons=response;
+      });
 
     
    }
