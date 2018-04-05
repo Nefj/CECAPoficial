@@ -43,9 +43,9 @@ export class EventComponent implements OnInit {
             console.log(this.event);
             this.inscriptions = this.event.inscriptions;
             //prueba total
-            var o =this.event.total;
+            var total =this.event.total;
             console.log(this.inscriptions);
-            console.log(o);
+           // console.log(total);
          },
          error => {
             var errorMessage = <any>error;
@@ -55,7 +55,7 @@ export class EventComponent implements OnInit {
    }
    edit(personId, personName) {
       // console.log('antes de enviar', personId)
-      this.router.navigate(['home/editPerson', personId+ '-'+ this.eventId]);
+      this.router.navigate(['home/editPerson', personId+'-'+ this.eventId]);
    }
    inscritos(){
     for(let i=0; i <=this.states.length; i++){

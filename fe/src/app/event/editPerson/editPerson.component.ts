@@ -10,11 +10,12 @@ import { Inscription } from '../../modelo/inscription';
    styleUrls: ['./editPerson.component.css']
 })
 export class EditPersonComponent implements OnInit {
-   private eventId;
    private inscription;
    private person; 
    private personId:String;
+   private eventId;
    private personName;
+  // private colection_edit:Array<any>=[];
    @ViewChild('name') nameRef: ElementRef;
    @ViewChild('description') descriptionRef: ElementRef;
    @ViewChild("close", { read: ElementRef }) close: ElementRef;
@@ -22,7 +23,9 @@ export class EditPersonComponent implements OnInit {
    constructor(
       private _peticionesService: PeticionesService,
       private route: ActivatedRoute,
-   ) { }
+   ) { 
+      this.inscription = new Inscription('', '', '', '');
+   }
 
    ngOnInit() {
      this.queryPerson();
@@ -36,7 +39,21 @@ export class EditPersonComponent implements OnInit {
       // // console.log(this.eventId);
       // console.log(this.editPerson, this.inscription);
    }
-
+   showdate(){
+    //  this.inscription.person = this.personId;
+    //  this.inscription.name = this.eventId;
+     // console.log(this.eventId);
+      
+      this._peticionesService.updatePerson(this.inscription).subscribe(
+        result => {
+          var esperado = result;
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+        }
+      );
+   }
    save() {
       console.log(this.person);
       // let birthday;
@@ -52,25 +69,54 @@ export class EditPersonComponent implements OnInit {
       // });
       // console.log(this.id);
       this.close.nativeElement.click();
+      
    }
-   queryPerson(){
+   queryPerson(){ 
     this.route.params.subscribe(params => {
-        this.personId = params.id;
-        console.log(this.personId);
-        console.log(this.personId.split('-'));
+      var arrayIds = params.id.split('-');
+      this.personId = arrayIds[0];
+      this.eventId =arrayIds[1];
+      this.inscription.person = this.personId;
+     this.inscription.name = this.eventId;
+        //console.log(arrayIds);
+        console.log('este es el ID de persona: '+this.personId);
+        console.log('este es ID de evento: '+this.eventId);
      });
-    //  this._peticionesService.getEvent(this.personId).subscribe(
-    //     result => {
-    //        this.person = result;
-    //        console.log(this.person);
-           
-    //        //prueba total
-    //        var o =this.person.total;
-    //     },
-    //     error => {
-    //        var errorMessage = <any>error;
-    //        console.log(errorMessage);
-    //     }
-    //  );
+    this._peticionesService.getPerson(this.personId).subscribe(
+         result => {
+            this.person = result;
+            //console.log(this.person);
+         },
+         error => {
+            var errorMessage = <any>error;
+            console.log(errorMessage);
+         }
+      );
    }
+
+  //  queryEvent(){
+  //   this._userService.signin(this.user).subscribe(
+  //     response => {
+  //        this.identity = response;
+  //        if (!this.identity || !this.identity._id) {
+  //           alert('Usuario Incorrecto');
+  //        } else {
+  //           Identity._id = this.identity._id;
+  //           Identity.rol = this.identity.rol;
+  //           Identity.name = this.user.name;
+  //           this.localStorage.setItem('Identity', { _id: this.identity._id }).subscribe(() => { console.log('verifico el usuario') });
+  //           this._router.navigate(['/']);
+
+  //        }
+  //     },
+  //     error => {
+  //        //console.log(<any>error);
+  //        var errorMessage = <any>error;
+  //        if (errorMessage != null) {
+  //           var body = JSON.parse(error._body);
+  //           this.status = 'error';
+  //        }
+  //     }
+  //  );
+  //  }
 }

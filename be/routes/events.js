@@ -128,6 +128,46 @@ router
       }
 
    })
+//post person event 
+   .post('/:id', function (req, res) {
+    db.events.findOne({ _id: req.params.id }, function (err, event) {
+       if (err) return res.status(400).send(err);
+       if (event == null) return res.status(404).send();
+       // return res.status(200).send(event);
+       getProgram(event);
+    });
+    function getProgram(event) {
+       db.programs.findOne({ _id: event.program }, { name: 1 }, function (err, program) {
+          if (err) return res.status(400).send(err);
+          event.name = program.name;
+          // return res.status(200).send(event);
+          var persons = event.inscriptions.map(i => i.person);
+          getPerson(persons, event);
+       })
+    }
+    function getPerson(persons, event) {
+       db.persons.find({ _id: { $in: persons } }, function (err, persons) {
+          if (err) return res.status(400).send(err);
+          // console.log(persons)
+          event.inscriptions.forEach(i => {
+             persons.forEach(person => {
+                if (JSON.stringify(i.person) == JSON.stringify(person._id)) {
+                   i.name = person.first_name + ' ' + person.last_name;
+
+                }
+             })
+          });
+          // console.log(event);
+          return res.status(200).send(event);
+       });
+    }
+    
+ })
+ //////////////////////////////////////////////////falta hacer consulta//////////////////////////
+      
+
+
+
    .post('/filter/:id', function (req, res) {
       // db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
       //    if (err) return res.status(400).send(err);
@@ -176,21 +216,30 @@ router
       }
    })
 
-   .put('/:id', function (req, res) {
-      db.events.findOne({ _id: req.params.id }, function (err, event) {
-         if (err) return res.status(400).send(err);
-         if (event == null) return res.status(404).send();
+   .post('/edit', function (req, res) {
+    // console.log('test')
+    console.log('ESTE ES EL BODY DE QUERY')
+    //modificar active
+    //db.users.findOne({ name: req.body.name, password_hash: req.body.password_hash, active: true }, { rol: 1, _id: 1 }, function (err, user) {
+      if (err) return console.log(err);
+      //if (err) return res.status(400).send(err);
+      
+      //if (user == null) return res.sendStatus(404);
 
-         for (i in req.body) {
-            event[i] = req.body[i];
-         }
-         event.save(function (err, event) {
-            if (err) return res.status(400).send(err);
-
-            return res.status(200).send(event);
-         });
+      // res.status(200).send(user);
+    //});
+  })
+  //update inscription person that interesed to a event
+  .put('/:id', function (req, res) {
+    console.log(req.body);
+    console.log('esto es una prueba'+ req.body.name);
+    db.events.update({_id: req.body.name, 'inscriptions.person': req.body.person },
+      {$set: {'inscriptions.$.state': req.body.state, 'inscriptions.$.description': req.body.description},
+      }).exec(function (err, off) {
+				if (err) return res.status(400).send(err);
+  				//if (off.nModified == 0) return res.status(404).send();
       });
-   })
+    })
 
    .delete('/:id', function (req, res) {
       db.events.remove({ _id: req.params.id }, function (err, event) {
@@ -199,5 +248,20 @@ router
          return res.status(200).send(event);
       });
    });
+  //  .put('/:id', function (req, res) {
+  //   console.log(req.body);
+  //   db.events.findOne({ _id: req.params.id }, function (err, event) {
+  //        if (err) return res.status(400).send(err);
+  //        if (event == null) return res.status(404).send();
+
+  //        for (i in req.body) {
+  //           event[i] = req.body[i];
+  //        }
+  //        event.save(function (err, event) {
+  //           if (err) return res.status(400).send(err);
+
+  //           return res.status(200).send(event);
+  //        });
+  //     });
 
 module.exports = router;
