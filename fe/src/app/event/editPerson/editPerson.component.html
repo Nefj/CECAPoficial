@@ -3,63 +3,45 @@
       <!-- test -->
       <div style="text-align:center; margin:auto; width:40%;">
          EDITAR INSCRIPCION
-         <fieldset><p>
-            <label>{{ personName }}</label>
-         </p> </fieldset>
+         
+            <div><label><h1>{{ person.first_name }} {{person.last_name}}</h1></label></div>
+         
+        <div class="jumbotron">
          <fieldset>
             <legend>Elige el estado de la Persona</legend>
              <label>
-                <input type="radio" name="numero" value="0"> En duda</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=0> En duda</label>
              <label>
-                <input type="radio" name="numero" value="1"> Inscrito</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=1> Inscrito</label>
              <label>
-                <input type="radio" name="numero" value="2"> Interesado</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=2> Interesado</label>
              <label>
-                <input type="radio" name="numero" value="3"> Confirmar</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=3> Confirmar</label>
              <label>
-                <input type="radio" name="numero" value="4"> Sin Interes</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=4> Sin Interes</label>
              <label>
-                <input type="radio" name="numero" value="5"> Proximo Evento</label>
+                <input type="radio" name="numero" [(ngModel)]="inscription.state" value=5> Proximo Evento</label>
           
              </fieldset>
-        <fieldset> 
-        <p>
-            <input type="text" name="t" class="form-control" required />
+        <div> 
+            <input type="text" name="t" [(ngModel)]="inscription.description" class="form-control" required />
             <label>Descripcion</label>
-         </p></fieldset>
+         
+        </div>
+         <div>
+            <input type="submit" value="GUARDAR" class="btn btn-success" (click)="showdate()"/>
+            <input type="submit" value="SALIR" class="btn btn-success"/>
+         </div>
+        </div>
+    </div>
+  </section>
+    
+</div>
+  
         <!-- <p>
             <label>
                <input type="radio" id="rdbtn1" value="first_radio"> En duda</label>
-            <label>
-               <input type="radio" id="rdbtn2" value="first_radio"> Inscrito</label>
-            <label>
-               <input type="radio" id="rdbtn3" value="first_radio"> Interesado</label>
-            <label>
-               <input type="radio" id="rdbtn4" value="first_radio"> Confirmar</label>
-            <label>
-               <input type="radio" id="rdbtn5" value="first_radio"> Sin Interes</label>
-            <label>
-               <input type="radio" id="rdbtn6" value="first_radio"> Proximo Evento</label>
-         </p>-->
-      </div>
-   </section>
-</div>
-<!-- <div class="modal fade" id="modalEditPerson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Editar Persona</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" #close>
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body mx-3">
-                  <div class="md-form mb-5">
-                      <i class="fa fa-user prefix grey-text"></i>
-                      <input type="text" id="form34" class="form-control validate" #name>
-                      <label data-error="wrong" data-success="right" for="form34">Nombre</label>
-                  </div>
-              </div>
+            
             <div class="modal-body mx-3">
                   <div class="md-form mb-5">
                       <i class="fa fa-book prefix grey-text"></i>
