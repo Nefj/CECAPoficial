@@ -39,14 +39,12 @@ export class EditPersonComponent implements OnInit {
       // // console.log(this.eventId);
       // console.log(this.editPerson, this.inscription);
    }
-   showdate(){
-    //  this.inscription.person = this.personId;
-    //  this.inscription.name = this.eventId;
-     // console.log(this.eventId);
-      
+   saveInscription(){       
       this._peticionesService.updatePerson(this.inscription).subscribe(
         result => {
           var esperado = result;
+          console.log(esperado);
+          alert('registrado');
         },
         error => {
           var errorMessage = <any>error;

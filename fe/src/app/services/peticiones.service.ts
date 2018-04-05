@@ -80,9 +80,11 @@ export class PeticionesService {
      // console.log(body);
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
+     } 
+    
        //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
        //.catch(this.handleError);
-    } 
+     
 
     getPersonCartera(_id){
         
@@ -92,19 +94,6 @@ export class PeticionesService {
         //  return this._http.get(this.url+'cartera/listPersonsCartera/'+_id).map((res: Response)=> res);
                 
     }
-
-    private extractData(res: Response) {
-      let body = res.json();
-      console.log(body);
-      return body || {};
-  }
-
-  private handleError(error: any) {
-      let errMsg = (error.message) ? error.message :
-          error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-      console.error(errMsg);
-      return Observable.throw(errMsg);
-  }
       
       // updateUsers (user: User): Observable<null> {
       //   return this.http.put(this.usersUrl, user, httpOptions).pipe(
