@@ -82,6 +82,15 @@ export class PeticionesService {
         return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
      } 
     
+       //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
+       //.catch(this.handleError);
+     
+
+    getPersonCartera(_id){
+        
+         return this._http.get(this.url+'carteras/listPersonsCartera/'+_id).map((res: Response)=> res);
+                
+    }
       
       // updateUsers (user: User): Observable<null> {
       //   return this.http.put(this.usersUrl, user, httpOptions).pipe(
@@ -89,4 +98,6 @@ export class PeticionesService {
       //     catchError(this.handleError<any>('updateUser'))
       //   );
       // }
+
+      
  }
