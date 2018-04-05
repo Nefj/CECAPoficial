@@ -234,10 +234,14 @@ router
     console.log(req.body);
     console.log('esto es una prueba'+ req.body.name);
     db.events.update({_id: req.body.name, 'inscriptions.person': req.body.person },
-      {$set: {'inscriptions.$.state': req.body.state, 'inscriptions.$.description': req.body.description},
+      {$set: {'inscriptions.$.state': req.body.state, 'inscriptions.$.description': req.body.description}
       }).exec(function (err, off) {
-				if (err) return res.status(400).send(err);
-  				//if (off.nModified == 0) return res.status(404).send();
+        if (err) return res.status(400).send(err);
+        db.events.find({ _id: req.body.name ,_id:{ $in: req.body.person }},function (err, event) {
+          if (err) return res.status(401).send(err);
+            return res.status(201).send(event);
+        });
+  			//	if (off.nModified == 0) return res.status(406).send();
       });
     })
 
