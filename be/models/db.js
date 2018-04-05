@@ -71,7 +71,7 @@ module.exports = {
       ocupation:String,
 
       //////////////
-      cartera:ObjectId,
+      carteras:ObjectId,
       /////////////
       // user: ObjectId,
 
