@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PeticionesService } from '../../services/peticiones.service';
 
 @Component({
-  selector: 'app-barra',
-  templateUrl: './barra.component.html',
-  styleUrls: ['./barra.component.css']
+  selector: 'app-bar',
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.css']
 })
-export class BarraComponent implements OnInit {
-  public events;
-  public inscriptions;
-
+export class BarComponent implements OnInit {
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -46,30 +42,10 @@ export class BarraComponent implements OnInit {
     clone[0].data = data;
     this.barChartData = clone;
   }
- 
-  constructor(
-    private _peticionesService: PeticionesService
-  ) { }
+
+  constructor() { }
 
   ngOnInit() {
-    console.log('reports.component.ts cargado')
-    this._peticionesService.getEvents().subscribe(
-      result => {
-         this.events = result;
-        //  console.log(result)
-         this.events.map(event => {
-          // var sum = 0;
-          event.inscriptions = event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
-          // console.log(e)
-          // event.inscritos = sum;
-       });
-       console.log(this.events)
-         this.inscriptions = this.events.inscritos;
-      },
-      error => {
-         console.log(<any>error)
-      }
-   );
   }
-  
+
 }

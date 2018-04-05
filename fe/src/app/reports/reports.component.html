@@ -27,6 +27,7 @@
                     <th>Nombre</th>
                     <th>Estado</th>
                     <th>Incritos</th>
+                    <th>Grafica del Evento</th>
                 </tr>
              </thead>
             <tbody>
@@ -34,6 +35,9 @@
                   <td>{{ i.name }}</td>
                   <td>{{ i.state }}</td>
                   <td>{{ i.inscriptions.length}}</td>
+                  <td>
+                    <button [routerLink]="['/home/reportEvent']" class="btn btn-primary">VER GRAFICO</button>
+                  </td>
                 
                </tr>
             </tbody>

@@ -10,6 +10,7 @@ import { ProgramaComponent } from './programa/programa.component';
 import { EditPersonComponent } from './event/editPerson/editPerson.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportTrimestralComponent} from './report-trimestral/report-trimestral.component';
+import { ReportEventoComponent } from './report-evento/report-evento.component';
 
 const appRoutes: Routes = [
    { path: '', component: HomeComponent },//ruta basica
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
          { path: 'event/:id', component: EventComponent },
          { path: 'editPerson/:id', component: EditPersonComponent },
          { path: 'reports', component: ReportsComponent },
-         { path: 'trimestral', component: ReportTrimestralComponent }
+         { path: 'trimestral', component: ReportTrimestralComponent },
+         { path: 'reportEvent', component: ReportEventoComponent }
       ]
 
    },
