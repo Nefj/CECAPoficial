@@ -44,6 +44,7 @@ export class EditPersonComponent implements OnInit {
         result => {
           var esperado = result;
           console.log(esperado);
+          alert('registrado');
         },
         error => {
           var errorMessage = <any>error;

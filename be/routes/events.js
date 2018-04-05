@@ -163,11 +163,6 @@ router
     }
     
  })
- //////////////////////////////////////////////////falta hacer consulta//////////////////////////
-      
-
-
-
    .post('/filter/:id', function (req, res) {
       // db.events.findOne({ _id: req.params.id }, { inscriptions: 1 }, function (err, event) {
       //    if (err) return res.status(400).send(err);
