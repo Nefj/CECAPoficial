@@ -22,10 +22,10 @@
           </thead>
           <tbody>
              <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
-             <tr *ngFor="let i of states">
-                <td>{{ i.name }}</td>
-                <td>{{ i.state }}</td>
-                <td>{{ i.description }}</td>
+             <tr *ngFor="let person of persosn">
+                <td>{{ person.name }}</td>
+                <!-- <td>{{ i.state }}</td> -->
+                <!-- <td>{{ i.description }}</td> -->
                 <td>
                    <!-- <app-editPerson [editPerson]="event"></app-editPerson> -->
                    <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a>

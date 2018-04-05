@@ -83,6 +83,13 @@ export class PeticionesService {
        //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
        //.catch(this.handleError);
     } 
+
+    getPersonCartera(_id){
+        
+         return this._http.get(this.url+'carteras/listPersonsCartera/'+_id).map((res: Response)=> res);
+                
+    }
+
     private extractData(res: Response) {
       let body = res.json();
       console.log(body);
@@ -102,4 +109,6 @@ export class PeticionesService {
       //     catchError(this.handleError<any>('updateUser'))
       //   );
       // }
+
+      
  }
