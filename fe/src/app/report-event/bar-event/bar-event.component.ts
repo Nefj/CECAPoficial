@@ -15,13 +15,13 @@ export class BarEventComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels:string[] = ['Enero', 'Febrero', 'Marzo', 'Abril'];
+  public barChartLabels:string[] = ['Ejecutivo 1', 'Ejecutivo 2', 'Ejecutivo 3', 'Ejecutivo 4'];
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
  
   public barChartData:any[] = [
-    {data: [{events:name},'', '', ''], label: 'Evento 1'},
-    {data: [{events:name}, '', '', ''], label: 'Evento 2'}
+    {data: [{events:this.inscriptions}, '', '', ''], label: 'Evento 1'},
+    {data: [{events:this.inscriptions}, '', '', ''], label: 'Evento 2'}
   ];
  
   // events

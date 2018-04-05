@@ -17,6 +17,25 @@
      </ol>
   </section>
   <section class="content">
+      <div>
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th>Ejecutivo</th>
+                      <th>Evento</th>
+                      <th>Incritos</th>
+                  </tr>
+               </thead>
+              <tbody>
+                 <tr *ngFor="let i of events">
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.state }}</td>
+                    <td>{{ i.inscriptions.length}}</td>
+                 </tr>
+              </tbody>
+           </table>
+      </div>
+
     <app-bar-event></app-bar-event>
   </section>
 </div>
