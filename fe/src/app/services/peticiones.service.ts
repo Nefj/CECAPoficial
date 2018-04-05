@@ -5,6 +5,7 @@ import "rxjs/add/operator/map";
 import { Observable } from 'rxjs/Observable'
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CATCH_ERROR_VAR } from "@angular/compiler/src/output/abstract_emitter";
 
 @Injectable()
 export class PeticionesService {
@@ -50,7 +51,7 @@ export class PeticionesService {
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
       return this._http.post(this.url + 'events', body, { headers: headers }).map((res: Response) => res);
    }
-   addPerson(person) {
+   addPerson(person) { 
       let body = JSON.stringify(person);
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
       return this._http.post(this.url + 'persons', body, { headers: headers }).map((res: Response) => res);
@@ -66,9 +67,39 @@ export class PeticionesService {
    }
 
    addUser(user){
+      
        let body=JSON.stringify(user);
        var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
-       return this._http.post(this.url+'users',body,{headers : headers}).map((res:Response)=>res);
+       return this._http.post(this.url+'users/register',body,{  headers: headers }).map((res:Response)=>res);
    }
+
    
-}
+    updatePerson(event_object) {
+        let body = JSON.stringify(event_object);
+        var idEvent= event_object.name;
+     // console.log(body);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
+       //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
+       //.catch(this.handleError);
+    } 
+    private extractData(res: Response) {
+      let body = res.json();
+      console.log(body);
+      return body || {};
+  }
+
+  private handleError(error: any) {
+      let errMsg = (error.message) ? error.message :
+          error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      console.error(errMsg);
+      return Observable.throw(errMsg);
+  }
+      
+      // updateUsers (user: User): Observable<null> {
+      //   return this.http.put(this.usersUrl, user, httpOptions).pipe(
+      //     tap(_ => this.log(`updated user id=${user.id}`)),
+      //     catchError(this.handleError<any>('updateUser'))
+      //   );
+      // }
+ }

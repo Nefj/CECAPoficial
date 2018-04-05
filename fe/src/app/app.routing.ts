@@ -11,6 +11,8 @@ import { EditPersonComponent } from './event/editPerson/editPerson.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportTrimestralComponent} from './report-trimestral/report-trimestral.component';
 import { ReportEventoComponent } from './report-evento/report-evento.component';
+import { CarteraComponent } from "./cartera/cartera.component";
+import { InfoCarteraComponent } from "./cartera/info-cartera/info-cartera.component";
 
 const appRoutes: Routes = [
    { path: '', component: HomeComponent },//ruta basica
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
          { path: 'reports', component: ReportsComponent },
          { path: 'trimestral', component: ReportTrimestralComponent },
          { path: 'reportEvent', component: ReportEventoComponent }
+         { path: 'cartera', component:CarteraComponent},
+         { path: 'cartera/:id',component:InfoCarteraComponent}
       ]
 
    },

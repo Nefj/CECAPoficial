@@ -46,9 +46,12 @@ import { LineaComponent } from './reports/linea/linea.component';
 import { BarraComponent } from './reports/barra/barra.component';
 import { ReportTrimestralComponent } from './report-trimestral/report-trimestral.component';
 import { TortaComponent } from './reports/torta/torta.component';
-import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
 import { BarComponent } from './report-trimestral/bar/bar.component';
 import { ReportEventoComponent } from './report-evento/report-evento.component';
+
+import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
+import { CarteraComponent } from './cartera/cartera.component';
+import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,7 @@ import { ReportEventoComponent } from './report-evento/report-evento.component';
     
     ReportsComponent,
     ReportTrimestralComponent,
+    ReportEventoComponent,
     LineaComponent,
     BarraComponent,
     TortaComponent,
@@ -82,8 +86,8 @@ import { ReportEventoComponent } from './report-evento/report-evento.component';
     SearchPipe,
     AddEjecutivoComponent,
     AddCarteraComponent,
-    ReportEventoComponent,
-
+    CarteraComponent,
+    InfoCarteraComponent,
   ],
   imports: [
     BrowserModule,

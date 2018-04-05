@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef,ViewChild,Output,EventEmitter } from '@angular/core';
 import {PeticionesService } from '../../services/peticiones.service';
 import {Cartera} from '../../modelo/cartera';
+import { Identity,Roles } from "../../services/global";
 import {User} from '../../modelo/user';
 
 @Component({
@@ -17,6 +18,8 @@ export class AddEjecutivoComponent implements OnInit {
   @ViewChild('cell') cellRef: ElementRef;
   @ViewChild('cartera') carteraRef: ElementRef;
   @Output()MessageEvent=new EventEmitter();
+  @ViewChild("close", {read: ElementRef}) close: ElementRef;
+  
 
 
   constructor(private _peticionesService:PeticionesService) { }
@@ -32,14 +35,19 @@ export class AddEjecutivoComponent implements OnInit {
     let date=this.dateRef.nativeElement.value;
     let cell=this.cellRef.nativeElement.value;
     const cartera=this.carteraRef.nativeElement.value;
+    const userid=Identity._id;
+    const rolid=Roles[1]._id
 
-    const newEjecutivo=new User(name,date,cell,cartera)
-    console.log(newEjecutivo);
+    // const newEjecutivo=new User(name,date,cell,cartera)
+
+    const newEjecutivo=new User(userid,name,name,rolid);
+   console.log(newEjecutivo);
 
     this._peticionesService.addUser(newEjecutivo).subscribe(response=>{
       this.MessageEvent.emit();
       
-
+     
+      this.close.nativeElement.click();
 
     })
 

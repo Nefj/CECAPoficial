@@ -12,21 +12,31 @@ router
    })
 
   
-   .post('/', function (req, res) {
-    var cartera = new db.carteras(req.body);
-    var d = new Date();
-    // if ((event.date_start == undefined || event.date_start < d) ||event.description == '' || event.total == '' || event.program == '') return res.status(400).send();
-    db.carteras.find({}, function (err, persons) {
-       if (err) return res.status(400).send(err);
-       saveCartera(cartera);
-    });
-    function saveCartera(cartera) {
+//    .post('/', function (req, res) {
+//     var cartera = new db.carteras(req.body);
+//     var d = new Date();
+//     // if ((event.date_start == undefined || event.date_start < d) ||event.description == '' || event.total == '' || event.program == '') return res.status(400).send();
+//     db.carteras.find({}, function (err, persons) {
+//        if (err) return res.status(400).send(err);
+//        saveCartera(cartera);
+//     });
+//     function saveCartera(cartera) {
       
-       event.save(function (err, event) {
-          if (err) return res.status(400).send(err);
+//        event.save(function (err, event) {
+//           if (err) return res.status(400).send(err);
 
-          return res.status(201).send(event);
-       });
-    }
- })
+//           return res.status(201).send(event);
+//        });
+//     }
+
+
+
+    // .get('/listPersons',function(req,res)){
+
+    //     db.carteras.findOne({_id:req._id},function(err,cartera)){
+
+    //         if(err)return resizeBy.status(400).send(err);
+    //     }
+
+    //  })
 module.exports = router;
