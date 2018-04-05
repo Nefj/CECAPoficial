@@ -10,7 +10,7 @@ import { ProgramaComponent } from './programa/programa.component';
 import { EditPersonComponent } from './event/editPerson/editPerson.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportTrimestralComponent} from './report-trimestral/report-trimestral.component';
-import { ReportEventoComponent } from './report-evento/report-evento.component';
+import { ReportEventComponent } from './report-event/report-event.component';
 import { CarteraComponent } from "./cartera/cartera.component";
 import { InfoCarteraComponent } from "./cartera/info-cartera/info-cartera.component";
 
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
          { path: 'editPerson/:id', component: EditPersonComponent },
          { path: 'reports', component: ReportsComponent },
          { path: 'trimestral', component: ReportTrimestralComponent },
-         { path: 'reportEvent', component: ReportEventoComponent }
+         { path: 'reportEvent', component: ReportEventComponent },
          { path: 'cartera', component:CarteraComponent},
          { path: 'cartera/:id',component:InfoCarteraComponent}
       ]
