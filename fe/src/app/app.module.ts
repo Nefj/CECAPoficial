@@ -47,6 +47,8 @@ import { BarraComponent } from './reports/barra/barra.component';
 import { ReportTrimestralComponent } from './report-trimestral/report-trimestral.component';
 import { TortaComponent } from './reports/torta/torta.component';
 import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
+import { CarteraComponent } from './cartera/cartera.component';
+import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { AddCarteraComponent } from './events/add-cartera/add-cartera.component'
     SearchPipe,
     AddEjecutivoComponent,
     AddCarteraComponent,
+    CarteraComponent,
+    InfoCarteraComponent,
 
   ],
   imports: [

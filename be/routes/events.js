@@ -43,7 +43,7 @@ router
    .get('/trimestral', function (req, res) {
         var d = new Date();
         var d1 = new Date().getMonth()-3; //menos 3 meses
-      db.events.find({date_start: {gt: d, lt: d1}}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
+      db.events.find({date_start: {$gt: d1, $lt: d}}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
          if (err) return res.status(400).send(err);
          let programs = [];
          var j = 0;
