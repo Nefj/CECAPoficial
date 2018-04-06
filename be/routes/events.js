@@ -76,6 +76,33 @@ router
          });
       }
    })
+   .get('/mejorEjecutivo/:id', function (req, res) {
+    db.events.aggregate([
+       { $match: { _id: mongoose.Types.ObjectId(req.params.id) } },
+       { $unwind: '$inscriptions' },
+       { $match: { 'inscriptions.state': { $eq: 1 } } },
+       // { $project: { 'total': { '$size': '$inscriptions'}} }
+       { $group: { _id: '$inscriptions.user', total: { $sum: 1 } } }
+    ], function (err, events) {
+       if (err) return res.status(400).send(err);
+       console.log(events)
+       // Persons(persons);
+       getUsers(events);
+    });
+    function getUsers(events) {
+      db.users.find({ _id: { $in: events._id } }, { name: 1 }, function (err, users) {
+         if (err) return res.status(400).send(err);
+         events.forEach(event => {
+            users.forEach(users => {
+               if (JSON.stringify(event._id) == JSON.stringify(users._id)) {
+                  event.name = users.name;
+               }
+            })
+         });
+         return res.status(200).send(events);
+      })
+    }
+  })
    .get('/:id', function (req, res) {
       db.events.findOne({ _id: req.params.id }, function (err, event) {
          if (err) return res.status(400).send(err);

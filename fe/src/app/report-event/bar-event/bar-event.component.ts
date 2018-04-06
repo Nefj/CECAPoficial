@@ -7,8 +7,8 @@ import { PeticionesService } from '../../services/peticiones.service';
   styleUrls: ['./bar-event.component.css']
 })
 export class BarEventComponent implements OnInit {
-  public eventId;
-  public event;
+  public userId;
+  public user;
   public inscriptions;
 
   public barChartOptions:any = {
@@ -20,8 +20,8 @@ export class BarEventComponent implements OnInit {
   public barChartLegend:boolean = true;
  
   public barChartData:any[] = [
-    {data: [{events:this.inscriptions}, '', '', ''], label: 'Evento 1'},
-    {data: [{events:this.inscriptions}, '', '', ''], label: 'Evento 2'}
+    {data: [{events:this.user}, '', '', ''], label: 'Evento 1'},
+    {data: [{events:this.user}, '', '', ''], label: 'Evento 2'}
   ];
  
   // events
@@ -36,13 +36,13 @@ export class BarEventComponent implements OnInit {
   public randomize():void {
     // Only Change 3 values
     let data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
+      Math.round(Math.random() * 12),
+      6,
+      12,
+      (Math.random() * 12),
+      3,
+      (Math.random() * 12),
+      1];
     let clone = JSON.parse(JSON.stringify(this.barChartData));
     clone[0].data = data;
     this.barChartData = clone;
@@ -53,20 +53,17 @@ export class BarEventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._peticionesService.getEvent(this.eventId).subscribe(
-      result => {
-         this.event = result;
-         console.log(this.event)
-         //this.event.map(event => {
-        this.inscriptions = this.event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
-       //});
-       console.log(this.event)
-         this.inscriptions = this.event.inscritos;
-      },
-      error => {
-         console.log(<any>error)
-      }
-   );
-  }
+     this._peticionesService.getMejorEjecutivo(this.userId).subscribe(
+        result => {
+           this.user = result;
+           console.log(this.user);
+           //this.inscriptions = this.user.inscriptions;
+           //console.log(this.inscriptions);
+        },
+        error => {
+           console.log(<any>error);
+        }
+     );
+    }
 
 }
