@@ -88,7 +88,7 @@ export class PeticionesService {
 
     getPersonCartera(_id){
         
-        console.log(_id+"desde peticionesservice")
+        // console.log(_id+"desde peticionesservice")
         return this._http.get(this.url+'carteras/'+_id).map((res: Response)=> res);
         
         //  return this._http.get(this.url+'cartera/listPersonsCartera/'+_id).map((res: Response)=> res);

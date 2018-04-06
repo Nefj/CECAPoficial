@@ -28,7 +28,7 @@ export class InfoCarteraComponent implements OnInit {
   queryPerson(){
     this.route.params.subscribe(params => {
         this.carteraId = params.id;
-        console.log(this.carteraId);
+        // console.log(this.carteraId);
         // console.log(this.personId.split('-'));
      });
     //  this._peticionesService.getEvent(this.personId).subscribe(

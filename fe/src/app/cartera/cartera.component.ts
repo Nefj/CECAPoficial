@@ -30,8 +30,12 @@ export class CarteraComponent implements OnInit {
     });
   }
   send(_id:string){
-    console.log(_id);
+    // console.log(_id);
     this.router.navigate(['/home/cartera',_id]);
+  }
+  editCartera(_name:string){
+
+    this.router.navigate(['/home/cartera',_name]);
   }
 
 }
