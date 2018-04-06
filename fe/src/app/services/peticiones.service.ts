@@ -65,15 +65,15 @@ export class PeticionesService {
    getCarteras(){
        return this._http.get(this.url+'carteras').map((res:Response)=>res);
    }
-
    addUser(user){
-      
        let body=JSON.stringify(user);
        var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
        return this._http.post(this.url+'users/register',body,{  headers: headers }).map((res:Response)=>res);
    }
+   getMejorEjecutivo(_id){
+        return this._http.get(this.url+'events/mejorEjecutivo/' + _id).map((res:Response)=>res);
+   }
 
-   
     updatePerson(event_object) {
         let body = JSON.stringify(event_object);
         var idEvent= event_object.name;
@@ -88,7 +88,7 @@ export class PeticionesService {
 
     getPersonCartera(_id){
         
-        console.log(_id+"desde peticionesservice")
+        // console.log(_id+"desde peticionesservice")
         return this._http.get(this.url+'carteras/'+_id).map((res: Response)=> res);
         //  return this._http.get(this.url+'cartera/listPersonsCartera/'+_id).map((res: Response)=> res);
                 

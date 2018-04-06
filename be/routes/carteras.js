@@ -37,25 +37,24 @@ router
     db.carteras.findOne({_id: req.params._id},function(err,cartera){
         if(err)return res.status().send(err);
         if(cartera==null)return res.status(404).send();
-        console.log(cartera);
-       // getPersonas(cartera);
+        // console.log(cartera);
+       getPersonas(cartera);
+       
         
     }
 
     );
 
-    // function getPersonas(cartera){
-    //     db.persons.find({_id:{$in:persons}},function(err,persons){
-    //         if(err)return res.status(400).send(err);
-    //         persons.forEach(person => {
-    //             if (JSON.stringify(i.person) == JSON.stringify(person._id)) {
-    //                i.name = person.first_name + ' ' + person.last_name;
-
-    //             }
-    //          });
-    //          return res.status(200).send(persons);
-    //     })
-    // }
+    function getPersonas(cartera){
+        // let carteraObj=moongose.Types.ObjectId(cartera);
+        db.persons.find({carteras:cartera},function(err,persons){
+            if(err)return res.status(400).send(err);
+            // console.log(persons);
+            if (persons == null) return res.status(404).send();
+            
+           return res.status(200).send(persons)
+        })
+    }
     
  })
 .get('/otro/:id', function (req, res) {

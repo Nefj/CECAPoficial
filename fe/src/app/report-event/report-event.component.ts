@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeticionesService } from '../services/peticiones.service';
+import { User } from '../modelo/user';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-report-event',
@@ -8,29 +10,25 @@ import { PeticionesService } from '../services/peticiones.service';
   providers: [, PeticionesService]
 })
 export class ReportEventComponent implements OnInit {
-  public eventId;
-  public event;
+  public userId;
+  public user;
   public inscriptions;
- 
   constructor(
     private _peticionesService: PeticionesService
   ) { }
 
   ngOnInit() {
-    this._peticionesService.getEvent(this.eventId).subscribe(
-      result => {
-         this.event = result;
-         console.log(this.event)
-         //this.event.map(event => {
-        this.inscriptions = this.event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});
-       //});
-       console.log(this.event)
-         this.inscriptions = this.event.inscritos;
-      },
-      error => {
-         console.log(<any>error)
-      }
-   );
-  }
+     this._peticionesService.getMejorEjecutivo(this.userId).subscribe(
+        result => {
+           this.user = result;
+           console.log(this.user);
+           //this.inscriptions = this.user.inscriptions;
+           //console.log(this.inscriptions);
+        },
+        error => {
+           console.log(<any>error);
+        }
+     );
+    }
 
 }
