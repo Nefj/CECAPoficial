@@ -67,8 +67,7 @@ module.exports = {
       ci: Number,
       cellphone: Number,
       email:String,
-      ocupation:Number,//1 = universitario, 2=Profecional, 3=particular
-
+      ocupation:String,//1 = universitario, 2=Profecional, 3=particular
       //////////////
       carteras:ObjectId,
       /////////////
