@@ -53,6 +53,7 @@ import { BarEventComponent } from './report-event/bar-event/bar-event.component'
 import { AddCarteraComponent } from './events/add-cartera/add-cartera.component';
 import { CarteraComponent } from './cartera/cartera.component';
 import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
+import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.compon
     AddCarteraComponent,
     CarteraComponent,
     InfoCarteraComponent,
+    EditCarteraComponent,
   ],
   imports: [
     BrowserModule,

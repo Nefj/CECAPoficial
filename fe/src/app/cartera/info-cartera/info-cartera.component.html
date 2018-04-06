@@ -15,20 +15,24 @@
           <thead>
              <tr>
                 <th>Nombre</th>
-                <th>Estado</th>
-                <th>Descripcion</th>
+                <th>Carnet</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Ocupacion</th>
                 <th colspan="2">Ajustes</th>
              </tr>
           </thead>
           <tbody>
              <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
-             <tr *ngFor="let person of persosn">
-                <td>{{ person.name }}</td>
-                <!-- <td>{{ i.state }}</td> -->
-                <!-- <td>{{ i.description }}</td> -->
+             <tr *ngFor="let person of persons">
+                <td>{{ person.first_name }} {{person.last_name}}</td>
+                <td>{{ person.ci }}</td>
+                <td>{{ person.cellphone }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.ocupation }}</td>
                 <td>
                    <!-- <app-editPerson [editPerson]="event"></app-editPerson> -->
-                   <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a>
+                   <!-- <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a> -->
                 </td>
              </tr>
           </tbody>
