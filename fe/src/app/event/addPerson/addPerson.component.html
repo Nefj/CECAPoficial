@@ -9,26 +9,65 @@
             </div>
             <div class="modal-body mx-3">
                   <div class="md-form mb-5">
-                      <i class="fa fa-user prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form34">
+                            <i class="fa fa-user prefix grey-text"></i>  Nombre</label>
                       <input type="text" id="form34" class="form-control validate" #firstName>
-                      <label data-error="wrong" data-success="right" for="form34">Nombre</label>
                   </div>
                   <div class="md-form mb-5">
-                      <i class="fa fa-user prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form34">
+                                <i class="fa fa-user prefix grey-text"></i>  Apellido</label>
                       <input type="text" id="form34" class="form-control validate" #lastName>
-                      <label data-error="wrong" data-success="right" for="form34">Apellido</label>
                   </div>
                   <div class="md-form mb-5">
-                      <i class="fa fa-calendar prefix grey-text"></i>
-                      <input type="date" id="form34" class="form-control validate" #birthday>
-                      <label data-error="wrong" data-success="right" for="form34">Fecha de Nacimiento</label>
-                  </div>
-  
-                  <div class="md-form mb-5">
-                      <i class="fa fa-envelope prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="form29">
+                        <i class="fa fa-envelope prefix grey-text"></i>  Cedula de Identidad</label>
                       <input type="number" id="form29" class="form-control validate" #ci>
-                      <label data-error="wrong" data-success="right" for="form29">Cedula de Identidad</label>
                   </div>
+                  <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="form29">
+                        <i class="fa fa-envelope prefix grey-text"></i>  Celular</label>
+                    <input type="number" id="form29" class="form-control validate" #celular>
+                </div>
+                <div class="md-form mb-5">
+                        <label data-error="wrong" data-success="right" for="form29">
+                        <i class="fa fa-envelope prefix grey-text"></i>  Correo</label>
+                    <input type="email" id="form29" class="form-control validate" #correo>
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="form32">
+                    <i class="fa fa-tag prefix grey-text"></i>  Profecion</label>
+                    <select class="selectpicker">
+                        <option value="programa1">Universitario</option>
+                        <option value="programa2">Profecion</option>
+                        <option value="programa3">praticular</option>                     
+                      </select>
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="form32">
+                    <i class="fa fa-tag prefix grey-text"></i>  Programa</label>
+                    <select class="selectpicker" >
+                      <option value="programa1" *ngFor="let i of programs">{{ i.name }}</option>
+                     </select>
+                </div>
+
+                <div class="md-form mb-5">
+                   <label data-error="wrong" data-success="right" for="form32">
+                    <i class="fa fa-tag prefix grey-text"></i>  Interes</label>
+                    <select class="selectpicker">
+                        <option value="Interesado">Interesado</option>
+                        <option value="Confirmado">Confirmado</option>
+                        <option value="Sin Interes">Sin Interes</option>
+                        <option value="Proximo evento">Proximo evento</option>
+                        
+                      </select>
+                      <br>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-pencil prefix grey-text"></i>
+                    <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                    <label data-error="wrong" data-success="right" for="form8">Descripcion u Observacions</label>
+                </div>
   
               </div>
               <div class="modal-footer d-flex justify-content-center">

@@ -64,11 +64,10 @@ module.exports = {
    persons: mongoose.model('persons', new Schema({
       first_name: String,
       last_name: String,
-      birthday: Date,
       ci: Number,
       cellphone: Number,
       email:String,
-      ocupation:String,
+      ocupation:Number,//1 = universitario, 2=Profecional, 3=particular
 
       //////////////
       carteras:ObjectId,
