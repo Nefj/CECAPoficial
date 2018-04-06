@@ -58,4 +58,27 @@ router
     // }
     
  })
+.get('/otro/:id', function (req, res) {
+    db.carteras.findOne({user: req.params.id},function(err,cartera){
+        if(err)return res.status().send(err);
+        if(cartera==null)return res.status(404).send();
+        console.log('hola desde get cartera user');
+        console.log(cartera); 
+       // getPersonas(cartera);
+    }
+
+    );
+
+   
+ });
+//function PUT
+//  .put('/:id', function (req, res) {
+//     console.log(req.body);
+//     db.carteras.find({user: req.params.id},function(err,cartera){
+//         if(err)return res.status().send(err);
+//         if(cartera==null)return res.status(404).send();
+//         console.log(cartera);
+//        // getPersonas(cartera);
+//     });
+// });
 module.exports = router;
