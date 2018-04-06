@@ -6,10 +6,7 @@
         <small>Vigentes</small>
      </h1>
      <ol class="breadcrumb">
-           <li>
-<!-- 
-                       <app-add-ejecutivo></app-add-ejecutivo> -->
-           </li>
+           
         <li>
            <!-- <app-addProgram></app-addProgram> -->
         </li>
@@ -22,6 +19,10 @@
         </li>
         <li class="active">carteras</li>
      </ol>
+     <li>
+      
+                  <!-- <app-edit-cartera></app-edit-cartera> -->
+                 </li>
   </section>
   <section class="content">
      <table class="table table-hover">
@@ -43,7 +44,9 @@
                 <a class="btn btn-primary" (click)="send(cartera._id)">INFORMACION</a>
               </td>
               <td>
-                 <a class="btn btn-warning" (click)="send(cartera._id)">EDITAR</a>
+                 <a class="btn btn-warning" (click)="editCartera(cartera.name)">EDITAR</a>
+              
+                
               </td>
            </tr>
         </tbody>

@@ -1,0 +1,43 @@
+<div class="content-wrapper">
+        
+         <section class="content">
+      
+      
+            <!-- <app-addPerson (messageEvent)="receiveMessage()"></app-addPerson> -->
+      
+      
+           <!-- <section>
+                  <div class="col-lg-1">Buscar:</div>
+                  <div class="col-lg-5">
+                        <input type="text" [(ngModel)]="busqueda"></div>
+            </section>-->
+            <table class="table table-hover" >
+               <thead>
+                  <tr>
+                     <th>nombre Cartera</th>
+                     <th>Carnet</th>
+                     <th>Celular</th>
+                     <th>Email</th>
+                     <th>Ocupacion</th>
+                     <th colspan="2">Ajustes</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
+                  <tr *ngFor="let person of persons">
+                     <td>{{ person.first_name }} {{person.last_name}}</td>
+                     <td>{{ person.ci }}</td>
+                     <td>{{ person.cellphone }}</td>
+                     <td>{{ person.email }}</td>
+                     <td>{{ person.ocupation }}</td>
+                     <td>
+                        <!-- <app-editPerson [editPerson]="event"></app-editPerson> -->
+                        <!-- <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a> -->
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+            
+         </section>
+         <router-outlet></router-outlet>
+      </div>
