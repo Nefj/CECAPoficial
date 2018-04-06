@@ -26,46 +26,45 @@
                   <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="form29">
                         <i class="fa fa-envelope prefix grey-text"></i>  Celular</label>
-                    <input type="number" id="form29" class="form-control validate" #celular>
+                    <input type="number" id="form29" class="form-control validate" #cellphone>
                 </div>
                 <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="form29">
                         <i class="fa fa-envelope prefix grey-text"></i>  Correo</label>
-                    <input type="email" id="form29" class="form-control validate" #correo>
+                    <input type="email" id="form29" class="form-control validate" #email>
                 </div>
                 <div class="md-form mb-5">
                     <label data-error="wrong" data-success="right" for="form32">
-                    <i class="fa fa-tag prefix grey-text"></i>  Profecion</label>
-                    <select class="selectpicker">
-                        <option value="programa1">Universitario</option>
-                        <option value="programa2">Profecion</option>
-                        <option value="programa3">praticular</option>                     
+                    <i class="fa fa-tag prefix grey-text"></i>  Ocupacion</label>
+                    <select class="selectpicker" [(ngModel)]="ocupSeleccionado" (change)="captOcupation()">
+                        <option value="universitario">Universitario</option>
+                        <option value="profecional">Profecion</option>
+                        <option value="particular">praticular</option>                     
                       </select>
                 </div>
-                <div class="md-form mb-5">
+                <div>
                     <label data-error="wrong" data-success="right" for="form32">
-                    <i class="fa fa-tag prefix grey-text"></i>  Programa</label>
-                    <select class="selectpicker" >
-                      <option value="programa1" *ngFor="let i of programs">{{ i.name }}</option>
-                     </select>
+                     <i class="fa fa-tag prefix grey-text"></i>  Programas</label>
+                    <select name="" id="cantidad" [(ngModel)]="progSeleccionado"(change)="captProgram()">
+                        <option *ngFor="let i of programs">
+                          {{i.name}}
+                        </option>
+                      </select>
                 </div>
 
                 <div class="md-form mb-5">
                    <label data-error="wrong" data-success="right" for="form32">
                     <i class="fa fa-tag prefix grey-text"></i>  Interes</label>
-                    <select class="selectpicker">
-                        <option value="Interesado">Interesado</option>
-                        <option value="Confirmado">Confirmado</option>
-                        <option value="Sin Interes">Sin Interes</option>
-                        <option value="Proximo evento">Proximo evento</option>
-                        
-                      </select>
-                      <br>
+                    <select name="" id="cantidad" [(ngModel)]="intSeleccionado" (change)="captInteres()">
+                            <option *ngFor="let i of interes">
+                              {{i}}
+                            </option>
+                          </select>
                 </div>
 
                 <div class="md-form">
                     <i class="fa fa-pencil prefix grey-text"></i>
-                    <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                    <textarea type="text" id="form8" class="md-textarea form-control" rows="4" #description></textarea>
                     <label data-error="wrong" data-success="right" for="form8">Descripcion u Observacions</label>
                 </div>
   
