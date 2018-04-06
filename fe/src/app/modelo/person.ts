@@ -2,8 +2,11 @@ export class Person {
    constructor(
       public first_name: string,
       public last_name: string,
-      public birthday: Date,
       public ci: number,
-      public user: string,
+      public cellphone:number,
+      public email:string,
+      public ocupation: number,  //1 = universitario, 2=Profecional, 3=particular
+     // public user: string,
+     public cartera:string
    ) { }
 }
