@@ -52,8 +52,8 @@ router
             // console.log(persons);
             if (persons == null) return res.status(404).send();
             
-           return res.status(200).send(persons)
-        })
+           return res.status(200).send(persons);
+        });
     }
     
  })
@@ -64,9 +64,8 @@ router
         console.log('hola desde get cartera user');
         console.log(cartera); 
        // getPersonas(cartera);
-    }
-
-    );
+       return res.status(200).send(cartera);
+    });
 
    
  });
