@@ -23,7 +23,7 @@ router
    .post('/', function (req, res) {
       var person = new db.persons(req.body);
       console.log(person);
-      if (person.first_name == '' || person.last_name == '' || person.ci == '' || person.user == '') return res.status(400).send();
+      if (person.first_name == '' || person.last_name == '' || person.ci == '' || person.carteras == '') return res.status(400).send();
       // save person
       person.save(function (err, person) {
          if (err) return res.status(400).send(err);
