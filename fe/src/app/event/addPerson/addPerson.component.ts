@@ -50,7 +50,7 @@ export class AddPersonComponent implements OnInit {
     captProgram(){console.log(this.progSeleccionado);}
     captInteres(){console.log(this.intSeleccionado);}
     captOcupation(){console.log(this.ocupSeleccionado);}
-    
+
    save() {
       const firstName = this.firstNameRef.nativeElement.value;
       let lastName = this.lastNameRef.nativeElement.value;
@@ -90,7 +90,7 @@ export class AddPersonComponent implements OnInit {
         result => {
            this.cartera = result;
            console.log('aqui la cartera del usuario::::');
-           
+           console.log(this.cartera);
         },
         error => {
            var errorMessage = <any>error;

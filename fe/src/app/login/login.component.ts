@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
             //console.log(<any>error);
             var errorMessage = <any>error;
             if (errorMessage != null) {
-               var body = JSON.parse(error._body);
+               var body = JSON.parse(error.body);
                this.status = 'error';
             }
          }

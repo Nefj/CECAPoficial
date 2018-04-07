@@ -7,6 +7,6 @@ export class Person {
       public email:string,
       public ocupation: number,  //1 = universitario, 2=Profecional, 3=particular
      // public user: string,
-     public cartera:string
+     public carteras:string
    ) { }
 }
