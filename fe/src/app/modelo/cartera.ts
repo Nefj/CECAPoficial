@@ -1,5 +1,5 @@
 export class Cartera {
     constructor(
-       name:String
+       public name:string
     ) { }
  }

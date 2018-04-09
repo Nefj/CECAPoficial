@@ -115,5 +115,10 @@ export class PeticionesService {
     
 
     }
+    addCartera(cartera){
+        let body=JSON.stringify(cartera);
+        var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+        return this._http.post(this.url+'carteras/register',body,{  headers: headers }).map((res:Response)=>res);
+    }
       
  }
