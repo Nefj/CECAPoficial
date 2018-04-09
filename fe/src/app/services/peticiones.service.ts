@@ -106,5 +106,19 @@ export class PeticionesService {
       //   );
       // }
 
+    updateCartera(cartera_object){
+        let body = JSON.stringify(cartera_object);
+        var idCartera= cartera_object.name;
+     // console.log(body);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'events/'+idCartera, body, {headers: headers}).map((res:Response)=>res);
+    
+
+    }
+    addCartera(cartera){
+        let body=JSON.stringify(cartera);
+        var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+        return this._http.post(this.url+'carteras/register',body,{  headers: headers }).map((res:Response)=>res);
+    }
       
  }

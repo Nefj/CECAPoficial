@@ -9,8 +9,8 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./edit-cartera.component.css']
 })
 export class EditCarteraComponent implements OnInit {
-
-  public carteraId
+  public carteraName;
+  public carteraId;
   constructor(
     private _peticionesService: PeticionesService,
     private route: ActivatedRoute,
@@ -19,12 +19,20 @@ export class EditCarteraComponent implements OnInit {
 
   ngOnInit() {
     this.queryCarteraId();
+    this.editCartera();
   }
 
   queryCarteraId(){
-    this.route.params.subscribe(params => {
-      this.carteraId = params.id;
+    console.log('hasdf');
+      this.route.params.subscribe(params => {
+      // this.carteraId = params.id;
+      this.carteraName=params.name;
+      console.log(this.carteraName+"editcartera");
    });
+
+  }
+  editCartera(){
+    // this._peticionesService.updateCartera(this.)
 
   }
 }

@@ -8,7 +8,8 @@
      <ol class="breadcrumb">
            
         <li>
-           <!-- <app-addProgram></app-addProgram> -->
+          
+          
         </li>
         <li>
            <!-- <app-addEvent (messageEvent)="receiveMessage()"></app-addEvent> -->
@@ -21,8 +22,8 @@
      </ol>
      <li>
       
-                  <!-- <app-edit-cartera></app-edit-cartera> -->
-                 </li>
+      <app-add-cartera></app-add-cartera>
+     </li>
   </section>
   <section class="content">
      <table class="table table-hover">
@@ -41,11 +42,10 @@
               <td>{{ cartera.name }}</td>
               <!-- <td>{{ event.date_start | date }}</td> -->
               <td>  
-                <a class="btn btn-primary" (click)="send(cartera._id)">INFORMACION</a>
+                <a class="btn btn-primary a" (click)="send(cartera._id)">INFORMACION</a>
               </td>
               <td>
                  <a class="btn btn-warning" (click)="editCartera(cartera.name)">EDITAR</a>
-              
                 
               </td>
            </tr>
