@@ -29,7 +29,16 @@ router
          return res.status(201).send(program);
       });
    })
-
+   //para obtener el id del programa que la persona eligio
+//    .post('/id', function(req, res){
+//        var nombre = req.body;
+//        console.log(req.body);
+//        db.programs.findOne({name: req.body}, function(err, program){
+//         if (err) return res.status(400).send(err);
+//         if (program == null) return res.status(404).send();
+//         return res.status(200).send(program);
+//        });
+//    })
    .put('/:id', function (req, res) {
       db.programs.findOne({ _id: req.params.id }, function (err, program) {
          if (err) return res.status(400).send(err);

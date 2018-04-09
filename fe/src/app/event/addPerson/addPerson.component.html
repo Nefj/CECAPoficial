@@ -38,7 +38,7 @@
                     <i class="fa fa-tag prefix grey-text"></i>  Ocupacion</label>
                     <select class="selectpicker" [(ngModel)]="ocupSeleccionado" (change)="captOcupation()">
                         <option value="universitario">Universitario</option>
-                        <option value="profecional">Profecion</option>
+                        <option value="profecional">Profecional</option>
                         <option value="particular">praticular</option>                     
                       </select>
                 </div>
@@ -46,7 +46,7 @@
                     <label data-error="wrong" data-success="right" for="form32">
                      <i class="fa fa-tag prefix grey-text"></i>  Programas</label>
                     <select name="" id="cantidad" [(ngModel)]="progSeleccionado"(change)="captProgram()">
-                        <option *ngFor="let i of programs">
+                        <option *ngFor="let i of programs" value="">
                           {{i.name}}
                         </option>
                       </select>

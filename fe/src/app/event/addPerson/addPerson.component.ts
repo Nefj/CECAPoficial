@@ -24,19 +24,21 @@ export class AddPersonComponent implements OnInit {
    @Output() messageEvent = new EventEmitter();
 
    public programs;
-   public interes;
+   public interes;//coleccion de interes
    public profecion
    public inscription;
    public person;
    public progSeleccionado;
-   public intSeleccionado;
+   public idProgram;
+   public intSeleccionado;// interes de la persona seleccionada
+   public interesNum;
    public ocupSeleccionado;
    public identy;
    public cartera;
    constructor(private _peticionesService: PeticionesService) { 
        this.person = new Person('','',null, null,'',null,'');
        this.inscription = new Inscription('', '', '', '');
-       this.identy=Identity._id;
+       //this.identy=Identity._id;
    }
 
    ngOnInit() {
@@ -47,8 +49,32 @@ export class AddPersonComponent implements OnInit {
        this.interes=['inscrito','confirmado','interesado','En duda','No participa','Proximo'];
        console.log(Identity._id+'vamos que se puede')
     }
-    captProgram(){console.log(this.progSeleccionado);}
-    captInteres(){console.log(this.intSeleccionado);}
+    captProgram(){console.log(
+        this.progSeleccionado);
+        // this.queryIdProgram();
+        // console.log(this.idProgram+ 'hola max');
+    }
+    captInteres(){
+        if(this.intSeleccionado == 'inscrito'){
+            this.interesNum = 0
+        }else{if(this.intSeleccionado == 'confirmado'){
+            this.interesNum = 1
+            }else{if(this.intSeleccionado == 'interesado'){
+                    this.interesNum = 2
+                }else{if(this.intSeleccionado == 'En duda'){
+                        this.interesNum = 3
+                    }else{if(this.intSeleccionado == 'No participa'){
+                            this.interesNum = 4
+                        }else{if(this.intSeleccionado == 'Proximo'){
+                                this.interesNum = 5}
+                        }
+                    }
+                }
+            }
+        }
+        console.log(this.intSeleccionado);
+        console.log(this.interesNum);
+    }
     captOcupation(){console.log(this.ocupSeleccionado);}
 
    save() {
@@ -84,6 +110,18 @@ export class AddPersonComponent implements OnInit {
         }
      );
    }
+//    queryIdProgram(){
+//     this._peticionesService.getIdProgram(this.progSeleccionado).subscribe(
+//         result => {
+//          this.idProgram = result;
+//         //    console.log('ID PROGRAM');
+//         },
+//         error => {
+//            var errorMessage = <any>error;
+//            console.log(errorMessage);
+//         }
+//      );
+//    }
    queryCartera(){
        //console.log(Identity._id)
        this._peticionesService.getUserCartera(Identity._id).subscribe(
