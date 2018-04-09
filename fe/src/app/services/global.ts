@@ -1,5 +1,6 @@
 import { User } from '../modelo/user';
 import { Rol } from '../modelo/rol';
+import { Cartera} from '../modelo/cartera';
 
 export var GLOBAL = {
    url: 'http://localhost:3000/'
@@ -23,3 +24,7 @@ export var Roles: Array<Rol> = [
       name: 'Ejecutivo'
    }
 ];
+export var CarteraS:Cartera={
+
+    name:''
+}

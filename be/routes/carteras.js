@@ -1,4 +1,7 @@
 var express = require('express');
+var mongoose = require('mongoose');
+var body_parser = require('body-parser');
+var jwt = require('jsonwebtoken');
 var db = require('../models/db');
 var router = express.Router();
 
@@ -68,7 +71,46 @@ router
     });
 
    
+ })
+
+//  .post('/register', function (req, res, next) {
+//     var role_id;
+//     db.roles.findOne({ name: 'Admin' }, function (err, role) {
+//        if (err) return res.status(400).send(err);
+//        if (role == null) return res.sendStatus(404);
+//        role_id = role._id;
+//        validating();
+//     })
+//     function validating() {
+//        db.users.findOne({ _id: req.body._id, rol: role_id }, function (err, user) {
+//           if (err) return console.log(err);
+//           if (user == null) return res.sendStatus(404);
+//           console.log(user);
+//           next();
+          
+          
+//        });
+//     }
+//  })
+ .post('/register', function (req, res) {
+    var cartera=new db.carteras(req.body);
+    console.log(cartera);
+    if(cartera.name=='')return res.status(400).send();
+    cartera.save(function(err,cartera){
+
+        if(err) return console.log(err);
+
+        res.status(200).send(cartera);
+    })
+  
  });
+
+ 
+
+
+
+
+
 //function PUT
 //  .put('/:id', function (req, res) {
 //     console.log(req.body);
