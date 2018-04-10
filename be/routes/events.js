@@ -5,7 +5,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 router
    .get('/', function (req, res) {
-      db.events.find({}, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
+      var d = new Date();
+      db.events.find({ date_start: { $gt: d } }, { date_start: 1, name: 1, program: 1, inscriptions: 1, total: 1 }, function (err, events) {
          if (err) return res.status(400).send(err);
          let programs = [];
          var j = 0;

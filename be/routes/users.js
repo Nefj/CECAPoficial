@@ -11,7 +11,7 @@ router
    // 	f.validation(res, req.body.token, next);
    //   })
    .get('/', function (req, res) {
-      db.users.find({ active: true }, { name: 1, rol: 1, salary: 1, office_id_asigned: 1, token: 1 }, function (err, users) {
+      db.users.find({ active: true }, { name: 1, rol: 1, password_hash:1 }, function (err, users) {
          if (err) return res.status(400).send(err);
          return res.status(200).send(users);
       });

@@ -64,8 +64,8 @@ router
     db.carteras.findOne({user: req.params.id},function(err,cartera){
         if(err)return res.status().send(err);
         if(cartera==null)return res.status(404).send();
-        console.log('hola desde get cartera user');
-        console.log(cartera); 
+      //   console.log('hola desde get cartera user');
+      //   console.log(cartera); 
        // getPersonas(cartera);
        return res.status(200).send(cartera);
     });
@@ -108,7 +108,7 @@ router
 
        for (i in req.body) {
           cartera[i] = req.body[i];
-          console.log(cartera[i]);  
+         //  console.log(cartera[i]);  
        }
        cartera.save(function (err, cartera) {
           if (err) return res.status(400).send(err);
@@ -119,7 +119,7 @@ router
  })
  .post('/register', function (req, res) {
     var cartera=new db.carteras(req.body);
-    console.log(cartera);
+   //  console.log(cartera);
     if(cartera.name=='')return res.status(400)
     cartera.save(function(err,cartera){
 
