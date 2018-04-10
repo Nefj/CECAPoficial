@@ -29,7 +29,7 @@ const appRoutes: Routes = [
 
          { path: 'cartera', component:CarteraComponent},
          { path: 'cartera/:id',component:InfoCarteraComponent},
-         { path: 'cartera/:name',component:EditCarteraComponent}
+         { path: 'cartera/edit/:name',component:EditCarteraComponent}
       ]
 
    },
