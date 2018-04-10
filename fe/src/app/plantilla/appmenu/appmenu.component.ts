@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Identity } from '../../services/global';
 
 @Component({
   selector: 'app-appmenu',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appmenu.component.css']
 })
 export class AppmenuComponent implements OnInit {
-
+  public nameUser;
   constructor() { }
 
   ngOnInit() {
+    this.nameUser= Identity.name;
   }
 
 }

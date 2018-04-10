@@ -57,7 +57,7 @@ router
                                           // if (events == null) return res.status(404).send();
                            
                                           return res.status(200).send(person);
-                                       })
+                                       });
                                  }
                         }else{
                               if (err) return res.status(400).send(err);
