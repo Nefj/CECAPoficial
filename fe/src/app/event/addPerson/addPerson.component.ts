@@ -42,15 +42,15 @@ export class AddPersonComponent implements OnInit {
    }
 
    ngOnInit() {
+       console.log(Identity._id);
        this.queryPrograms();
        this.queryCartera();
-       console.log(this.cartera);
+      // console.log(this.cartera);
       // this.interes=[{inscrito:0,confirmado:1,interesado:2,En_duda:3,No_participa:4,Proximo:5}];
        this.interes=['inscrito','confirmado','interesado','En duda','No participa','Proximo'];
-       console.log(Identity._id+'vamos que se puede')
     }
-    captProgram(){console.log(
-        this.progSeleccionado);
+    captProgram(){
+        console.log(this.progSeleccionado);
         // this.queryIdProgram();
         // console.log(this.idProgram+ 'hola max');
     }
@@ -84,15 +84,20 @@ export class AddPersonComponent implements OnInit {
       //const user = Identity._id;
       const cellphone = this.cellphoneRef.nativeElement.value;
       const email = this.emailRef.nativeElement.value;
-      let cartera='';
+      //let cartera='';
      // if (this.birthdayRef.nativeElement.value == '') birthday = new Date(1, 2, 3);
     //else birthday = this.birthdayRef.nativeElement.value;
       const newPerson = new Person(firstName, lastName, ci,cellphone, email, this.ocupSeleccionado, this.cartera._id);
       console.log(newPerson);
       this._peticionesService.addPerson(newPerson).subscribe(response => {
-         // console.log(response);
+         console.log(response);
          this.messageEvent.emit();
          this.close.nativeElement.click();
+      },
+      error => {
+         var errorMessage = <any>error;
+         console.log(errorMessage);
+         alert('La Cedula de Identidad o Telefono de la Persona ya existe');
       });
       
    }
