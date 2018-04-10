@@ -31,9 +31,15 @@ export class AddProgramComponent implements OnInit {
       this._peticionesService.addProgram(newProgram).subscribe(response => {
          // console.log(response);
          this.close.nativeElement.click();
-      });
+      },
+      error =>{
+          var errosMessage = <any>error;
+          alert('El nombre del Programa ya existe debe crear otro programa ');
+      }
+    
+    );
    }
-   add() {
+   add() { 
       const module = this.moduleInputRef.nativeElement.value;
       this.modules = this.modules + module + '\n';
       this.modulesAreaRef.nativeElement.value = this.modules;
