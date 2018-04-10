@@ -135,58 +135,63 @@ var _persons = [_person_1, _person_2, _person_3];
 
 var _event_seg = {
    description: 'solo para ejecutivos',
-   date_start: new Date(2018, 12, 12),
+   date_start: new Date(2018, 1, 12),
+   total: 30,
+   program: _program_seguridad,
+   inscriptions: [
+      {
+         state: 1,
+         person: _person_1,
+         user: _user_admin,
+         description: 'solo para ejecutivos',
+      },
+      {
+         state: 1,
+         person: _person_2,
+         user: _user_ejecutivo,
+         description: 'solo para ejecutivos',
+      },
+      {
+         state: 1,
+         person: _person_3,
+         user: _user_admin,
+         description: 'solo para ejecutivos',
+      }
+   ],
+   
+   _id: new mongoose.Types.ObjectId,
+   record_date: new Date()
+}
+var _event_seg2 = {
+   description: 'solo para ejecutivos',
+   date_start: new Date(2018, 02, 12),
    total: 30,
    program: _program_seguridad,
    inscriptions: [
       {
          state: 0,
          person: _person_1,
+         user: _user_ejecutivo,
          description: 'solo para ejecutivos',
       },
       {
          state: 0,
          person: _person_2,
+         user: _user_ejecutivo,
          description: 'solo para ejecutivos',
       }
       ,
       {
          state: 1,
          person: _person_3,
+         user: _user_admin,
          description: 'solo para ejecutivos',
       }
    ],
-
+   
    _id: new mongoose.Types.ObjectId,
    record_date: new Date()
 }
-var _event_seg2 = {
-    description: 'solo para ejecutivos',
-    date_start: new Date(2018, 02, 12),
-    total: 30,
-    program: _program_seguridad,
-    inscriptions: [
-       {
-          state: 0,
-          person: _person_1,
-          description: 'solo para ejecutivos',
-       },
-       {
-          state: 0,
-          person: _person_2,
-          description: 'solo para ejecutivos',
-       }
-       ,
-       {
-          state: 1,
-          person: _person_3,
-          description: 'solo para ejecutivos',
-       }
-    ],
- 
-    _id: new mongoose.Types.ObjectId,
-    record_date: new Date()
- }
 var _event_rrhh = {
    description: 'solo para ejecutivos',
    date_start: new Date(2018, 03, 12),
@@ -196,11 +201,13 @@ var _event_rrhh = {
       {
          state: 0,
          person: _person_1,
+         user: _user_admin,
          description: 'solo para ejecutivos',
       },
       {
          state: 0,
          person: _person_2,
+         user: _user_ejecutivo,
          description: 'solo para ejecutivos',
       }
    ],

@@ -34,7 +34,7 @@ router
 
 
 
-.get('/:_id', function (req, res) {
+.get('/persons/:_id', function (req, res) {
     
     
     db.carteras.findOne({_id: req.params._id},function(err,cartera){
@@ -72,6 +72,14 @@ router
 
    
  })
+ .get('/:id', function (req, res) {
+    db.carteras.findOne({ _id: req.params.id }, function (err, cartera) {
+       if (err) return res.status(400).send(err);
+       if (cartera == null) return res.status(404).send();
+
+       return res.status(200).send(cartera);
+    });
+ })
 
 //  .post('/register', function (req, res, next) {
 //     var role_id;
@@ -92,10 +100,27 @@ router
 //        });
 //     }
 //  })
+
+.put('/:id', function (req, res) {
+    db.carteras.findOne({ _id: req.params.id }, function (err, cartera) {
+       if (err) return res.status(400).send(err);
+       if (cartera == null) return res.status(404).send();
+
+       for (i in req.body) {
+          cartera[i] = req.body[i];
+          console.log(cartera[i]);  
+       }
+       cartera.save(function (err, cartera) {
+          if (err) return res.status(400).send(err);
+
+          return res.status(200).send(cartera);
+       });
+    });
+ })
  .post('/register', function (req, res) {
     var cartera=new db.carteras(req.body);
     console.log(cartera);
-    if(cartera.name=='')return res.status(400).send();
+    if(cartera.name=='')return res.status(400)
     cartera.save(function(err,cartera){
 
         if(err) return console.log(err);
@@ -105,6 +130,7 @@ router
   
  });
 
+ 
  
 
 

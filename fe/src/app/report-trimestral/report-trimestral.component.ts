@@ -20,19 +20,7 @@ export class ReportTrimestralComponent implements OnInit {
 
   ngOnInit() {
     console.log('report-trimestral.component.ts cargado')
-    this._peticionesService.getTrimestral().subscribe(
-      result => {
-         this.events = result;
-         this.events.map(event => {
-          event.inscriptions = event.inscriptions.filter(e => {console.log(e.state == 1); return e.state == 1});;
-       });
-       console.log(this.events)
-         this.inscriptions = this.events.inscritos;
-      },
-      error => {
-         console.log(<any>error)
-      }
-   );
+    
   }
 
 }

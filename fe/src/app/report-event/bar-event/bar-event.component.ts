@@ -1,69 +1,64 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { PeticionesService } from '../../services/peticiones.service';
 
 @Component({
-  selector: 'app-bar-event',
-  templateUrl: './bar-event.component.html',
-  styleUrls: ['./bar-event.component.css']
+   selector: 'app-bar-event',
+   templateUrl: './bar-event.component.html',
+   styleUrls: ['./bar-event.component.css']
 })
 export class BarEventComponent implements OnInit {
-  public userId;
-  public user;
-  public inscriptions;
+   public eventId;
+   public users;
+   // public inscriptions;
+   public data;
+   public barChartOptions: any = {
+      scaleShowVerticalLines: false,
+      responsive: true
+   };
+   public barChartLabels: string[] = ['Ejecutivo 1', 'Ejecutivo 2', 'Ejecutivo 3', 'Ejecutivo 4'];
+   public barChartType: string = 'bar';
+   public barChartLegend: boolean = true;
 
-  public barChartOptions:any = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartLabels:string[] = ['Ejecutivo 1', 'Ejecutivo 2', 'Ejecutivo 3', 'Ejecutivo 4'];
-  public barChartType:string = 'bar';
-  public barChartLegend:boolean = true;
- 
-  public barChartData:any[] = [
-    {data: [{events:this.user}, '', '', ''], label: 'Evento 1'},
-    {data: [{events:this.user}, '', '', ''], label: 'Evento 2'}
-  ];
- 
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
- 
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
- 
-  public randomize():void {
-    // Only Change 3 values
-    let data = [
-      Math.round(Math.random() * 12),
-      6,
-      12,
-      (Math.random() * 12),
-      3,
-      (Math.random() * 12),
-      1];
-    let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
-  }
- 
-  constructor(
-    private _peticionesService: PeticionesService
-  ) { }
+   public barChartData: any[] = [
+      { data: [{ events: [1, 5] }], label: 'Evento 1' }
+   ];
 
-  ngOnInit() {
-     this._peticionesService.getMejorEjecutivo(this.userId).subscribe(
-        result => {
-           this.user = result;
-           console.log(this.user);
-           //this.inscriptions = this.user.inscriptions;
-           //console.log(this.inscriptions);
-        },
-        error => {
-           console.log(<any>error);
-        }
-     );
-    }
+   // events
+   public chartClicked(e: any): void {
+      console.log(e);
+   }
+
+   public chartHovered(e: any): void {
+      console.log(e);
+   }
+
+   // console.log('randomizando')
+   public setGraphic(data): void {
+      this.barChartData[0].data = data;
+   }
+
+   constructor(
+      private route: ActivatedRoute,
+      private _peticionesService: PeticionesService
+   ) { }
+
+   ngOnInit() {
+      this.route.params.subscribe(params => {
+         this.eventId = params.id.split('-')[0];
+         this.barChartData[0].label = params.id.split('-')[1];
+      });
+      this._peticionesService.getMejorEjecutivo(this.eventId).subscribe(
+         result => {
+            this.data = result;
+            this.barChartLabels = this.data.map(u => u.name);
+            this.setGraphic(this.data.map(u => u.total));
+         },
+         error => {
+            console.log(<any>error);
+         }
+      );
+   }
+
 
 }

@@ -70,10 +70,17 @@ export class PeticionesService {
    getCarteras(){
        return this._http.get(this.url+'carteras').map((res:Response)=>res);
    }
+   getCartera(_id){
+
+    return this._http.get(this.url + 'carteras/' + _id).map((res: Response) => res);
+    }
    addUser(user){
        let body=JSON.stringify(user);
        var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
        return this._http.post(this.url+'users/register',body,{  headers: headers }).map((res:Response)=>res);
+   }
+   getUser() {
+      return this._http.get(this.url + 'users').map((res: Response) => res);
    }
    getMejorEjecutivo(_id){
         return this._http.get(this.url+'events/mejorEjecutivo/' + _id).map((res:Response)=>res);
@@ -94,7 +101,7 @@ export class PeticionesService {
     getPersonCartera(_id){
         
         // console.log(_id+"desde peticionesservice")
-        return this._http.get(this.url+'carteras/'+_id).map((res: Response)=> res);
+        return this._http.get(this.url+'carteras/persons/'+_id).map((res: Response)=> res);
         //  return this._http.get(this.url+'cartera/listPersonsCartera/'+_id).map((res: Response)=> res);
                 
     }
@@ -112,11 +119,12 @@ export class PeticionesService {
       // }
 
     updateCartera(cartera_object){
+        console.log(cartera_object);
         let body = JSON.stringify(cartera_object);
-        var idCartera= cartera_object.name;
+        var idCartera= cartera_object._id;
      // console.log(body);
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-        return this._http.put(this.url +'events/'+idCartera, body, {headers: headers}).map((res:Response)=>res);
+        return this._http.put(this.url +'carteras/'+idCartera, body, {headers: headers}).map((res:Response)=>res);
     
 
     }

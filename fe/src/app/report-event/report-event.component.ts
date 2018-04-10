@@ -18,17 +18,17 @@ export class ReportEventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this._peticionesService.getMejorEjecutivo(this.userId).subscribe(
-        result => {
-           this.user = result;
-           console.log(this.user);
-           //this.inscriptions = this.user.inscriptions;
-           //console.log(this.inscriptions);
-        },
-        error => {
-           console.log(<any>error);
-        }
-     );
+   //   this._peticionesService.getMejorEjecutivo(this.userId).subscribe(
+   //      result => {
+   //         this.user = result;
+   //         console.log(this.user);
+   //         //this.inscriptions = this.user.inscriptions;
+   //         //console.log(this.inscriptions);
+   //      },
+   //      error => {
+   //         console.log(<any>error);
+   //      }
+   //   );
     }
 
 }
