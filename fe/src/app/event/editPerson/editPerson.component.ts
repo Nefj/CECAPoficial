@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PeticionesService } from '../../services/peticiones.service';
 import { Identity } from '../../services/global';
 import { Inscription } from '../../modelo/inscription';
@@ -23,10 +23,11 @@ export class EditPersonComponent implements OnInit {
    constructor(
       private _peticionesService: PeticionesService,
       private route: ActivatedRoute,
+      private router: Router
    ) { 
       this.inscription = new Inscription('', '', '', '');
    }
-
+ 
    ngOnInit() {
      this.queryPerson();
       // this.route.params.subscribe(params => this.eventId = params.id);
@@ -44,11 +45,13 @@ export class EditPersonComponent implements OnInit {
         result => {
           var esperado = result;
           console.log(esperado);
-          alert('registrado');
+          this.router.navigate(['home/event', this.eventId]);
+          alert('Se Guardo correctamente la edicion');
         },
         error => {
           var errorMessage = <any>error;
           console.log(errorMessage);
+          alert('Error al Guardar verifique los datos');
         }
       );
    }
@@ -90,6 +93,9 @@ export class EditPersonComponent implements OnInit {
             console.log(errorMessage);
          }
       );
+   }
+   cancelar(_id: string) {
+    this.router.navigate(['home/event', _id]);
    }
 
   //  queryEvent(){

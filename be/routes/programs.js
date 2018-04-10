@@ -22,13 +22,19 @@ router
 
    .post('/', function (req, res) {
       var program = new db.programs(req.body);
-      if (program.name == '' || program.details == '' || program.modules == []) return res.status(400).send();
-      program.save(function (err, program) {
-         if (err) return res.status(400).send(err);
-
-         return res.status(201).send(program);
+      db.programs.findOne({name: req.body.name}, function(err, exiteNom){
+            if(exiteNom == null){
+                if (program.name == '' || program.details == '' || program.modules == []) return res.status(400).send();
+                program.save(function (err, program) {
+                    if (err) return res.status(400).send(err);
+                    return res.status(201).send(program);
+                 });
+            }else{
+                if (err) return res.status(400).send(err);
+                console.log('El nombre del Programa ya existe');
+            }
       });
-   })
+   }) 
    //para obtener el id del programa que la persona eligio
 //    .post('/id', function(req, res){
 //        var nombre = req.body;
