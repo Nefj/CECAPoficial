@@ -35,7 +35,7 @@ export class CarteraComponent implements OnInit {
   }
   editCartera(_name:string){
     console.log("carteracomponent");
-    this.router.navigate(['/home/cartera',_name]);
+    this.router.navigate(['/home/cartera/edit',_name]);
     console.log("router.navigate");
   }
 
