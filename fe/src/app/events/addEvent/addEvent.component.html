@@ -18,30 +18,30 @@
                <label data-error="wrong" data-success="right" for="form34">Nombre</label>
             </div> -->
             <div class="md-form">
-               <i class="fa fa-pencil prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="form8">
+                    <i class="fa fa-pencil prefix grey-text"></i> Descripcion</label>
                <input type="text" id="form34" class="form-control validate" #description>
-               <label data-error="wrong" data-success="right" for="form8">Descripcion</label>
             </div>
+            <br>
             <div class="md-form">
-               <i class="fa fa-date prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="form8">
+                    <i class="fa fa-calendar prefix grey-text"></i> Inicio</label>
                <input type="date" id="form34" class="form-control validate" #date>
-               <label data-error="wrong" data-success="right" for="form8">Inicio</label>
             </div>
+            <br>
             <div class="md-form">
-               <i class="fa fa-pencil prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="form8">
+                    <i class="fa fa-plus prefix grey-text"></i> Cupos totales</label>
                <input type="number" id="form34" class="form-control validate" #total>
-               <label data-error="wrong" data-success="right" for="form8">cupos totales</label>
             </div>
-
+            <br>
             <div class="md-form mb-5">
-               <i class="fa fa-tag prefix grey-text"></i>
+               <label data-error="wrong" data-success="right" for="form32">
+                  <i class="fa fa-tag prefix grey-text"></i> Programa</label>
                <select class="selectpicker" #program>
                   <option *ngFor="let program of programs" value="{{program._id}}">{{program.name}}</option>
                </select>
-               <br>
-               <label data-error="wrong" data-success="right" for="form32">Programa</label>
             </div>
-
             <!-- <div class="md-form mb-5">
                       <i class="fa fa-tag prefix grey-text"></i>
                       <select class="selectpicker">
