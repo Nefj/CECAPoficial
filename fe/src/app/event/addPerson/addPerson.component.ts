@@ -42,40 +42,40 @@ export class AddPersonComponent implements OnInit {
    }
 
    ngOnInit() {
-      // this.queryPrograms();
-      this.queryCartera();
-      console.log(this.cartera);
+       console.log(Identity._id);
+       //this.queryPrograms();
+       this.queryCartera();
+      // console.log(this.cartera);
       // this.interes=[{inscrito:0,confirmado:1,interesado:2,En_duda:3,No_participa:4,Proximo:5}];
-      this.interes = ['inscrito', 'confirmado', 'interesado', 'En duda', 'No participa', 'Proximo'];
-      console.log(Identity._id + 'vamos que se puede')
-   }
-   //  captProgram(){console.log(
-   //      this.progSeleccionado);
-   //      // this.queryIdProgram();
-   //      // console.log(this.idProgram+ 'hola max');
-   //  }
-   //  captInteres(){
-   //      if(this.intSeleccionado == 'inscrito'){
-   //          this.interesNum = 0
-   //      }else{if(this.intSeleccionado == 'confirmado'){
-   //          this.interesNum = 1
-   //          }else{if(this.intSeleccionado == 'interesado'){
-   //                  this.interesNum = 2
-   //              }else{if(this.intSeleccionado == 'En duda'){
-   //                      this.interesNum = 3
-   //                  }else{if(this.intSeleccionado == 'No participa'){
-   //                          this.interesNum = 4
-   //                      }else{if(this.intSeleccionado == 'Proximo'){
-   //                              this.interesNum = 5}
-   //                      }
-   //                  }
-   //              }
-   //          }
-   //      }
-   //      console.log(this.intSeleccionado);
-   //      console.log(this.interesNum);
-   //  }
-   captOcupation() { console.log(this.ocupSeleccionado); }
+       this.interes=['inscrito','confirmado','interesado','En duda','No participa','Proximo'];
+    }
+    captProgram(){
+        console.log(this.progSeleccionado);
+        // this.queryIdProgram();
+        // console.log(this.idProgram+ 'hola max');
+    }
+    captInteres(){
+        if(this.intSeleccionado == 'inscrito'){
+            this.interesNum = 0
+        }else{if(this.intSeleccionado == 'confirmado'){
+            this.interesNum = 1
+            }else{if(this.intSeleccionado == 'interesado'){
+                    this.interesNum = 2
+                }else{if(this.intSeleccionado == 'En duda'){
+                        this.interesNum = 3
+                    }else{if(this.intSeleccionado == 'No participa'){
+                            this.interesNum = 4
+                        }else{if(this.intSeleccionado == 'Proximo'){
+                                this.interesNum = 5}
+                        }
+                    }
+                }
+            }
+        }
+        console.log(this.intSeleccionado);
+        console.log(this.interesNum);
+    }
+    captOcupation(){console.log(this.ocupSeleccionado);}
 
    save() {
       const firstName = this.firstNameRef.nativeElement.value;
@@ -90,9 +90,14 @@ export class AddPersonComponent implements OnInit {
       const newPerson = new Person(firstName, lastName, ci, cellphone, email, this.ocupSeleccionado, this.cartera._id);
       console.log(newPerson);
       this._peticionesService.addPerson(newPerson).subscribe(response => {
-         // console.log(response);
+         console.log(response);
          this.messageEvent.emit();
          this.close.nativeElement.click();
+      },
+      error => {
+         var errorMessage = <any>error;
+         console.log(errorMessage);
+         alert('La Cedula de Identidad o Telefono de la Persona ya existe');
       });
 
    }

@@ -8,12 +8,14 @@ import { Identity } from '../../services/global';
    styleUrls: ['./appheader.component.css']
 })
 export class AppheaderComponent implements OnInit {
+    public nameUser;
 
    constructor(
       protected localStorage: AsyncLocalStorage,
       private _router: Router) { }
 
    ngOnInit() {
+       this.nameUser = Identity.name;
    }
    logOut() {
       this.localStorage.removeItem('Identity').subscribe(() => { });
