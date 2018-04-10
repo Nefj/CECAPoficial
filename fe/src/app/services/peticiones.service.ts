@@ -46,6 +46,11 @@ export class PeticionesService {
    getPrograms() {
       return this._http.get(this.url + 'programs').map((res: Response) => res);
    }
+//    getIdProgram(nomProgram){
+//     let body = JSON.stringify(nomProgram);
+//      var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+//       return this._http.post(this.url + 'programs/id', body, { headers: headers }).map((res: Response) => res);
+//    }
    addEvent(event) {
       let body = JSON.stringify(event);
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
