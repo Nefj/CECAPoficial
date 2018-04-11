@@ -133,5 +133,8 @@ export class PeticionesService {
         var headers =new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
         return this._http.post(this.url+'carteras/register',body,{  headers: headers }).map((res:Response)=>res);
     }
+    getRole(id){
+        return this._http.get(this.url + 'users/rolName/' + id).map((res: Response) => res);
+     }
       
  }

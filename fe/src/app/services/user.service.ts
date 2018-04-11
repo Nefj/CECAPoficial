@@ -73,6 +73,4 @@ export class UserService {
          } else console.log('sin _id en localStorage')
       });
    }
-
-
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PeticionesService } from '../services/peticiones.service';
+//import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { Identity } from '../services/global';
 
 @Component({
    selector: 'app-events',
@@ -11,13 +13,17 @@ import { Router } from '@angular/router';
 })
 export class EventsComponent implements OnInit {
    public events;
+   private role;
    constructor(
       private router: Router,
       private _peticionesService: PeticionesService
+      //,private _userService: UserService
    ) { }
 
    ngOnInit() {
       this.query();
+      this.queryRol();
+      console.log(this.role);
    }
    send(_id: string) {
       this.router.navigate(['home/event', _id]);
@@ -43,6 +49,18 @@ export class EventsComponent implements OnInit {
          }
       );
    }
+   queryRol(){
+       console.log(Identity.rol)
+    this._peticionesService.getRole(Identity.rol).subscribe(
+        result => {
+         this.role = result;
+        },
+        error=>{
+         var errorMessage = <any>error;
+         console.log(errorMessage);
+        }
+    );
+    }
 }
 
 
