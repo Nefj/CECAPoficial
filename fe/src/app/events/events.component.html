@@ -6,10 +6,10 @@
          <small>Vigentes</small>
       </h1>      
       <ol class="breadcrumb">
-            <li *ngIf='role.name == "Admin"'> <app-add-ejecutivo></app-add-ejecutivo></li>
-            <li *ngIf='role.name == "Admin"'><app-addProgram></app-addProgram></li>
-            <li *ngIf='role.name == "Admin"'><app-addEvent (messageEvent)="receiveMessage()"></app-addEvent></li>
-            <li ><app-addPerson (messageEvent)="receiveMessage()"></app-addPerson></li>
+            <li><app-add-ejecutivo></app-add-ejecutivo></li>
+            <li><app-addProgram></app-addProgram></li>
+            <li><app-addEvent (messageEvent)="receiveMessage()"></app-addEvent></li>
+            <li><app-addPerson (messageEvent)="receiveMessage()"></app-addPerson></li>
       </ol>
    </section>
    <section class="content h">
@@ -19,7 +19,7 @@
                <th>Nombre</th>
                <th>Fecha de Inicio</th>
                <th>Cupos</th>
-               <th colspan="2">estado</th>
+               <th colspan="2">Estado</th>
             </tr>
          </thead>
 
