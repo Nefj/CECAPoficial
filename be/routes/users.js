@@ -16,6 +16,14 @@ router
          return res.status(200).send(users);
       });
    })
+   .get('/:id', function (req, res) {
+      db.users.findOne({ _id: req.params.id }, function (err, user) {
+         if (err) return res.status(400).send(err);
+         if (user == null) return res.status(404).send();
+
+         return res.status(200).send(user);
+      });
+   })
 
    .get('/roles', function (req, res) {
       db.roles.find({}, function (err, users) {
