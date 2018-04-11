@@ -27,7 +27,7 @@ export class AddCarteraComponent implements OnInit {
   save(){
     const name=this.nameRef.nativeElement.value;
 
-    const newCartera=new Cartera(name);
+    const newCartera=new Cartera(name,null);
     console.log(newCartera);
 
     this._peticionesService.addCartera(newCartera).subscribe(response=>{
