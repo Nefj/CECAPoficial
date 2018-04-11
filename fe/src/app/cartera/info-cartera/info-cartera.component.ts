@@ -13,6 +13,10 @@ export class InfoCarteraComponent implements OnInit {
 
   public persons;
   public carteraId;
+  public cartera;
+  public user;
+  public userName: string;
+  public userRecordDate;
   constructor(
 
     private _peticionesService: PeticionesService,
@@ -22,14 +26,15 @@ export class InfoCarteraComponent implements OnInit {
   ngOnInit() {
    this.queryPerson();
    this.findPerson();
+   this.findCartera();
+   
     
   }
 
   queryPerson(){
     this.route.params.subscribe(params => {
         this.carteraId = params.id;
-        // console.log(this.carteraId);
-        // console.log(this.personId.split('-'));
+        
      });
     //  this._peticionesService.getEvent(this.personId).subscribe(
     //     result => {
@@ -51,6 +56,30 @@ export class InfoCarteraComponent implements OnInit {
         this.persons=response;
       });
 
+    
+   }
+   findCartera(){
+    this._peticionesService.getCartera(this.carteraId).subscribe(
+       result =>{
+         this.cartera=result;
+         this.findOneUser();
+        
+       },
+       error =>{
+         var errorMessage=<any>error;
+         console.log(errorMessage);
+       }
+
+    )
+   }
+   findOneUser(){
+    this._peticionesService.getOneUser(this.cartera.user).subscribe(response=>{
+      this.user=response;
+      this.userName=this.user.name;
+      this.userRecordDate=this.user.record_date;
+      console.log(this.user);
+    });
+    
     
    }
 }

@@ -82,6 +82,9 @@ export class PeticionesService {
    getUser() {
       return this._http.get(this.url + 'users').map((res: Response) => res);
    }
+   getOneUser(_id) {
+    return this._http.get(this.url + 'users/' + _id).map((res: Response) => res);
+ }
    getMejorEjecutivo(_id){
         return this._http.get(this.url+'events/mejorEjecutivo/' + _id).map((res:Response)=>res);
    }
