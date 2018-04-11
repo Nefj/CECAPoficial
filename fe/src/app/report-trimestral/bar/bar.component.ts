@@ -62,7 +62,7 @@ export class BarComponent implements OnInit {
       this._peticionesService.getTrimestral().subscribe(
          result => {
             this.events = result;
-            console.log(this.events)
+            console.log("sssssssssssss"+this.events)
             // this.events.map(event => {
             //    event.inscriptions = event.inscriptions.filter(e => e.state == 1);;
             // });
