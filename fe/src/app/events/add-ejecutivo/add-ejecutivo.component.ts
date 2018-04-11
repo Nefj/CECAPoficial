@@ -12,7 +12,10 @@ import {User} from '../../modelo/user';
 })
 export class AddEjecutivoComponent implements OnInit {
   public carteras;
-
+  public carteraSeleccionada;
+  public carteraObject;
+  public  rolid;
+  public newUser;
   @ViewChild('name') nameRef: ElementRef;
   @ViewChild('date') dateRef: ElementRef;
   @ViewChild('cell') cellRef: ElementRef;
@@ -34,22 +37,60 @@ export class AddEjecutivoComponent implements OnInit {
     const name= this.nameRef.nativeElement.value;
     let date=this.dateRef.nativeElement.value;
     let cell=this.cellRef.nativeElement.value;
-    const cartera=this.carteraRef.nativeElement.value;
+    this.carteraSeleccionada=this.carteraRef.nativeElement.value;
+    // console.log(cartera);
     const userid=Identity._id;
-    const rolid=Roles[1]._id
-
+   this.rolid=Roles[1]._id
+  
+  
     // const newEjecutivo=new User(name,date,cell,cartera)
 
-    const newEjecutivo=new User(userid,name,name,rolid);
+    const newEjecutivo=new User(userid,name,name,this.rolid);
    console.log(newEjecutivo);
 
     this._peticionesService.addUser(newEjecutivo).subscribe(response=>{
+      this.newUser=response;
       this.MessageEvent.emit();
       
+      this.findCartera();
+       
      
       this.close.nativeElement.click();
 
     })
+
+  }
+  findCartera(){
+    this._peticionesService.getCartera(this.carteraSeleccionada).subscribe(
+       result =>{
+         this.carteraObject=result;
+        this.asignarCartera(); 
+
+        
+       },
+       error =>{
+         var errorMessage=<any>error;
+         console.log(errorMessage);
+       }
+
+    )
+
+
+ }
+  asignarCartera(){
+    this.carteraObject.user=this.newUser._id;
+    this._peticionesService.updateCartera(this.carteraObject).subscribe(
+      result=>{
+
+        var res=result;
+        console.log(res);
+        // this.router.navigate(['home/cartera']);
+
+      },error=>{
+        var errorMessage=<any>error;
+        console.log(errorMessage);
+      }
+    )
 
   }
 
