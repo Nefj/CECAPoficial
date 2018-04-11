@@ -32,6 +32,12 @@ router
          return res.status(200).send(users);
       });
    })
+   .get('/rolName/:id', function(req, res){
+      db.roles.findOne({_id: req.params.id}, function(err, roleName){
+         if (err) return res.status(400).send(err);
+         return res.status(200).send(roleName);
+      });
+   })
    .post('/auth', function (req, res) {
       console.log(req.body)
       if (typeof req.body._id == null) res.send(403);
