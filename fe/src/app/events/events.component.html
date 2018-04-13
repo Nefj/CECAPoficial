@@ -6,9 +6,9 @@
          <small>Vigentes</small>
       </h1>      
       <ol class="breadcrumb">
-            <li *ngIf='role.name == "Admin"'><app-add-ejecutivo></app-add-ejecutivo></li>
-            <li *ngIf='role.name == "Admin"'><app-addProgram></app-addProgram></li>
-            <li *ngIf='role.name == "Admin"'><app-addEvent (messageEvent)="receiveMessage()"></app-addEvent></li>
+            <li *ngIf='role?.name == "Admin"'><app-add-ejecutivo></app-add-ejecutivo></li>
+            <li *ngIf='role?.name == "Admin"'><app-addProgram></app-addProgram></li>
+            <li *ngIf='role?.name == "Admin"'><app-addEvent (messageEvent)="receiveMessage()"></app-addEvent></li>
             <li ><app-addPerson (messageEvent)="receiveMessage()"></app-addPerson></li>
       </ol>
    </section>
