@@ -26,5 +26,6 @@ export var Roles: Array<Rol> = [
 ];
 export var CarteraS:Cartera={
 
-    name:''
+    name:'',
+    user:''
 };
