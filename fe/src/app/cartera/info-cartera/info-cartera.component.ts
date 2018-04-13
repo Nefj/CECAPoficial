@@ -25,8 +25,9 @@ export class InfoCarteraComponent implements OnInit {
 
   ngOnInit() {
    this.queryPerson();
-   this.findPerson();
    this.findCartera();
+   this.findPerson();
+   
    
     
   }

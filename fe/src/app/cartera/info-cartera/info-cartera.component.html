@@ -29,10 +29,10 @@
                                     <dt>Propietario de Cartera</dt>
                                     <dd>{{userName}}</dd>
                                     <dt>Regsitrado desde:</dt>
-                                    <dd>{{user.record_date | date }}</dd>
-                                    <!-- <dt>Topics</dt>
-                                    <dd>15</dd>
-                                    <dt>Warnings</dt>
+                                    <dd>{{user?.record_date | date }}</dd>
+                                    <dt>Personas Registradas</dt>
+                                    <dd>{{persons?.length}}</dd>
+                                    <!-- <dt>Warnings</dt>
                                     <dd>0</dd> -->
                                 </dl>
                             </div>
@@ -51,13 +51,13 @@
 
                                     <tr>
                                         <td>Registrado desde:</td>
-                                        <td>{{user.record_date | date}}</td>
-                                    </tr>
-                                    <!-- <tr>
-                                        <td>Topics</td>
-                                        <td>15</td>
+                                        <td>{{user?.record_date | date}}</td>
                                     </tr>
                                     <tr>
+                                        <td>Personas Registradas</td>
+                                        <td>{{persons?.length}}</td>
+                                    </tr>
+                                    <!-- <tr>
                                         <td>Warnings</td>
                                         <td>0</td>
                                     </tr> -->

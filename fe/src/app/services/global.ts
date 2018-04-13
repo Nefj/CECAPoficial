@@ -20,11 +20,12 @@ export var Roles: Array<Rol> = [
       name: 'Admin'
    },
    {
-      _id: '',
+      _id: '5acd8be53bfdae1018ec3628',
       name: 'Ejecutivo'
    }
 ];
 export var CarteraS:Cartera={
 
-    name:''
-}
+    name:'',
+    user:''
+};
