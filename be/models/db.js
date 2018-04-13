@@ -68,6 +68,18 @@ module.exports = {
       cellphone: Number,
       email:String,
       ocupation:String,//1 = universitario, 2=Profecional, 3=particular
+      descOcupation:{
+            //universitario
+            carrera: String,
+            universidad: String,
+            semstre:String,
+            //Particular
+            areaTrabajo: String,
+            //Profesional
+            profession: String,
+            empresa: String,
+            cargo: String,
+         },
       //////////////
       carteras:ObjectId,
       /////////////
