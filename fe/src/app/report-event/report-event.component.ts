@@ -7,7 +7,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   selector: 'app-report-event',
   templateUrl: './report-event.component.html',
   styleUrls: ['./report-event.component.css'],
-  providers: [, PeticionesService]
+  providers: [ PeticionesService]
 })
 export class ReportEventComponent implements OnInit {
   public userId;
