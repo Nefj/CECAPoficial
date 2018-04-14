@@ -5,15 +5,15 @@ import { PeticionesService } from '../services/peticiones.service'
 @Component({
    selector: 'app-home',
    templateUrl: './home.component.html',
-   styleUrls: ['./home.component.css'],
-   providers: [, PeticionesService]
+   styleUrls: ['./home.component.css']
+//    providers: [, PeticionesService]
 })
 export class HomeComponent implements OnInit {
    // public events;
    public identify;
    constructor(
       private router: Router,
-      private _peticionesService: PeticionesService
+    //   private _peticionesService: PeticionesService
 
    ) { }
 

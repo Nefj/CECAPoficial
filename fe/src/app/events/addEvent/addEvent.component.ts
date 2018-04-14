@@ -6,7 +6,7 @@ import { Event } from '../../modelo/event';
    selector: 'app-addEvent',
    templateUrl: './addEvent.component.html',
    styleUrls: ['./addEvent.component.css'],
-   providers: [, PeticionesService]
+   providers: [ PeticionesService]
 })
 export class AddEventComponent implements OnInit {
    public programs;

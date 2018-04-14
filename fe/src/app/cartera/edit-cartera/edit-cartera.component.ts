@@ -8,7 +8,8 @@ import {Cartera} from '../../modelo/cartera';
 @Component({
   selector: 'app-edit-cartera',
   templateUrl: './edit-cartera.component.html',
-  styleUrls: ['./edit-cartera.component.css']
+  styleUrls: ['./edit-cartera.component.css'],
+  providers: [ PeticionesService]
 })
 export class EditCarteraComponent implements OnInit {
   @ViewChild('name') nameRef:ElementRef;
