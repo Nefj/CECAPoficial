@@ -6,7 +6,7 @@ import { PeticionesService } from '../services/peticiones.service';
   selector: 'app-report-trimestral',
   templateUrl: './report-trimestral.component.html',
   styleUrls: ['./report-trimestral.component.css'],
-  providers: [, PeticionesService]
+  providers: [PeticionesService]
 })
 export class ReportTrimestralComponent implements OnInit {
   public events;

@@ -6,7 +6,8 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-info-cartera',
   templateUrl: './info-cartera.component.html',
-  styleUrls: ['./info-cartera.component.css']
+  styleUrls: ['./info-cartera.component.css'],
+  providers: [ PeticionesService]
 })
 export class InfoCarteraComponent implements OnInit {
 

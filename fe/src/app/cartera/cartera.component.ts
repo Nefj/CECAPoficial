@@ -10,7 +10,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   selector: 'app-cartera',
   templateUrl: './cartera.component.html',
   styleUrls: ['./cartera.component.css'],
-  providers: [, PeticionesService]
+  providers: [ PeticionesService]
   
 })
 export class CarteraComponent implements OnInit {

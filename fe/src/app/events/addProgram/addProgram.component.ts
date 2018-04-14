@@ -5,7 +5,7 @@ import { PeticionesService } from '../../services/peticiones.service';
    selector: 'app-addProgram',
    templateUrl: './addProgram.component.html',
    styleUrls: ['./addProgram.component.css'],
-   providers: [, PeticionesService]
+   providers: [ PeticionesService]
 })
 export class AddProgramComponent implements OnInit {
    @ViewChild('nameInput') nameInputRef: ElementRef;

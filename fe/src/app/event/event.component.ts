@@ -8,7 +8,7 @@ import { forEach } from '@angular/router/src/utils/collection';
    selector: 'app-event',
    templateUrl: './event.component.html',
    styleUrls: ['./event.component.css'],
-   providers: [, PeticionesService]
+   providers: [PeticionesService]
 
 })
 export class EventComponent implements AfterViewInit {
