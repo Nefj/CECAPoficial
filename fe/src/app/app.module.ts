@@ -45,6 +45,8 @@ import { AddCarteraComponent } from './cartera/add-cartera/add-cartera.component
 import { CarteraComponent } from './cartera/cartera.component';
 import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.component';
+import { EjecutivoComponent } from './ejecutivo/ejecutivo.component';
+import { EditEjecutivoComponent } from './ejecutivo/edit-ejecutivo/edit-ejecutivo.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     CarteraComponent,
     InfoCarteraComponent,
     EditCarteraComponent,
+    EjecutivoComponent,
+    EditEjecutivoComponent,
   ],
   imports: [
     BrowserModule,
