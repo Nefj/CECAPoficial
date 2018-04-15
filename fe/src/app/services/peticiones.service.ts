@@ -37,7 +37,7 @@ export class PeticionesService {
    }
    getTrimestral() {
     return this._http.get(this.url + 'events/trimestral').map((res: Response) => res);
- }
+   }
    addProgram(program) {
       let body = JSON.stringify(program);
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
@@ -64,6 +64,9 @@ export class PeticionesService {
    getPerson(_id) {
       return this._http.get(this.url + 'persons/' + _id).map((res: Response) => res);
    }
+   getPersons() {
+    return this._http.get(this.url + 'persons').map((res: Response) => res);
+    }
    getEventConfirmed(id){
        return this._http.get(this.url+'events/'+ id).map((res: Response)=> res);
    }
@@ -96,9 +99,12 @@ export class PeticionesService {
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
      } 
-    
-       //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
-       //.catch(this.handleError);
+
+     updatePersonOcupation(descOcupation, id) {
+        let body = JSON.stringify(descOcupation);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'persons/ocupation/'+id, body, {headers: headers}).map((res:Response)=>res);
+     } 
      
 
     getPersonCartera(_id){
