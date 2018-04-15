@@ -90,7 +90,7 @@ var _person_1 = {
     ci: '1234567',
     cellphone: '79452311',
     email:'laura@laura.com',
-    ocupation:'empresaria',
+    ocupation:'profesional',
 //    user: _user_admin,
 ////////////
     carteras:_cartera_user_1,
@@ -106,7 +106,7 @@ var _person_2 = {
    ci: '7123357',
    cellphone: '60121234',
    email:'juan@juan.com',
-   ocupation:'estudiante',
+   ocupation:'particular',
 //    user: _user_ejecutivo,
 ////////////////////////
     carteras:_cartera_user_2,
@@ -123,6 +123,18 @@ var _person_3 = {
     cellphone: '79121232',
     email:'lucia@lucia.com',
     ocupation:'estudiante',
+    descOcupation:{
+        //universitario
+        carrera: 'Ing Sistemas',
+        universidad: 'UMSS',
+        semestre:'4to',
+        //Particular
+        areaTrabajo: '',
+        //Profesional
+        profesion: '',
+        empresa: '',
+        cargo: '',
+     },
  //    user: _user_ejecutivo,
  ////////////////////////
      carteras:_cartera_user_2,

@@ -17,6 +17,8 @@ import { AppmenuComponent } from './plantilla/appmenu/appmenu.component';
 import { AppsettingsComponent } from './plantilla/appsettings/appsettings.component';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
+import { PersonaComponent } from "./event/persona/persona.component"
+
 
 //Services
 import { UserService} from './services/user.service';
@@ -45,6 +47,7 @@ import { AddCarteraComponent } from './cartera/add-cartera/add-cartera.component
 import { CarteraComponent } from './cartera/cartera.component';
 import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.component';
+import { EditComponent } from './event/persona/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     AddProgramComponent,
     AddEventComponent,
     AddPersonComponent,
+    PersonaComponent,
     EditPersonComponent,
     
     ReportsComponent,
@@ -77,6 +81,7 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     CarteraComponent,
     InfoCarteraComponent,
     EditCarteraComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
