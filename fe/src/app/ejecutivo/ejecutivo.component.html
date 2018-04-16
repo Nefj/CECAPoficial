@@ -1,0 +1,26 @@
+<div class="content-wrapper">
+
+  <section class="content">
+
+     <table class="table table-hover" >
+        <thead>
+           <tr>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th colspan="2">Ajustes</th>
+           </tr>
+        </thead>
+        <tbody> 
+           <tr *ngFor="let ejecutivo of ejecutivos">
+              <td>{{ ejecutivo.name }}</td>
+              <td>{{ ejecutivo.active }}</td>
+              <td>
+                 <a class="btn btn-primary" (click)="editEjecutivo(ejecutivo._id)">EDITAR</a>
+              </td>
+           </tr>
+        </tbody>
+     </table>
+     
+  </section>
+  <router-outlet></router-outlet>
+</div>

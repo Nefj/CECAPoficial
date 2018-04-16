@@ -45,7 +45,7 @@ export class AddEjecutivoComponent implements OnInit {
   
     // const newEjecutivo=new User(name,date,cell,cartera)
 
-    const newEjecutivo=new User(userid,name,name,this.rolid);
+    const newEjecutivo=new User(userid,name,name,this.rolid,true);
    console.log(newEjecutivo);
 
     this._peticionesService.addUser(newEjecutivo).subscribe(response=>{

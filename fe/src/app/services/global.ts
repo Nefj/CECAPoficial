@@ -12,7 +12,8 @@ export var Identity: User = {
    _id: '',
    name: '',
    password_hash: '',
-   rol: ''
+   rol: '',
+   active: null
 };
 export var Roles: Array<Rol> = [
    {
