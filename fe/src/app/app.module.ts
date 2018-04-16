@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 import{ routing, appRoutingProviders } from './app.routing';
-
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 
 //components
@@ -47,6 +46,10 @@ import { AddCarteraComponent } from './cartera/add-cartera/add-cartera.component
 import { CarteraComponent } from './cartera/cartera.component';
 import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.component';
+
+import { EjecutivoComponent } from './ejecutivo/ejecutivo.component';
+import { EditEjecutivoComponent } from './ejecutivo/edit-ejecutivo/edit-ejecutivo.component';
+
 import { EditComponent } from './event/persona/edit/edit.component';
 
 @NgModule({
@@ -81,6 +84,8 @@ import { EditComponent } from './event/persona/edit/edit.component';
     CarteraComponent,
     InfoCarteraComponent,
     EditCarteraComponent,
+    EjecutivoComponent,
+    EditEjecutivoComponent,
     EditComponent,
   ],
   imports: [

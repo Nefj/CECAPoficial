@@ -15,5 +15,6 @@ export class User{
       public name:string,
       public password_hash:string,
       public rol:string,
+      public active:boolean,
    ){}
 }

@@ -99,14 +99,13 @@ export class PeticionesService {
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
      } 
-
+       //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
+       //.catch(this.handleError);
      updatePersonOcupation(descOcupation, id) {
         let body = JSON.stringify(descOcupation);
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'persons/ocupation/'+id, body, {headers: headers}).map((res:Response)=>res);
      } 
-     
-
     getPersonCartera(_id){
         
         // console.log(_id+"desde peticionesservice")
@@ -127,6 +126,14 @@ export class PeticionesService {
       //   );
       // }
 
+    updateUser(user_object){
+        console.log(user_object);
+        let body = JSON.stringify(user_object);
+        var idUser= user_object._id;
+     // console.log(body);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'users/'+idUser, body, {headers: headers}).map((res:Response)=>res);
+    }
     updateCartera(cartera_object){
         console.log(cartera_object);
         let body = JSON.stringify(cartera_object);
@@ -134,8 +141,6 @@ export class PeticionesService {
      // console.log(body);
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'carteras/'+idCartera, body, {headers: headers}).map((res:Response)=>res);
-    
-
     }
     addCartera(cartera){
         let body=JSON.stringify(cartera);
