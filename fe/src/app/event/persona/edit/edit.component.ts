@@ -27,6 +27,7 @@ export class EditComponent implements OnInit {
 queryPerson(){ 
   this.route.params.subscribe(params => {
     this.idPerson = params.id;
+    console.log(this.idPerson)
    });
   this._peticionesService.getPerson(this.idPerson).subscribe(
        result => {
