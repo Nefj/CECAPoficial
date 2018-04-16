@@ -8,12 +8,13 @@ import { Identity } from '../services/global';
    selector: 'app-events',
    templateUrl: './events.component.html',
    styleUrls: ['./events.component.css'],
-   providers: [, PeticionesService]
+   providers: [ PeticionesService]
 
 })
 export class EventsComponent implements OnInit {
+    public false=false;
    public events;
-   private role;
+   public role;
    constructor(
       private router: Router,
       private _peticionesService: PeticionesService

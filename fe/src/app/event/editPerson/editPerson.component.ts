@@ -10,11 +10,11 @@ import { Inscription } from '../../modelo/inscription';
    styleUrls: ['./editPerson.component.css']
 })
 export class EditPersonComponent implements OnInit {
-   private inscription;
-   private person; 
-   private personId:String;
-   private eventId;
-   private personName;
+   public inscription;
+   public person; 
+   public personId:String;
+   public eventId;
+   public personName;
   // private colection_edit:Array<any>=[];
    @ViewChild('name') nameRef: ElementRef;
    @ViewChild('description') descriptionRef: ElementRef;
