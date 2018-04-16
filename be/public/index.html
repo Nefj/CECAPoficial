@@ -1,71 +1,64 @@
 <!doctype html>
-<html lang="en" ng-app="GlassApp">
-	<head>
-		<meta charset="UTF-8">
-		<!--<base href="/">-->
-		<title>Opticas</title>
-		<link href="img/glass.ico" rel="shortcut icon">
-		<link href="vendor/css/angular-material.min.css" rel="stylesheet" />
-		<link href="vendor/css/loading-bar.min.css" rel="stylesheet" />
-		<link href="vendor/css/site.css" rel="stylesheet" />
-		<!--<link rel="stylesheet" href="stylesheets/main.css">-->
-		<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<!-- bower:css -->
-		<!-- endbower -->
-		<!-- inject:css -->
-		<link rel="stylesheet" href="/stylesheets/main.css">
-		<!-- endinject -->
-	</head>
-	<body ng-controller="bodyController" class="color" ng-cloak>
-		<md-content>
-			<md-toolbar class="noprint">
-				<div class="md-toolbar-tools">
-					<md-button class="md-icon-button" aria-label="Settings" ng-click="menu()">
-						<md-icon md-svg-icon="img/icons/menu.svg" class="orangeWhite"></md-icon>
-					</md-button>
-					<span flex></span>
-					<h2>
-						<span class="md-display-1" class="orangeWhite">{{navName}}</span>
-					</h2>
-					<span flex></span>
-					<div ng-show="!isLogin">
-						<md-button class="md-icon-button" aria-label="Favorite" ng-click="login()">
-							<md-icon md-svg-icon="img/icons/user.svg" class="orangeWhite"></md-icon>
-						</md-button>
-					</div>
-					<div ng-show="isLogin">
-						<md-button class="md-icon-button" aria-label="Favorite" ng-click="logout()">
-							<md-tooltip>Log Out</md-tooltip>
-							<md-icon md-svg-icon="img/icons/account-black.svg" class="orangeWhite"></md-icon>
-						</md-button>
-					</div>
-				</div>
-			</md-toolbar>
-			<div id="ngView" ng-view></div>
-		</md-content>
-		<!-- QR CODE GENERATOR -->
-		<script src="./vendor/js/qrcode.js"></script>
-		<!-- js -->
-		<script src="./vendor/js/angular.min.js"></script>
-		<script src="./vendor/js/angular-route.min.js"></script>
-		<script src="./vendor/js/angular-resource.min.js"></script>
-		<script src="./vendor/js/angular-local-storage.min.js"></script>
-		<script src="./vendor/js/loading-bar.min.js"></script>
-		<!-- Angular Material Dependencies -->
-		<script src="./vendor/js/angular-animate.min.js"></script>
-		<script src="./vendor/js/angular-aria.min.js"></script>
-		<script src="./vendor/js/angular-material.min.js"></script>
-		<script src="./vendor/js/ng-google-chart.min.js"></script>
-		<!-- Events Css -->
-		<!-- Helpers -->
-		<!-- bower:js -->
-		<!-- endbower -->
-		<!-- inject:js -->
-		<script src="/appjs/services/crud.js"></script>
-		<script src="/appjs/app.js"></script>
-		<script src="/appjs/controllers/userController.js"></script>
-		<script src="/appjs/authentication.js"></script>
-		<!-- endinject -->
-	</body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cecap</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+<link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="assets/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
+
+
+
+
+
+</head>
+
+
+<body  class="hold-transition skin-blue sidebar-mini">
+  <app-root>
+    <div class="wrapper">
+
+      
+    </div>
+
+
+  </app-root>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+ <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="assets/dist/js/adminlte.min.js"></script>
+    <!-- Sparkline -->
+    <script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap  -->
+    <script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- SlimScroll -->
+    <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- ChartJS -->
+    <script src="assets/bower_components/chart.js/Chart.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="assets/dist/js/pages/dashboard2.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="assets/dist/js/demo.js"></script>
+    <!-- Chart-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 </html>

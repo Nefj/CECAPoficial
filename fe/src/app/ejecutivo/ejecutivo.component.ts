@@ -29,7 +29,7 @@ export class EjecutivoComponent implements OnInit {
       console.log(<any>error)
     });
  }
-  editEjecutivo(_id:String){
+  editEjecutivo(_id:string){
   //console.log(_id);
   this.router.navigate(['/home/ejecutivo/edit',_id]);
   console.log("router.navigate");
