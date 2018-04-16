@@ -36,9 +36,19 @@
         <tbody>
 
            <tr *ngFor="let cartera of carteras">
+<<<<<<< HEAD
+<<<<<<< HEAD
+              <td>{{ cartera.name }}</td>
+              <!-- <td>{{ eventcd fedate_start | date }}</td> -->
+=======
+              <td>{{ cartera?.name }}</td>
+              <!-- <td>{{ event.date_start | date }}</td> -->
+>>>>>>> 835e13df58d8b2b63360f8005b32d0ef165fb1db
+=======
 
               <td>{{ cartera?.name }}</td>
               <!-- <td>{{ event.date_start | date }}</td> -->
+>>>>>>> c0d4de5ee6e185c448a4e120c2075d613a8d059d
               <td>  
                 <a class="btn btn-primary a" (click)="send(cartera._id)">INFORMACION</a>
               </td>
