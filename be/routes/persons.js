@@ -91,6 +91,35 @@ router
          });
       });
    })
+   .put('/ocupation/:id', function (req, res) {
+      console.log(req.body);
+      db.persons.update({_id: req.params.id},
+      {
+            $set:{'descOcupation.carrera':req.body.carrera,
+                  'descOcupation.universidad':req.body.universidad,
+                  'descOcupation.semestre':req.body.semestre,
+                  //Particular
+                  'descOcupation.areaTrabajo':req.body.areaTrabajo,
+                  //Profesional
+                  'descOcupation.profesion':req.body.profesion,
+                  'descOcupation.empresa': req.body.empresa,
+                  'descOcupation.cargo': req.body.cargo,
+            }
+      }).exec(function(err, off){
+            if (err) return res.status(400).send(err);
+      })
+      // db.events.update({ _id: req.body.name, 'inscriptions.person': req.body.person },
+      //    {
+      //       $set: { 'inscriptions.$.state': req.body.state, 'inscriptions.$.description': req.body.description }
+      //    }).exec(function (err, off) {
+      //       if (err) return res.status(400).send(err);
+      //       db.events.find({ _id: req.body.name, _id: { $in: req.body.person } }, function (err, event) {
+      //          if (err) return res.status(401).send(err);
+      //          return res.status(201).send(event);
+      //       });
+      //       //	if (off.nModified == 0) return res.status(406).send();
+      //    });
+   })
 
    .delete('/:id', function (req, res) {
       db.persons.remove({ _id: req.params.id }, function (err, person) {
