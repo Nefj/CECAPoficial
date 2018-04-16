@@ -72,11 +72,11 @@ module.exports = {
             //universitario
             carrera: String,
             universidad: String,
-            semstre:String,
+            semestre:String,
             //Particular
             areaTrabajo: String,
             //Profesional
-            profession: String,
+            profesion: String,
             empresa: String,
             cargo: String,
          },

@@ -1,11 +1,11 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
  @Pipe({
-     name: 'buscarPersona'
+     name: 'search'
  })
  @Injectable()
  export class SearchPipe implements PipeTransform{
     transform(items: any, term: any):any{//termino de busqueda
-        if(term=== undefined){
+        if(term === undefined){
             return items;
         }
         return items.filter(function(item){
