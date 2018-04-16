@@ -6,7 +6,8 @@ import { User} from '../../modelo/user';
 @Component({
   selector: 'app-edit-ejecutivo',
   templateUrl: './edit-ejecutivo.component.html',
-  styleUrls: ['./edit-ejecutivo.component.css']
+  styleUrls: ['./edit-ejecutivo.component.css'],
+  providers: [ PeticionesService]
 })
 export class EditEjecutivoComponent implements OnInit {
   @ViewChild('active') activeRef:ElementRef;

@@ -5,12 +5,13 @@ import { DescOcupation } from '../../../modelo/descOcupation';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: ['./edit.component.css'],
+  providers: [ PeticionesService]
 })
 export class EditComponent implements OnInit {
  public personName;
- private person;
- private idPerson;
+ public person;
+ public idPerson;
  public descOcupation: DescOcupation;
   constructor(
      private _peticionesService: PeticionesService,
