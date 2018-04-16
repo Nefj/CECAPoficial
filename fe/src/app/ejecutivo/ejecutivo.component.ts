@@ -8,7 +8,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   selector: 'app-ejecutivo',
   templateUrl: './ejecutivo.component.html',
   styleUrls: ['./ejecutivo.component.css'],
-  providers: [, PeticionesService]
+  providers: [ PeticionesService ]
 })
 export class EjecutivoComponent implements OnInit {
   public ejecutivos;
@@ -29,9 +29,9 @@ export class EjecutivoComponent implements OnInit {
       console.log(<any>error)
     });
  }
-  editEjecutivo(_active:boolean){
-  console.log(_active);
-  this.router.navigate(['/home/ejecutivo/edit',_active]);
+  editEjecutivo(_id:String){
+  //console.log(_id);
+  this.router.navigate(['/home/ejecutivo/edit',_id]);
   console.log("router.navigate");
   }
 }

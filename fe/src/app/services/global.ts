@@ -13,7 +13,7 @@ export var Identity: User = {
    name: '',
    password_hash: '',
    rol: '',
-   active: true
+   active: null
 };
 export var Roles: Array<Rol> = [
    {
