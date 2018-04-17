@@ -99,7 +99,8 @@ import { EditComponent } from './event/persona/edit/edit.component';
   ],
   providers: [
     appRoutingProviders,
-    UserService
+    UserService,
+    SearchPipe
   ],//aniadir appRo..
   bootstrap: [AppComponent]
 })
