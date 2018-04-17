@@ -37,6 +37,7 @@ export class PersonaComponent implements OnInit {
     this._peticionesService.getPersons().subscribe(
        result => {
           this.listado_personas = result;
+          console.log(this.listado_personas);
        },
        error => {
           var errorMessage = <any>error;
@@ -45,6 +46,7 @@ export class PersonaComponent implements OnInit {
     );
  }
   edit(_id) {
+    
     this.router.navigate(['home/persons/edit', _id]);
   }
 
