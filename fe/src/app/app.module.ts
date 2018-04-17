@@ -22,6 +22,7 @@ import { PersonaComponent } from "./event/persona/persona.component"
 //Services
 import { UserService} from './services/user.service';
 import { SearchPipe } from './event/filtro/filtropersona.pipe';
+import { FilterPipe } from "./event/persona/filter.pipe";
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -87,6 +88,7 @@ import { EditComponent } from './event/persona/edit/edit.component';
     EjecutivoComponent,
     EditEjecutivoComponent,
     EditComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -96,11 +98,12 @@ import { EditComponent } from './event/persona/edit/edit.component';
     FormsModule,
     HttpModule,
     ChartsModule,
+    
   ],
   providers: [
     appRoutingProviders,
     UserService,
-    SearchPipe
+    FilterPipe,
   ],//aniadir appRo..
   bootstrap: [AppComponent]
 })

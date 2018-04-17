@@ -4,7 +4,7 @@ import { PersonaService } from '../../services/persona.service';
 import { PeticionesService} from '../../services/peticiones.service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Pipe, PipeTransform } from '@angular/core';
-import { SearchPipe } from "../filtro/filtropersona.pipe";
+import { FilterPipe } from "./filter.pipe";
 
 @Component({
   selector: 'app-persona',
@@ -16,8 +16,8 @@ import { SearchPipe } from "../filtro/filtropersona.pipe";
 export class PersonaComponent implements OnInit {
   public listado_personas;
   public busqueda;
-  public name: string;
-  public searchText: string = "";
+   public name: string;
+   public searchText: string = "";
 
   constructor(
      private router: Router,
@@ -45,11 +45,14 @@ export class PersonaComponent implements OnInit {
        }
     );
  }
- clearFilter() {
-      this.searchText = "";
- }
   edit(_id) {
     
     this.router.navigate(['home/persons/edit', _id]);
   }
+
+  clearFilter() {
+    this.searchText = "";
+  }
+  
 }
+

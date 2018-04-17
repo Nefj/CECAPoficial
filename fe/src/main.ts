@@ -6,6 +6,14 @@ import { environment } from './environments/environment';
 import { Pipe, PipeTransform } from '@angular/core';
 import { SearchPipe } from "./app/event/filtro/filtropersona.pipe";
 
+
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './app/event/persona/filter.pipe';
+// import { AppModule } from './app';
+ 
+// platformBrowserDynamic().bootstrapModule(AppModule)
+
 if (environment.production) {
   enableProdMode();
 }
