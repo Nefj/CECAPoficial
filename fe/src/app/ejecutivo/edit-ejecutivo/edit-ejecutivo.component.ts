@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef,ViewChild, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, ElementRef,ViewChild, Input, EventEmitter} from '@angular/core';
 import { PeticionesService } from '../../services/peticiones.service';
 import { ActivatedRoute,Router } from "@angular/router";
 import { User} from '../../modelo/user';
@@ -12,8 +12,8 @@ import { User} from '../../modelo/user';
 export class EditEjecutivoComponent implements OnInit {
   @ViewChild('active') activeRef:ElementRef;
   public ejecutivo;
-  public ejecutivoActive;
   public ejecutivoId;
+  public ejecutivoActive;
 
   constructor(
     private _peticionesService: PeticionesService,
@@ -28,7 +28,7 @@ export class EditEjecutivoComponent implements OnInit {
 
   queryEjecutivoId(){
       this.route.params.subscribe(params => {
-      this.ejecutivoId=params.activeRef;
+      this.ejecutivoId=params.active;
       console.log(this.ejecutivo);
    });
   }
@@ -44,17 +44,19 @@ export class EditEjecutivoComponent implements OnInit {
         });
   }
 
-  editEjecutivo(){
+  saveEjecutivo(){
     //console.log(this.ejecutivo);
-    this.ejecutivo.active=this.activeRef.nativeElement.value;
+    //this.ejecutivo.active=this.activeRef.nativeElement.value;
     this._peticionesService.updateUser(this.ejecutivo).subscribe(
       result=>{
         var res=result;
-        console.log(res);
+        console.log(res)
         this.router.navigate(['home/ejecutivo']);
+        alert('Se guardo correctamente el nuevo estado');
       },
       error=>{
         console.log(<any>error);
+        alert('Error al guardar');
       });
   }
 }

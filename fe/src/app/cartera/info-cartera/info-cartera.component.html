@@ -28,7 +28,7 @@
                                     <dd>Administrator</dd> -->
                                     <dt>Propietario de Cartera</dt>
                                     <dd>{{userName}}</dd>
-                                    <dt>Regsitrado desde:</dt>
+                                    <dt>Registrado desde:</dt>
                                     <dd>{{user?.record_date | date }}</dd>
                                     <dt>Personas Registradas</dt>
                                     <dd>{{persons?.length}}</dd>
@@ -79,7 +79,6 @@
                 <th>Celular</th>
                 <th>Email</th>
                 <th>Ocupacion</th>
-                <th colspan="2">Ajustes</th>
              </tr>
           </thead>
           <tbody>
@@ -90,9 +89,6 @@
                 <td>{{ person.cellphone }}</td>
                 <td>{{ person.email }}</td>
                 <td>{{ person.ocupation }}</td>
-                <td>
-                  <!-- {{user.name}} -->
-                </td>
              </tr>
           </tbody>
        </table>

@@ -11,9 +11,9 @@ export var GLOBAL = {
 export var Identity: User = {
    _id: '',
    name: '',
+   active: null,
    password_hash: '',
    rol: '',
-   active: null
 };
 export var Roles: Array<Rol> = [
    {

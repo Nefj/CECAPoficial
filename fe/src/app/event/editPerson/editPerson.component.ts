@@ -7,7 +7,8 @@ import { Inscription } from '../../modelo/inscription';
 @Component({
    selector: 'app-editPerson', 
    templateUrl: './editPerson.component.html',
-   styleUrls: ['./editPerson.component.css']
+   styleUrls: ['./editPerson.component.css'],
+   providers: [ PeticionesService]
 })
 export class EditPersonComponent implements OnInit {
    public inscription;

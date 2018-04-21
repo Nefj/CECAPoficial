@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       protected localStorage: AsyncLocalStorage
    ) {
       this.title = 'CECAP COMPANY';
-      this.user = new User('', '', '', '', null);
+      this.user = new User('', '',null, '', '');
    }
 
    ngOnInit() {
