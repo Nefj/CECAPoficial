@@ -23,15 +23,15 @@ export class EjecutivoComponent implements OnInit {
     this._peticionesService.getUser().subscribe(
       result => {
          this.ejecutivos = result;
-         console.log(this.ejecutivos);  
+         console.log(this.ejecutivos); 
       },
     error => {
       console.log(<any>error)
     });
  }
-  editEjecutivo(_id:string){
-  //console.log(_id);
-  this.router.navigate(['/home/ejecutivo/edit',_id]);
-  console.log("router.navigate");
+  editEjecutivo(_active:boolean){
+  //console.log("EjecutivoComponent");
+  this.router.navigate(['/home/ejecutivo/edit',_active]);
+  //console.log("router.navigate");
   }
 }

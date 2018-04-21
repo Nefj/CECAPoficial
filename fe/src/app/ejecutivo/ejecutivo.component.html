@@ -1,5 +1,10 @@
 <div class="content-wrapper">
-
+    <section class="content-header">
+        <h1>
+           Ejecutivos
+           <small>Editar</small>
+        </h1>
+     </section>
   <section class="content">
 
      <table class="table table-hover" >
@@ -7,13 +12,14 @@
            <tr>
               <th>Nombre</th>
               <th>Estado</th>
-              <th colspan="2">Ajustes</th>
+              <th colspan="3">Ajustes</th>
            </tr>
         </thead>
         <tbody> 
            <tr *ngFor="let ejecutivo of ejecutivos">
               <td>{{ ejecutivo.name }}</td>
-              <td>{{ ejecutivo.active }}</td>
+              <td *ngIf="ejecutivo.active==true">Activo</td>
+              <td *ngIf="ejecutivo.active==false">Inactivo</td>
               <td>
                  <a class="btn btn-primary" (click)="editEjecutivo(ejecutivo._id)">EDITAR</a>
               </td>

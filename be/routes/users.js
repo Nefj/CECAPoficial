@@ -11,16 +11,18 @@ router
    // 	f.validation(res, req.body.token, next);
    //   })
    .get('/', function (req, res) {
-      db.users.find({ active: true }, { name: 1, rol: 1, password_hash:1 }, function (err, users) {
+      console.log(res)
+      db.users.find({ active: true }, { name: 1,  active:1, password_hash:1, rol: 1 }, function (err, users) {
          if (err) return res.status(400).send(err);
          return res.status(200).send(users);
+         //console.log(res.status(200).send(users))
       });
    })
    .get('/:id', function (req, res) {
+      console.log(res)
       db.users.findOne({ _id: req.params.id }, function (err, user) {
          if (err) return res.status(400).send(err);
          if (user == null) return res.status(404).send();
-
          return res.status(200).send(user);
       });
    })

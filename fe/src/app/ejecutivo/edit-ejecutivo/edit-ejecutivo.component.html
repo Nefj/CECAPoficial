@@ -1,26 +1,24 @@
 <div class="content-wrapper">
         
-        <section class="content">
-                 <div style="text-align:center; margin:auto; width:40%;">
-                     <div><label><h3>{{ejecutivo}}</h3></label>
-                 </div>
+    <section class="content">
+        <div style="text-align:center; margin:auto; width:40%;">
+                <!--<div><label><h3>{{ejecutivo.name}}</h3></label></div>-->
                   
-                 <div class="jumbotron">
-                  <fieldset>
-                     <legend>Elige el nuevo estado del Ejecutivo</legend>
-                      <label>
-                         <input type="radio" value={{ejecutivoActive}}> Activo</label>
-                      <label>
-                         <input type="radio" value={{ejecutivoActive}}> Inactivo</label>
-                      </fieldset>
-                      
-                      <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-unique" (click)="editEjecutivo()">Guardar
-                           <i class="fa fa-paper-plane-o ml-1"></i>
-                        </button>
-                     </div>
-                 </div>
-             </div>
-        </section>
+            <div class="jumbotron">
+                <fieldset>
+                    <legend>Elige el nuevo estado del Ejecutivo</legend>
+                    <label>
+                        <input type="radio" name="status" [(ngModel)]="ejecutivoActive" value=true> Activo</label>
+                    <label>
+                        <input type="radio" name="status" [(ngModel)]="ejecutivoActive" value=false> Inactivo</label>
+                </fieldset>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-unique" (click)="saveEjecutivo()">Guardar
+                        <i class="fa fa-paper-plane-o ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
         <!--<router-outlet></router-outlet>-->
-      </div>
+</div>

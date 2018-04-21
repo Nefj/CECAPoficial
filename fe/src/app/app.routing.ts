@@ -27,7 +27,6 @@ const appRoutes: Routes = [
          { path: 'events', component: EventsComponent },
          { path: 'event/:id', component: EventComponent },
          { path: 'editPerson/:id', component: EditPersonComponent },
-
          { path: 'reports', component: ReportsComponent },
          { path: 'trimestral', component: ReportTrimestralComponent },
          { path: 'reportEvent/:id', component: ReportEventComponent },
@@ -36,7 +35,6 @@ const appRoutes: Routes = [
          { path: 'cartera', component:CarteraComponent},
          { path: 'cartera/:id',component:InfoCarteraComponent},
          { path: 'cartera/edit/:name',component:EditCarteraComponent},
-
          { path: 'ejecutivo', component:EjecutivoComponent},
          { path: 'ejecutivo/edit/:active', component:EditEjecutivoComponent},
       ]

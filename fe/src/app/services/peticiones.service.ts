@@ -126,14 +126,6 @@ export class PeticionesService {
       //   );
       // }
 
-    updateUser(user_object){
-        console.log(user_object);
-        let body = JSON.stringify(user_object);
-        var idUser= user_object._id;
-     // console.log(body);
-        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-        return this._http.put(this.url +'users/'+idUser, body, {headers: headers}).map((res:Response)=>res);
-    }
     updateCartera(cartera_object){
         console.log(cartera_object);
         let body = JSON.stringify(cartera_object);
@@ -150,5 +142,12 @@ export class PeticionesService {
     getRole(id){
         return this._http.get(this.url + 'users/rolName/' + id).map((res: Response) => res);
      }
-      
+     updateUser(user_object){
+        console.log(user_object);
+        let body = JSON.stringify(user_object);
+        var idUser= user_object._id;
+        //console.log(body);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'users/'+idUser, body, {headers: headers}).map((res:Response)=>res);
+    } 
  }
