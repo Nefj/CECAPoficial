@@ -41,23 +41,35 @@ export class AddEjecutivoComponent implements OnInit {
     // console.log(cartera);
     const userid=Identity._id;
    this.rolid=Roles[1]._id
-  
+    let asdf=cell+'';
   
     // const newEjecutivo=new User(name,date,cell,cartera)
 
     const newEjecutivo=new User(userid,name,name,this.rolid);
-   console.log(newEjecutivo);
+   //console.log(newEjecutivo);
 
+   if((this.nameRef.nativeElement.value='') || (cell = '') ){
+     window.alert("Asegurese que todos los campos esten llenados")
+
+   }else{
     this._peticionesService.addUser(newEjecutivo).subscribe(response=>{
       this.newUser=response;
+      console.log(this.newUser);
       this.MessageEvent.emit();
       
       this.findCartera();
-       
+      
+      
+      
+        this.close.nativeElement.click();
+      
      
-      this.close.nativeElement.click();
 
     })
+
+   }
+
+   
 
   }
   findCartera(){
@@ -83,7 +95,7 @@ export class AddEjecutivoComponent implements OnInit {
       result=>{
 
         var res=result;
-        console.log(res);
+       // console.log(res);
         // this.router.navigate(['home/cartera']);
 
       },error=>{
