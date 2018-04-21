@@ -30,11 +30,19 @@ export class AddCarteraComponent implements OnInit {
     const newCartera=new Cartera(name,null);
     console.log(newCartera);
 
-    this._peticionesService.addCartera(newCartera).subscribe(response=>{
-      this.MessageEvent.emit();
+    if(this.nameRef.nativeElement.value){
 
-      this.close.nativeElement.click();
-    })
+      window.alert("Asegurese que todos los campos no esten vacios")
+    }else{
+      this._peticionesService.addCartera(newCartera).subscribe(response=>{
+        this.MessageEvent.emit();
+  
+        this.close.nativeElement.click();
+      })
+
+    }
+
+   
   }
 
 }

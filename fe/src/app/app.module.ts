@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 import{ routing, appRoutingProviders } from './app.routing';
-
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 
 //components
@@ -17,10 +16,13 @@ import { AppmenuComponent } from './plantilla/appmenu/appmenu.component';
 import { AppsettingsComponent } from './plantilla/appsettings/appsettings.component';
 import { EventsComponent } from './events/events.component';
 import { EventComponent } from './event/event.component';
+import { PersonaComponent } from "./event/persona/persona.component"
+
 
 //Services
 import { UserService} from './services/user.service';
 import { SearchPipe } from './event/filtro/filtropersona.pipe';
+import { FilterPipe } from "./event/persona/filter.pipe";
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -46,6 +48,11 @@ import { CarteraComponent } from './cartera/cartera.component';
 import { InfoCarteraComponent } from './cartera/info-cartera/info-cartera.component';
 import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.component';
 
+import { EjecutivoComponent } from './ejecutivo/ejecutivo.component';
+import { EditEjecutivoComponent } from './ejecutivo/edit-ejecutivo/edit-ejecutivo.component';
+
+import { EditComponent } from './event/persona/edit/edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +67,7 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     AddProgramComponent,
     AddEventComponent,
     AddPersonComponent,
+    PersonaComponent,
     EditPersonComponent,
     
     ReportsComponent,
@@ -77,6 +85,10 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     CarteraComponent,
     InfoCarteraComponent,
     EditCarteraComponent,
+    EjecutivoComponent,
+    EditEjecutivoComponent,
+    EditComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -86,10 +98,12 @@ import { EditCarteraComponent } from './cartera/edit-cartera/edit-cartera.compon
     FormsModule,
     HttpModule,
     ChartsModule,
+    
   ],
   providers: [
     appRoutingProviders,
-    UserService
+    UserService,
+    FilterPipe,
   ],//aniadir appRo..
   bootstrap: [AppComponent]
 })

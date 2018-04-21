@@ -89,16 +89,34 @@ export class AddPersonComponent implements OnInit {
       //else birthday = this.birthdayRef.nativeElement.value;
       const newPerson = new Person(firstName, lastName, ci, cellphone, email, this.ocupSeleccionado, this.cartera._id);
       console.log(newPerson);
-      this._peticionesService.addPerson(newPerson).subscribe(response => {
-         console.log(response);
-         this.messageEvent.emit();
-         this.close.nativeElement.click();
-      },
-      error => {
-         var errorMessage = <any>error;
-         console.log(errorMessage);
-         alert('La Cedula de Identidad o Telefono de la Persona ya existe');
-      });
+
+      if((this.firstNameRef.nativeElement.value=='')||
+            (this.lastNameRef.nativeElement.value=='')||
+            (this.ciRef.nativeElement.value=='')||
+            (this.cellphoneRef.nativeElement.value=='')||
+            (this.emailRef.nativeElement.value=='')
+        ){
+
+
+            window.alert(
+                "Asegurese que todos los campos esten llenos"
+            )
+        }else{
+
+            this._peticionesService.addPerson(newPerson).subscribe(response => {
+                console.log(response);
+                this.messageEvent.emit();
+                this.close.nativeElement.click();
+             },
+             error => {
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+                alert('La Cedula de Identidad o Telefono de la Persona ya existe');
+             });
+
+        }
+
+      
 
    }
 

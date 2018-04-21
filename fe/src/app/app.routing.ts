@@ -12,6 +12,10 @@ import { ReportEventComponent } from './report-event/report-event.component';
 import { CarteraComponent } from "./cartera/cartera.component";
 import { InfoCarteraComponent } from "./cartera/info-cartera/info-cartera.component";
 import { EditCarteraComponent } from "./cartera/edit-cartera/edit-cartera.component";
+import { EjecutivoComponent } from "./ejecutivo/ejecutivo.component";
+import { EditEjecutivoComponent } from './ejecutivo/edit-ejecutivo/edit-ejecutivo.component';
+import { PersonaComponent } from "./event/persona/persona.component";
+import { EditComponent } from "./event/persona/edit/edit.component";
 
 const appRoutes: Routes = [
    { path: '', component: HomeComponent },//ruta basica
@@ -26,10 +30,13 @@ const appRoutes: Routes = [
          { path: 'reports', component: ReportsComponent },
          { path: 'trimestral', component: ReportTrimestralComponent },
          { path: 'reportEvent/:id', component: ReportEventComponent },
-
+         { path: 'persons', component: PersonaComponent},
+         { path: 'persons/edit/:id', component: EditComponent},
          { path: 'cartera', component:CarteraComponent},
          { path: 'cartera/:id',component:InfoCarteraComponent},
-         { path: 'cartera/edit/:name',component:EditCarteraComponent}
+         { path: 'cartera/edit/:name',component:EditCarteraComponent},
+         { path: 'ejecutivo', component:EjecutivoComponent},
+         { path: 'ejecutivo/edit/:active', component:EditEjecutivoComponent},
       ]
 
    },

@@ -1,0 +1,91 @@
+<div class="content-wrapper">
+  <section class="content">
+     <!-- test -->
+     <div style="text-align:center; margin:auto; width:40%;">
+        EDITAR INSCRIPCION
+        
+           <div><label><h1>{{ person.first_name }} {{person.last_name}}</h1></label></div>
+           <div class="modal-body mx-3">
+            <!--<div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="form34">
+                      <i class="fa fa-user prefix grey-text"></i>  Nombre</label>
+                <input type="text" id="form34" class="form-control validate" #firstName>
+            </div>
+            <br>
+            <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="form34">
+                          <i class="fa fa-user prefix grey-text"></i>  Apellido</label>
+                <input type="text" id="form34" class="form-control validate" #lastName>
+            </div>
+            <br>
+            <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="form29">
+                  <i class="fa fa-address-card prefix grey-text"></i>  Cedula de Identidad</label>
+                <input type="number" id="form29" class="form-control validate" #ci>
+            </div>
+            <br>
+            <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="form29">
+                  <i class="fa fa-mobile prefix grey-text"></i>  Celular</label>
+              <input type="number" id="form29" class="form-control validate" #cellphone>
+          </div>
+          <br>
+          <div class="md-form mb-5">
+                  <label data-error="wrong" data-success="right" for="form29">
+                  <i class="fa fa-envelope prefix grey-text"></i>  Correo</label>
+              <input type="email" id="form29" class="form-control validate" #email>
+          </div>
+          <br>
+          <div class="md-form mb-5">
+              <label data-error="wrong" data-success="right" for="form32">
+              <i class="fa fa-tag prefix grey-text"></i>  Ocupacion</label>
+              <select class="selectpicker" [(ngModel)]="ocupSeleccionado" (change)="captOcupation()">
+                  <option value="estudiante">Estudiante</option>
+                  <option value="profecional">Profesional</option>
+                  <option value="particular">Particular</option>                     
+                </select>
+          </div>-->
+          <div class="jumbotron sep inputs"> Descripcion de la ocupacion
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-7">
+              <p *ngIf="person.ocupation == 'estudiante'">
+                <input type="text" placeholder="Universidad" name="universidad" #nombre="ngModel" [(ngModel)]="descOcupation.universidad" class="form-control" />
+              </p>
+              <p *ngIf="person.ocupation == 'estudiante'">
+                  <input type="text" placeholder="Carrera" name="carrera" #password="ngModel" [(ngModel)]="descOcupation.carrera" class=
+                  "form-control"  /> 
+                </p> 
+                <p *ngIf="person.ocupation == 'estudiante'">
+                  <input type="text" placeholder="Semestre" name="semestre" #password="ngModel" [(ngModel)]="descOcupation.semestre" class=
+                  "form-control"  /> 
+                </p>
+                <p *ngIf="person.ocupation == 'particular'">
+                  <input type="text" placeholder="Area de Trabajo" name="areaTrabajo" #password="ngModel" [(ngModel)]="descOcupation.areaTrabajo" class=
+                  "form-control" /> 
+                </p> 
+                <p *ngIf="person.ocupation == 'profesional'">
+                  <input type="text" placeholder="Profesion" name="profesion" #password="ngModel" [(ngModel)]="descOcupation.profesion" class=
+                  "form-control" /> 
+                </p> 
+                <p *ngIf="person.ocupation == 'profesional'">
+                  <input type="text" placeholder="Empresa" name="empresa" #password="ngModel" [(ngModel)]="descOcupation.empresa" class=
+                  "form-control" /> 
+                </p> 
+                <p *ngIf="person.ocupation == 'profesional'">
+                  <input type="text" placeholder="Cargo" name="cargo" #password="ngModel" [(ngModel)]="descOcupation.cargo" class=
+                  "form-control" /> 
+                </p>   
+            </form>
+          </div>
+
+        </div>
+       <div class="jumbotron">
+       
+        <div>
+           <input type="submit" value="GUARDAR" class="btn btn-success" (click)="saveEdition()"/>
+           <input type="submit" value="CANCELAR" class="btn btn-success" (click)="cancelar()"/>
+        </div>
+       </div>
+   </div>
+ </section>
+   
+</div>

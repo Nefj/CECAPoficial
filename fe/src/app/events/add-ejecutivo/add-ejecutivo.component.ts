@@ -45,12 +45,14 @@ export class AddEjecutivoComponent implements OnInit {
   
     // const newEjecutivo=new User(name,date,cell,cartera)
 
-    const newEjecutivo=new User(userid,name,name,this.rolid);
+    const newEjecutivo=new User(userid,name,true,name,this.rolid);
    //console.log(newEjecutivo);
-
-   if((this.nameRef.nativeElement.value='') || (cell = '') ){
-     window.alert("Asegurese que todos los campos esten llenados")
-
+   
+   if(( this.nameRef.nativeElement.value=='') || (this.cellRef.nativeElement.value   =='') ){
+     window.alert("Asegurese que todos los campos esten llenados");
+   console.log(newEjecutivo);
+   return;
+    
    }else{
     this._peticionesService.addUser(newEjecutivo).subscribe(response=>{
       this.newUser=response;

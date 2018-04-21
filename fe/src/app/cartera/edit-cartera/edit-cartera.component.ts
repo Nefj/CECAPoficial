@@ -8,7 +8,8 @@ import {Cartera} from '../../modelo/cartera';
 @Component({
   selector: 'app-edit-cartera',
   templateUrl: './edit-cartera.component.html',
-  styleUrls: ['./edit-cartera.component.css']
+  styleUrls: ['./edit-cartera.component.css'],
+  providers: [ PeticionesService]
 })
 export class EditCarteraComponent implements OnInit {
   @ViewChild('name') nameRef:ElementRef;
@@ -61,17 +62,27 @@ export class EditCarteraComponent implements OnInit {
 
     // console.log(this.cartera);
     this.cartera.name=this.nameRef.nativeElement.value;
-    this._peticionesService.updateCartera(this.cartera).subscribe(
-      result=>{
+    
+    if(this.nameRef.nativeElement.value==''){
 
-        var res=result;
-        console.log(res);
-        this.router.navigate(['home/cartera']);
+      window.alert("Asegurese que todos los campos esten llenos");
+    }else{
 
-      },error=>{
-        var errorMessage=<any>error;
-        console.log(errorMessage);
-      }
-    )
+
+      this._peticionesService.updateCartera(this.cartera).subscribe(
+        result=>{
+  
+          var res=result;
+          console.log(res);
+          this.router.navigate(['home/cartera']);
+  
+        },error=>{
+          var errorMessage=<any>error;
+          console.log(errorMessage);
+        }
+      )
+
+    }
+   
   }
 }

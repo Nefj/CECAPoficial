@@ -6,7 +6,7 @@ import { Event } from '../../modelo/event';
    selector: 'app-addEvent',
    templateUrl: './addEvent.component.html',
    styleUrls: ['./addEvent.component.css'],
-   providers: [, PeticionesService]
+   providers: [ PeticionesService]
 })
 export class AddEventComponent implements OnInit {
    public programs;
@@ -31,11 +31,27 @@ export class AddEventComponent implements OnInit {
       const program = this.programRef.nativeElement.value;
       const newEvent = new Event(description, date, total, program);
       console.log(newEvent);
-      this._peticionesService.addEvent(newEvent).subscribe(response => {
-         // console.log(response);
-         this.messageEvent.emit();
-         this.close.nativeElement.click();
-      });
+
+
+      if((this.descriptionRef.nativeElement.value=='')||(this.totalRef.nativeElement.value=='')){
+        window.alert("Asegurese de llenar todos los campos")
+
+      }else{
+          if(this.dateRef.nativeElement.value <new Date()){
+            window.alert("Asegurese que la fecha sea mayor a la de hoy")
+            
+          }else{
+            this._peticionesService.addEvent(newEvent).subscribe(response => {
+                // console.log(response);
+                this.messageEvent.emit();
+                this.close.nativeElement.click();
+             });
+
+          }
+       
+
+      }
+      
    }
 
 }

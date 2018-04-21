@@ -6,7 +6,7 @@ import { PeticionesService } from '../services/peticiones.service';
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css'],
-  providers: [, PeticionesService]
+  providers: [ PeticionesService]
 })
 export class ReportsComponent implements OnInit {
   public titulo: string;

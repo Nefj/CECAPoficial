@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PersonaService } from '../../services/persona.service'
-import { PeticionesService} from '../../services/peticiones.service'
+import { PersonaService } from '../../services/persona.service';
+import { PeticionesService} from '../../services/peticiones.service';
+import { ActivatedRoute, Router } from "@angular/router";
+import { Pipe, PipeTransform } from '@angular/core';
+import { FilterPipe } from "./filter.pipe";
 
 @Component({
   selector: 'app-persona',
@@ -11,10 +14,14 @@ import { PeticionesService} from '../../services/peticiones.service'
 
 })
 export class PersonaComponent implements OnInit {
-  public listado_personas='asdf';
+  public listado_personas;
+  public busqueda;
+   public name: string;
+   public searchText: string = "";
 
   constructor(
-
+     private router: Router,
+     private route: ActivatedRoute,
      private _personaService: PersonaService,
      private _peticionesService: PeticionesService
      
@@ -23,26 +30,29 @@ export class PersonaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
-    // console.log(this._personaService.prueba('hola'));
-
-    // console.log(this._peticionesService.getPrueba)
-
-    // this._peticionesService.getPersonas().subscribe(
-    //   result=>{
-    //     console.log(result);
-    //     this.listado_personas=result;
-    //     console.log(this.listado_personas);
-
-    //   },
-    //   error=>{
-    //     var errorMessage=<any>error;
-    //     console.log(errorMessage);
-    //   }
-
-    // );
+    this.query();    
+  }
+  query() {
     
+    this._peticionesService.getPersons().subscribe(
+       result => {
+          this.listado_personas = result;
+          console.log(this.listado_personas);
+       },
+       error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+       }
+    );
+ }
+  edit(_id) {
     
+    this.router.navigate(['home/persons/edit', _id]);
   }
 
+  clearFilter() {
+    this.searchText = "";
+  }
+  
 }
+

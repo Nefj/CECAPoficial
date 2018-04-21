@@ -37,7 +37,7 @@ export class PeticionesService {
    }
    getTrimestral() {
     return this._http.get(this.url + 'events/trimestral').map((res: Response) => res);
- }
+   }
    addProgram(program) {
       let body = JSON.stringify(program);
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
@@ -64,6 +64,9 @@ export class PeticionesService {
    getPerson(_id) {
       return this._http.get(this.url + 'persons/' + _id).map((res: Response) => res);
    }
+   getPersons() {
+    return this._http.get(this.url + 'persons').map((res: Response) => res);
+    }
    getEventConfirmed(id){
        return this._http.get(this.url+'events/'+ id).map((res: Response)=> res);
    }
@@ -96,11 +99,13 @@ export class PeticionesService {
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'events/'+idEvent, body, {headers: headers}).map((res:Response)=>res);
      } 
-    
        //return this._http.post(this.url + 'events/edit',body,{headers : headers}).map((res:Response)=>res);
        //.catch(this.handleError);
-     
-
+     updatePersonOcupation(descOcupation, id) {
+        let body = JSON.stringify(descOcupation);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'persons/ocupation/'+id, body, {headers: headers}).map((res:Response)=>res);
+     } 
     getPersonCartera(_id){
         
         // console.log(_id+"desde peticionesservice")
@@ -128,8 +133,6 @@ export class PeticionesService {
      // console.log(body);
         var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
         return this._http.put(this.url +'carteras/'+idCartera, body, {headers: headers}).map((res:Response)=>res);
-    
-
     }
     addCartera(cartera){
         let body=JSON.stringify(cartera);
@@ -139,5 +142,12 @@ export class PeticionesService {
     getRole(id){
         return this._http.get(this.url + 'users/rolName/' + id).map((res: Response) => res);
      }
-      
+     updateUser(user_object){
+        console.log(user_object);
+        let body = JSON.stringify(user_object);
+        var idUser= user_object._id;
+        //console.log(body);
+        var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+        return this._http.put(this.url +'users/'+idUser, body, {headers: headers}).map((res:Response)=>res);
+    } 
  }
