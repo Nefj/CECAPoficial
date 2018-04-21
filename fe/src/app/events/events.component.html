@@ -15,17 +15,19 @@
    <section class="content h">
       <table class="table table-hover">
          <thead>
-            <tr>
-               <th>Nombre</th>
-               <th>Fecha de Inicio</th>
-               <th>Cupos</th>
-               <th colspan="2">Estado</th>
+            <tr class="text-info cabecera hover">
+
+               <th><h4 class="text-center font-family-serif">Nombre</h4></th>
+               <th><h4 class="text-center">Fecha de Inicio</h4></th>
+               <th><h4 class="text-center">Cupos</h4></th>
+               <th colspan="2"><h4 class="text-center">Estado</h4></th>
+               
             </tr>
          </thead>
 
          <tbody>
 
-            <tr *ngFor="let event of events">
+            <tr *ngFor="let event of events" class="bg-info text-center">
                <td>{{ event.name }}</td>
                <td>{{ event.date_start | date }}</td>
                <td>{{ event.cupos }}</td>
