@@ -108,7 +108,7 @@ module.exports = {
 
    //Connection
    connection: function () {
-      var db = mongoose.connect('mongodb://localhost:27017/Cecap',
+      var db = mongoose.connect('mongodb://localhost:27017/CecapMkt',
          function (err) {
             if (err) return console.log(err);
             console.log("MongoDB: connection to database succesful!");

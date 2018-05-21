@@ -234,12 +234,12 @@ var _event_rrhh2 = {
    program: _program_rrhh,
    inscriptions: [
       {
-         state: 0,
+         state: 2,
          person: _person_1,
          description: 'solo para ejecutivos',
       },
       {
-         state: 0,
+         state: 2,
          person: _person_2,
          description: 'solo para ejecutivos',
       }

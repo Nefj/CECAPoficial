@@ -49,7 +49,7 @@ app
 //If need initialize db 
 if (false) { 
    var init = require('./models/init');
-   // init.clearCollections();
+//    init.clearCollections();
    init.initializer();
 }
 db.connection();

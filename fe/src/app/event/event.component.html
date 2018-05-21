@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-   <!--<section class="content-header">
+      <!--<section class="content-header">
       <h1>
          Dashboard
          <small>Version 2.0</small>
@@ -13,70 +13,78 @@
       </ol>
    </section>-->
 
-   <section class="content">
+      <section class="content">
 
-      <app-addPerson (messageEvent)="receiveMessage()"></app-addPerson>
+            <app-addPerson (messageEvent)="receiveMessage()"></app-addPerson>
 
-      <!-- <app-persona></app-persona> -->
+            <!-- <app-persona></app-persona> -->
 
-      <table class="table">
-         <thead>
-            <th>Filtros</th>
-         </thead>
-         <tbody>
-            <tr>
-               <td>
-                  <a class="btn btn-primary"(click)="inscritos()" >Inscritos</a>
-               </td>
-               <td>
-                  <a class="btn btn-primary"(click)="confirmados()">Confirmados</a>
-               </td>
-               <td>
-                  <a class="btn btn-primary" (click)="interesados()">Interesados</a>
-               </td>
-               <td>
-                        <a class="btn btn-primary"(click)="enDuda()">En-Duda</a>
-               </td>
-               <td>
-                  <a class="btn btn-primary"(click)="noParticipa()">No-participa</a>
-               </td>
-               <td>
-                  <a class="btn btn-primary"(click)="proximo()">Proximo</a>
-               </td>
-               <td>
-                  <a class="btn btn-primary"(click)="todos()">Todos</a>
-               </td>
-            </tr>
-         </tbody>
-      </table>
-     <!-- <section>
+            <table class="table">
+                  <thead>
+                        <th>Filtros</th>
+                  </thead>
+                  <tbody>
+                        <tr>
+                              <td>
+                                    <a class="btn btn-primary" (click)="interesados()">Interesados</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="confirmados()">Confirmados</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="inscritos()">Inscritos</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="enDuda()">On-Line</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="proximo()">Proximo</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="noParticipa()">No-participa</a>
+                              </td>
+                              <td>
+                                    <a class="btn btn-primary" (click)="todos()">Todos</a>
+                              </td>
+                        </tr>
+                  </tbody>
+            </table>
+            <!-- <section>
             <div class="col-lg-1">Buscar:</div>
             <div class="col-lg-5">
                   <input type="text" [(ngModel)]="busqueda"></div>
       </section>-->
-      <table class="table table-hover" >
-         <thead>
-            <tr>
-               <th>Nombre</th>
-               <th>Estado</th>
-               <th>Descripcion</th>
-               <th colspan="2">Ajustes</th>
-            </tr>
-         </thead>
-         <tbody> 
-            <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
-            <tr *ngFor="let i of states">
-               <td>{{ i.name }}</td>
-               <td>{{ i.state }}</td>
-               <td>{{ i.description }}</td>
-               <td>
-                  <!-- <app-editPerson [editPerson]="event"></app-editPerson> -->
-                  <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a>
-               </td>
-            </tr>
-         </tbody>
-      </table>
-      
-   </section>
-   <router-outlet></router-outlet>
+            <table class="table table-hover">
+                  <thead>
+                        <tr>
+                              <th>Nombre</th>
+                              <th>Estado</th>
+                              <th>Descripcion</th>
+                              <th colspan="2">Ajustes</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        <!--<tr *ngFor="let i of inscriptions | buscarPersona: busqueda">-->
+                        <tr *ngFor="let i of states">
+                              <td>{{ i.name }}</td>
+                              <td>
+                                    <!-- {{ i.state }} -->
+                                    <span [hidden]="i.state != 0">On Line</span>
+                                    <span [hidden]="i.state != 1">Inscrito</span>
+                                    <span [hidden]="i.state != 2">Interesado</span>
+                                    <span [hidden]="i.state != 3">Confirmado</span>
+                                    <span [hidden]="i.state != 4">No Participa</span>
+                                    <span [hidden]="i.state != 5">Proximo Evento</span>
+                              </td>
+                              <td>{{ i.description }}</td>
+                              <td>
+                                    <!-- <app-editPerson [editPerson]="event"></app-editPerson> -->
+                                    <a class="btn btn-primary" (click)="edit(i.person)">EDITAR</a>
+                              </td>
+                        </tr>
+                  </tbody>
+            </table>
+
+      </section>
+      <router-outlet></router-outlet>
 </div>
