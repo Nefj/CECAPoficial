@@ -18,7 +18,7 @@
       "jsonwebtoken": "*",
       "mongoose": "*",
       "morgan": "*",
-      "nodemon": "^1.17.3",
+      "nodemon": "^1.17.4",
       "serve-favicon": "*"
    }
 }

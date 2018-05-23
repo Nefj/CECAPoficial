@@ -66,6 +66,9 @@ module.exports = {
       last_name: String,
       ci: Number,
       cellphone: Number,
+      ////////////
+      whatsapp_group:String,
+      ////////////
       email:String,
       ocupation:String,//1 = universitario, 2=Profecional, 3=particular
       descOcupation:{
@@ -82,6 +85,8 @@ module.exports = {
          },
       //////////////
       carteras:ObjectId,
+      /////////////
+
       /////////////
       // user: ObjectId,
 

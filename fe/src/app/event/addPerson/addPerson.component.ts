@@ -3,6 +3,8 @@ import { PeticionesService } from '../../services/peticiones.service';
 import { Identity } from '../../services/global';
 import { Person } from '../../modelo/person';
 import { Inscription } from '../../modelo/inscription';
+import { Router,ActivatedRoute } from "@angular/router";
+
 
 @Component({
    selector: 'app-addPerson',
@@ -25,7 +27,7 @@ export class AddPersonComponent implements OnInit {
 
    public programs;
    public interes;//coleccion de interes
-   public profecion
+   public profesion
    public inscription;
    public person;
    public progSeleccionado;
@@ -35,8 +37,12 @@ export class AddPersonComponent implements OnInit {
    public ocupSeleccionado;
    public identy;
    public cartera;
-   constructor(private _peticionesService: PeticionesService) {
-      this.person = new Person('', '', null, null, '', null, '');
+   constructor(
+        private _peticionesService: PeticionesService, 
+        private router: Router,
+        private route: ActivatedRoute
+    ) {
+      this.person = new Person('', '', null, null,'', '', null, '');
       this.inscription = new Inscription('', '', '', '');
       //this.identy=Identity._id;
    }
@@ -87,7 +93,7 @@ export class AddPersonComponent implements OnInit {
       // let cartera = '';
       // if (this.birthdayRef.nativeElement.value == '') birthday = new Date(1, 2, 3);
       //else birthday = this.birthdayRef.nativeElement.value;
-      const newPerson = new Person(firstName, lastName, ci, cellphone, email, this.ocupSeleccionado, this.cartera._id);
+      const newPerson = new Person(firstName, lastName, ci, cellphone,'', email, this.ocupSeleccionado, this.cartera);
       console.log(newPerson);
 
       if((this.firstNameRef.nativeElement.value=='')||
@@ -107,6 +113,9 @@ export class AddPersonComponent implements OnInit {
                 console.log(response);
                 this.messageEvent.emit();
                 this.close.nativeElement.click();
+
+                this.router.navigate(['home/persons']);
+
              },
              error => {
                 var errorMessage = <any>error;
