@@ -19,6 +19,40 @@ router
          return res.status(200).send(person);
       });
    })
+   .post('/whatsappNewPerson',function(req,res){
+      
+
+      var person=new db.persons(req.body);
+      db.persons.findOne({cellphone:person.cellphone},function(err,existe){
+
+            if(err){
+                  return res.status(400).send(err);
+
+            }else{
+                  if(existe==null){
+                        console.log(existe);
+                        person.save(function(err,persona){
+                              if (err){
+                                    console.log(err);
+                                    return res.status(400).send(err);
+                  
+                              }else{
+                                    return res.status(200).send(persona);
+                                    console.log(person);
+
+                  
+                              }                  
+                        })
+
+                  }else{
+                        if (err) return res.status(400).send(err);
+                        console.log('el celular ya existe')      
+
+                  }
+            }
+      })
+     
+   })
 
    .post('/', function (req, res) {
       var person = new db.persons(req.body);

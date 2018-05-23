@@ -23,6 +23,8 @@ import { PersonaComponent } from "./event/persona/persona.component"
 import { UserService} from './services/user.service';
 import { SearchPipe } from './event/filtro/filtropersona.pipe';
 import { FilterPipe } from "./event/persona/filter.pipe";
+import { FileUploadClientService } from "./services/fileclient.service";
+
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -52,6 +54,9 @@ import { EjecutivoComponent } from './ejecutivo/ejecutivo.component';
 import { EditEjecutivoComponent } from './ejecutivo/edit-ejecutivo/edit-ejecutivo.component';
 
 import { EditComponent } from './event/persona/edit/edit.component';
+import { ImportWhatsNumbersComponent } from './import-whats-numbers/import-whats-numbers.component';
+import { ImportFromExcelComponent } from './import-from-excel/import-from-excel.component';
+import { StatusCreateComponent } from './status-create/status-create.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +94,9 @@ import { EditComponent } from './event/persona/edit/edit.component';
     EditEjecutivoComponent,
     EditComponent,
     FilterPipe,
+    ImportWhatsNumbersComponent,
+    ImportFromExcelComponent,
+    StatusCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +112,7 @@ import { EditComponent } from './event/persona/edit/edit.component';
     appRoutingProviders,
     UserService,
     FilterPipe,
+    FileUploadClientService,
   ],//aniadir appRo..
   bootstrap: [AppComponent]
 })

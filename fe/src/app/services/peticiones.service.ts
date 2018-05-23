@@ -61,6 +61,11 @@ export class PeticionesService {
       var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
       return this._http.post(this.url + 'persons', body, { headers: headers }).map((res: Response) => res);
    }
+   addPersonFromWhatsapp(person) { 
+    let body = JSON.stringify(person);
+    var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this._http.post(this.url + 'persons/whatsappNewPerson', body, { headers: headers }).map((res: Response) => res);
+ }
    getPerson(_id) {
       return this._http.get(this.url + 'persons/' + _id).map((res: Response) => res);
    }
